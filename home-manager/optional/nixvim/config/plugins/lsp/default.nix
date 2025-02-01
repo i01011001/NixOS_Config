@@ -22,6 +22,7 @@
 				cmake.enable = true;
 				bashls.enable = true;
 				pyright.enable = true;
+				ts_ls.enable = true;
 				arduino_language_server.enable = true;
 				# ccls.enable = true;
 # css_variables.enable = true;

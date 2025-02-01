@@ -33,7 +33,6 @@
     # inputs.ghostty.packages.x86_64-linux.ghostty-releasefast
 
     # wideriver
-    mosquitto
     rlwrap
     websocat
     tree

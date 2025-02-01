@@ -21,6 +21,7 @@
     ./optional/swappy
     ./optional/foot
     ./optional/zathura
+	./optional/vim
     # ./optional/river
     ./optional/hypr
     # ./optional/alacritty

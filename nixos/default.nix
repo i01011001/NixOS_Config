@@ -28,6 +28,7 @@
     ./optional/tmux
     ./optional/wireshark
 	./optional/docker
+	./optional/mosquitto
     # ./optional/qemu
     ./optional/multipass
     # ./optional/opentabletdriver
