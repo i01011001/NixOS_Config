@@ -21,11 +21,10 @@
     ./optional/swappy
     ./optional/foot
     ./optional/zathura
-	./optional/vim
+	# ./optional/vim
     # ./optional/river
-    ./optional/hypr
+    # ./optional/hypr
     # ./optional/alacritty
-    # ./hypr
     # ./optional/ghostty
     # ./awesome
     # ./wezterm

@@ -20,7 +20,7 @@
     ignores = [
       "sdkconfig.old"
       "sdkconfig.ci"
-      "sdkconfig.defaults"
+	  "sdkconfig"
       "*.bin"
       "*.elf"
       "*.map"

@@ -29,8 +29,9 @@
     ./optional/wireshark
 	./optional/docker
 	./optional/mosquitto
-    # ./optional/qemu
     ./optional/multipass
+	# ./optional/steam
+    # ./optional/qemu
     # ./optional/opentabletdriver
     # ./optional/x11
 

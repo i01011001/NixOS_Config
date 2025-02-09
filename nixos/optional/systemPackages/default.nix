@@ -148,7 +148,7 @@
 	nmap
     sshfs
 
-	emacs30-pgtk
+	postgresql
 
     # opentabletdriver
     # kitty
