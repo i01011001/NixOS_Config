@@ -13,8 +13,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-	# zephyr.url = "github:adisbladis/zephyr-nix";
-	   hyprland.url = "github:hyprwm/Hyprland";
+    # zephyr.url = "github:adisbladis/zephyr-nix";
+    hyprland.url = "github:hyprwm/Hyprland";
     # ghostty.url = "github:ghostty-org/ghostty";
   };
 

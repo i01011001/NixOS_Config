@@ -4,11 +4,11 @@
 
     # (import ../../../customs/pkgs/river-ultitile {inherit pkgs;})
 
-	#### embedded
+    #### embedded
     (import ../../../customs/pkgs/miniterm { inherit pkgs; })
     (import ../../../customs/pkgs/modpoll { inherit pkgs; })
     (import ../../../customs/pkgs/diagslave { inherit pkgs; })
-	stm32flash
+    stm32flash
 
     (import ../../../customs/pkgs/shortcuts/control/volumeup.nix { inherit pkgs; })
     (import ../../../customs/pkgs/shortcuts/control/volumedown.nix { inherit pkgs; })
@@ -52,8 +52,8 @@
     # (python310.withPackages(ps: with ps; [ pip lark stringcase jinja2 urllib3]))
 
     python3
-	python3Packages.pip
-	# python3Packages.venvShellHook
+    python3Packages.pip
+    # python3Packages.venvShellHook
     ninja
     ccache
     dfu-util
@@ -110,9 +110,10 @@
 
     libreoffice
 
-    stlink stlink-tool openocd
+    stlink
+    stlink-tool
+    openocd
     gcc-arm-embedded
-
 
     dtc
     system-config-printer
@@ -145,10 +146,12 @@
     cpulimit
     libsixel
     qemu
-	nmap
+    nmap
     sshfs
 
-	postgresql
+    postgresql
+
+    man-pages
 
     # opentabletdriver
     # kitty

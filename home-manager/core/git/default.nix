@@ -20,7 +20,7 @@
     ignores = [
       "sdkconfig.old"
       "sdkconfig.ci"
-	  "sdkconfig"
+      "sdkconfig"
       "*.bin"
       "*.elf"
       "*.map"
@@ -31,7 +31,7 @@
       "*.a"
       "*.ld"
       "*.log"
-	  "managed_components"
+      "managed_components"
 
       # Build directories
       "/build/"

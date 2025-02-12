@@ -20,7 +20,7 @@
   };
 
   boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = pkgs.linuxPackages_6_13;
   boot.extraModulePackages = [ ];
   boot.extraModprobeConfig = ''
     		options snd_hda_intel 
