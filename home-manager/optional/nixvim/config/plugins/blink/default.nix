@@ -5,19 +5,19 @@
       settings = {
         completion = {
           keyword = {
-            border = "single";
+            border = "rounded";
             winhighlight = "FloatBorder:FloatBorder";
             scrollbar = false;
           };
           menu = {
-            border = "single";
+            border = "rounded";
             winhighlight = "FloatBorder:FloatBorder";
             scrollbar = false;
           };
           documentation = {
             auto_show = false;
             window = {
-              border = "single";
+              border = "rounded";
               winhighlight = "FloatBorder:FloatBorder";
             };
 

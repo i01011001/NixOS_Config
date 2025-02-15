@@ -40,7 +40,7 @@ in
     defaultEditor = true;
     diagnostics = {
       float = {
-        border = "single";
+        border = "rounded";
       };
       # virtual_lines.only_current_line = false;
       virtual_text = false;

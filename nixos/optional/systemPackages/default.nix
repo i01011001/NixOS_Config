@@ -142,7 +142,7 @@
     sqlite
     rpi-imager
     zip
-    dwl
+    # dwl
     cpulimit
     libsixel
     qemu
@@ -152,6 +152,10 @@
     postgresql
 
     man-pages
+
+    artem
+
+    audacity
 
     # opentabletdriver
     # kitty

@@ -13,17 +13,18 @@
     ./optional/direnv
     ./optional/nixvim
     ./optional/cursor
-    ./optional/yazi
-    ./optional/btop
+    # ./optional/yazi
+    # ./optional/btop
     ./optional/floorp
     ./optional/tofi
     ./optional/mako
+    ./optional/hypr
     ./optional/swappy
     ./optional/foot
     ./optional/zathura
+    ./optional/dunst
     # ./optional/vim
     # ./optional/river
-    # ./optional/hypr
     # ./optional/alacritty
     # ./optional/ghostty
     # ./awesome

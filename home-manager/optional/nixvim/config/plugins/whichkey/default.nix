@@ -4,7 +4,7 @@
     settings = {
       delay = 320;
       win = {
-        border = "single";
+        border = "rounded";
       };
       preset = "modern";
     };

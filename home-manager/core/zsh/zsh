@@ -61,7 +61,7 @@ bindkey '^e' edit-command-line
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
 export IDF_PATH="$HOME/code/esp/idf/esp-idf"
 export RMAKER_PATH="$HOME/code/esp/idf/esp-components/esp-rainmaker/"
-
+# export MANPAGER="nvim -c 'Man!' -o -"
 
 autoload -U add-zsh-hook
 

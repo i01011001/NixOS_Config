@@ -2,7 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.default;
     # package = pkgs.hyprland;
     systemd.enable = true;
     xwayland.enable = true;
@@ -12,8 +12,6 @@
       # inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
       # inputs.hy3.packages.x86_64-linux.hy3
     ];
-
     extraConfig = builtins.readFile ./master.conf;
-
   };
 }

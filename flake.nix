@@ -8,14 +8,31 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    #### neovim
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-    # zephyr.url = "github:adisbladis/zephyr-nix";
-    hyprland.url = "github:hyprwm/Hyprland";
+
+    #### hyprland
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # split-monitor-workspaces = {
+    #      url = "github:Duckonaut/split-monitor-workspaces";
+    #      inputs.hyprland.follows = "hyprland"; };
+
+    # hyprfocus = {
+    # 	url = "github:pyt0xic/hyprfocus";
+    # 	inputs.hyprland.follows = "hyprland";
+    # };
+
+    #### extra
     # ghostty.url = "github:ghostty-org/ghostty";
+    # zephyr.url = "github:adisbladis/zephyr-nix";
   };
 
   outputs =
