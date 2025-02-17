@@ -30,8 +30,6 @@
     ./optional/docker
     ./optional/mosquitto
     ./optional/multipass
-    ./optional/steam
-    # ./optional/steam
     # ./optional/qemu
     # ./optional/opentabletdriver
     # ./optional/x11

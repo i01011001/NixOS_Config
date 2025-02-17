@@ -1,8 +1,7 @@
 { pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
-
-    # (import ../../../customs/pkgs/river-ultitile {inherit pkgs;})
+# (import ../../../customs/pkgs/river-ultitile {inherit pkgs;})
 
     #### embedded
     (import ../../../customs/pkgs/miniterm { inherit pkgs; })
@@ -156,6 +155,8 @@
     artem
 
     audacity
+
+	f3
 
     # opentabletdriver
     # kitty
