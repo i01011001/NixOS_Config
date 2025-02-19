@@ -1,28 +1,22 @@
 {
-  lib,
-  stdenv,
   fetchFromGitHub,
-  cmake,
+  stdenv,
+  ...
 }:
-
-stdenv.mkDerivation (finalAttrs: {
-  pname = "unity-test";
+stdenv.mkDerivation {
+  pname = "miniterm";
   version = "master";
-
   src = fetchFromGitHub {
-    owner = "ThrowTheSwitch";
-    repo = "Unity";
-    rev = "${finalAttrs.version}";
-    sha256 = "sha256-ZCfJgEY3Bb9CgltB005SJGNz7IWPOOG4qdNlLatZF8g=";
+    owner = "wojtekka";
+    repo = "miniterm";
+    rev = "master";
+    sha256 = "sha256-cmZO9wGvX86b5NsRas/DrKOeqjdxk2htukeetoWFqFU=";
   };
-
-  nativeBuildInputs = [ cmake ];
-  doCheck = true;
-
-  meta = with lib; {
-    description = "Unity Unit Testing Framework";
-    homepage = "https://www.throwtheswitch.org/unity";
-    license = licenses.mit;
-    maintainers = [ maintainers.i01011001 ];
-  };
-})
+  buildPhase = ''
+    make
+  '';
+  installPhase = ''
+    mkdir -p $out/bin
+    cp miniterm $out/bin
+  '';
+}

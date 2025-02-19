@@ -14,7 +14,7 @@
       showmode = true;
       incsearch = true;
       hlsearch = false;
-      ignorecase = true;
+      ignorecase = false;
       smartcase = true;
 
       shiftwidth = 4;

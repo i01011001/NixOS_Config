@@ -27,13 +27,11 @@
     		'';
 
   fileSystems."/" = {
-    # device = "/dev/disk/by-uuid/411e3ae8-6712-4c18-b565-b8d2bbde883c";
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
   };
 
   fileSystems."/boot/efi" = {
-    #  device = "/dev/disk/by-uuid/65E2-AB2D";
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";
     options = [
