@@ -1,0 +1,24 @@
+max-visible=5
+sort=-time
+
+layer=overlay
+anchor=top-right
+
+font=Iosevka Nerd Font Propo 10
+background-color=#000000
+text-color=#f0f0f0
+width=340
+height=100
+margin=10
+border-size=1
+border-color=#393939
+border-radius=4
+progress-color=#393939
+icons=true
+max-icon-size=64
+
+markup=true
+actions=true
+format=<b>%s</b>\n%b
+default-timeout=3600
+ignore-timeout=false
