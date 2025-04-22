@@ -53,8 +53,8 @@
     (import ../../../customs/pkgs/diagslave { inherit pkgs; })
     (import ../../../customs/pkgs/miniterm { inherit pkgs; })
     (import ../../../customs/pkgs/modpoll { inherit pkgs; })
-    edl
-    qdl
+    # edl
+    # qdl
 
     #### Wayland Native Tools
     swaybg
@@ -102,11 +102,12 @@
     nmap
     mosquitto
     websocat
+    netcat
     sshfs
+    curl
 
     #### Windows Compatibility
-    wineWowPackages.staging
-    wineWowPackages.waylandFull
+    wineWowPackages.unstable
     winetricks
     putty
     woeusb
@@ -144,17 +145,18 @@
     ungoogled-chromium
     usbtop
     hwinfo
-    gpsd
+    # gpsd
 
     libreoffice
     tor-browser
+    
 
-    uuu
+    # uuu
   ];
 
   services.udev.packages = with pkgs; [
     saleae-logic-2
     stlink
-    edl
+    # edl
   ];
 }

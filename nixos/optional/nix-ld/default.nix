@@ -8,7 +8,6 @@
 				fuse3
 				icu
 				nss
-				curl
 				expat
 				libusb1
 				libidn2

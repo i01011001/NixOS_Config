@@ -51,7 +51,7 @@
       #   marksman
       # ];
       # go = with pkgs; [
-        # gopls
+      # gopls
       # ];
       # py = with pkgs; [
       #   pyright
@@ -61,6 +61,7 @@
     # This is for plugins that will load at startup without using packadd:
     startupPlugins = {
       general = with pkgs.vimPlugins; [
+        lazydev-nvim
         oil-nvim
         fzf-lua
         blink-cmp
@@ -69,8 +70,9 @@
         markdown-preview-nvim
         which-key-nvim
         conform-nvim
-        nvim-treesitter-textobjects
-        nvim-treesitter.withAllGrammars
+        harpoon2
+        # nvim-treesitter-textobjects
+        # nvim-treesitter.withAllGrammars
       ];
 
       # lsp = with pkgs.vimPlugins; [

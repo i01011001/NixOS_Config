@@ -11,7 +11,6 @@
 
     ### optional
     ./optional/direnv
-    # ./optional/nixvim
     ./optional/cursor
     ./optional/tofi
     ./optional/mako
@@ -21,22 +20,9 @@
     ./optional/foot
 	./optional/firefox
     ./optional/yazi
-    ./optional/ghostty
+    ./optional/btop
     ./optional/alacritty
-    # ./optional/dunst
-	# ./optional/kitty
-    # ./optional/btop
-    # ./optional/floorp
-	# ./optional/xdg
-    # ./optional/vim
-    # ./optional/river
-    # ./awesome
-    # ./wezterm
-    # ./sway
-    # ./qutebrowser
-
-## config only
-    # ./optional/swappy
+    # ./optional/nixvim
   ];
 
   home = {
