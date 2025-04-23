@@ -73,18 +73,18 @@ local langs = {
 		cmd = { "typescript-language-server", "--stdio" },
 		root_dir = { "package.json", ".git" },
 	},
-	-- nix_nixd = {
-	-- 	pattern = "nix",
-	-- 	name = "Nixd",
-	-- 	cmd = { "nixd" },
-	-- 	root_dir = { ".git" },
-	-- },
-	nix_nil = {
+	nix_nixd = {
 		pattern = "nix",
-		name = "Nil",
-		cmd = { "nil" },
+		name = "Nixd",
+		cmd = { "nixd" },
 		root_dir = { ".git" },
 	},
+	-- nix_nil = {
+	-- 	pattern = "nix",
+	-- 	name = "Nil",
+	-- 	cmd = { "nil" },
+	-- 	root_dir = { ".git" },
+	-- },
 	md = {
 		pattern = "md",
 		name = "Marksman",

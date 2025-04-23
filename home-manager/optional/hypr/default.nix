@@ -5,18 +5,15 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     systemd = {
       enable = true;
       enableXdgAutostart = true;
     };
     xwayland.enable = true;
 
-    plugins = [
-      # inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
-      inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
-      # inputs.hy3.packages.x86_64-linux.hy3
+    plugins = with pkgs.hyprlandPlugins;[ 
+      hyprsplit
+      hy3
     ];
 
     settings = {
@@ -31,7 +28,7 @@
 
       exec-once = [
         ''mako''
-        ''swaybg -m fit -i /etc/nixos/images/mini-nix-side.png''
+        ''swaybg -m stretch -i /etc/nixos/images/mini-nix-side.png''
       ];
       cursor = {
         inactive_timeout = 4;
@@ -70,8 +67,9 @@
         disable_hyprland_qtutils_check = true;
         force_default_wallpaper = 1;
         disable_hyprland_logo = true;
-        enable_swallow = false;
-        swallow_regex = "^(foot|alacritty)";
+        enable_swallow = true;
+        swallow_regex = "(?i)^(foot|alacritty)";
+        swallow_exception_regex = "(?i)^(alacritty:alacritty)$";
         font_family = "Iosevka Nerd Font Propo";
         splash_font_family = "iosevka nerd font propo";
       };
@@ -94,11 +92,8 @@
         workspace_swipe = false;
       };
       plugin = {
-        split-monitor-workspaces = {
-          count = 9;
-          keep_focused = 0;
-          enable_notifications = 0;
-          enable_persistent_workspaces = 1;
+        hyprsplit = {
+          num_workspaces = 10;
         };
       };
 
@@ -135,18 +130,18 @@
         ''$mainMod, mouse_down, workspace, e+1''
         ''$mainMod, mouse_up, workspace, e-1''
 
-        # ''$mainMod, mouse:272, movewindow''
-        # ''$mainMod, mouse:273, resizewindow''
+        ''$mainMod, mouse:272, movewindow''
+        # ''$mainMod, mouse:273, resizewindowpixel''
 
-        ''$mainMod CONTROL, B, exec, notify-send "Capacity" "`echo $(cat /sys/class/power_supply/BAT1/capacity & cat /sys/class/power_supply/BAT1/status)`"''
-        ''$mainMod CONTROL, V, exec, notify-send "Volume" "`wpctl get-volume @DEFAULT_SINK@ | tr -d Volume: `"''
-        ''$mainMod CONTROL, C, exec, notify-send  "`date +%H:%M`" "`date +%A` `date +%d`. `date +%B`"''
-        ''$mainMod CONTROL, X, exec, notify-send "Brightness"  "`brightnessctl g`"''
-        ''= $mainMod CONTROL, X, exec, notify-send -h int:value:$(($((`brightnessctl g`))/240)) $((`brightnessctl g`))''
+        ''$mainMod CONTROL, B, exec, notifybattery''
+        ''$mainMod CONTROL, V, exec, notifyvolume''
+        ''$mainMod CONTROL, C, exec, notifytime''
+        ''$mainMod CONTROL, X, exec, notifybrightness''
 
         '',XF86AudioRaiseVolume, exec, volumeup''
         '',XF86AudioLowerVolume, exec, volumedown''
         '',XF86AudioMute, exec, wpctl volumemute''
+
         ''$mainMod CONTROL, F8, exec, volumeup''
         ''$mainMod CONTROL, F7, exec, volumedown''
         ''$mainMod CONTROL, F6, exec, volumemute''
@@ -156,28 +151,30 @@
         ''$mainMod CONTROL, F12, exec, brightnessup''
         ''$mainMod CONTROL, F11, exec, brightnessdown''
 
-        ''$mainMod, 1, split-workspace, 1''
-        ''$mainMod, 2, split-workspace, 2''
-        ''$mainMod, 3, split-workspace, 3''
-        ''$mainMod, 4, split-workspace, 4''
-        ''$mainMod, 5, split-workspace, 5''
-        ''$mainMod, 6, split-workspace, 6''
-        ''$mainMod, 7, split-workspace, 7''
-        ''$mainMod, 8, split-workspace, 8''
-        ''$mainMod, 9, split-workspace, 9''
+        "$mainMod, 1, split:workspace, 1"
+        "$mainMod, 2, split:workspace, 2"
+        "$mainMod, 3, split:workspace, 3"
+        "$mainMod, 4, split:workspace, 4"
+        "$mainMod, 5, split:workspace, 5"
+        "$mainMod, 6, split:workspace, 6"
+        "$mainMod, 7, split:workspace, 7"
+        "$mainMod, 8, split:workspace, 8"
+        "$mainMod, 9, split:workspace, 9"
+        "$mainMod, 0, split:workspace, 10"
 
-        ''$mainMod SHIFT, 1, split-movetoworkspacesilent, 1''
-        ''$mainMod SHIFT, 2, split-movetoworkspacesilent, 2''
-        ''$mainMod SHIFT, 3, split-movetoworkspacesilent, 3''
-        ''$mainMod SHIFT, 4, split-movetoworkspacesilent, 4''
-        ''$mainMod SHIFT, 5, split-movetoworkspacesilent, 5''
-        ''$mainMod SHIFT, 6, split-movetoworkspacesilent, 6''
-        ''$mainMod SHIFT, 7, split-movetoworkspacesilent, 7''
-        ''$mainMod SHIFT, 8, split-movetoworkspacesilent, 8''
-        ''$mainMod SHIFT, 9, split-movetoworkspacesilent, 9''
-
-        ''$mainMod SHIFT, Period, split-changemonitorsilent, +1''
-        ''$mainMod SHIFT, Comma, split-changemonitorsilent, -1''
+        "$mainMod SHIFT, 1, split:movetoworkspacesilent, 1"
+        "$mainMod SHIFT, 2, split:movetoworkspacesilent, 2"
+        "$mainMod SHIFT, 3, split:movetoworkspacesilent, 3"
+        "$mainMod SHIFT, 4, split:movetoworkspacesilent, 4"
+        "$mainMod SHIFT, 5, split:movetoworkspacesilent, 5"
+        "$mainMod SHIFT, 6, split:movetoworkspacesilent, 6"
+        "$mainMod SHIFT, 7, split:movetoworkspacesilent, 7"
+        "$mainMod SHIFT, 8, split:movetoworkspacesilent, 8"
+        "$mainMod SHIFT, 9, split:movetoworkspacesilent, 9"
+        "$mainMod SHIFT, 0, split:movetoworkspacesilent, 10"
+        
+        ''$mainMod SHIFT, Period, movecurrentworkspacetomonitor, eDP-1''
+        ''$mainMod SHIFT, Comma, movecurrentworkspacetomonitor, HDMI-A-2''
 
         ''$mainMod, Period, focusmonitor, eDP-1''
         ''$mainMod, Comma, focusmonitor, HDMI-A-2''

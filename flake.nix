@@ -17,29 +17,10 @@
     };
 
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
-    #### hyprland
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    split-monitor-workspaces = {
-         url = "github:Duckonaut/split-monitor-workspaces";
-         inputs.hyprland.follows = "hyprland"; 
-	};
-
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
-
-    # hyprfocus = {
-    # 	url = "github:pyt0xic/hyprfocus";
-    # 	inputs.hyprland.follows = "hyprland";
-    # };
-
-    #### extra
-    # ghostty.url = "github:ghostty-org/ghostty";
-    # zephyr.url = "github:adisbladis/zephyr-nix";
   };
 
   outputs =
