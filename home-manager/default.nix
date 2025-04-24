@@ -22,6 +22,7 @@
     ./optional/yazi
     ./optional/btop
     ./optional/alacritty
+    ./optional/sway
     # ./optional/nixvim
   ];
 

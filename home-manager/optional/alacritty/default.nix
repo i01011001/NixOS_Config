@@ -4,10 +4,10 @@
     settings = {
       window = {
         padding = {
-          x = 5;
-          y = 3;
+          x = 7;
+          y = 7;
         };
-        dynamic_padding = true;
+        # dynamic_padding = true;
         decorations = "None";
       };
       font = {

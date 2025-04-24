@@ -15,6 +15,9 @@
       };
       color = {
         ui = "auto";
+        status = "auto";
+        branch = "auto";
+        diff = "auto";
       };
     };
     ignores = [
