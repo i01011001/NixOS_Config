@@ -2,10 +2,7 @@
   inputs,
   pkgs,
   ...
-}: let
-  activeBorder = "rgba(33ccff99)";
-  inactiveBorder = "rgba(59595999)";
-in {
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd = {
@@ -15,7 +12,7 @@ in {
     xwayland.enable = true;
 
     plugins = with pkgs.hyprlandPlugins; [
-      hy3
+      hyprsplit
     ];
 
     settings = {
@@ -23,7 +20,7 @@ in {
         ''eDP-1, 1920x1080@144, 0x0, 1''
         ''HDMI-A-2,1440x900,-1440x0,1''
       ];
-      "$terminal" = "alacritty";
+      "$terminal" = "foot";
       "$fileManager" = "thunar";
       "$menu_drun" = "tofi-drun";
       "$menu_run" = "exec $(tofi-run)";
@@ -32,24 +29,36 @@ in {
         ''mako''
         ''swaybg -m stretch -i /etc/nixos/images/mini-nix-side.png''
       ];
+
       cursor = {
         inactive_timeout = 4;
         hide_on_key_press = true;
         hide_on_touch = true;
       };
+
       general = {
         gaps_in = 3;
-        gaps_out = 3;
-        "col.active_border" = "${activeBorder}";
-        "col.inactive_border" = "${inactiveBorder}";
-        resize_on_border = true;
-        layout = "hy3";
+        gaps_out = 0;
+        "col.active_border" = "rgba(464646ff)";
+        "col.inactive_border" = "rgba(464646ff)";
+        layout = "master";
       };
+
+      master = {
+        mfact = 0.55;
+        new_status = "slave";
+        new_on_top = false;
+        new_on_active = "none";
+        allow_small_split = true;
+        special_scale_factor = 0.7;
+      };
+
       decoration = {
         rounding = 4;
         shadow = {
           enabled = false;
         };
+
         blur = {
           enabled = true;
           special = true;
@@ -58,41 +67,22 @@ in {
         };
       };
 
-      animations = {
-        enabled = "no";
-        first_launch_animation = "no";
-        bezier = [
-          "windowIn, 0.06, 0.71, 0.25, 1"
-          "windowResize, 0.04, 0.67, 0.38, 1"
-          "workspacesMove, 0.1, 0.75, 0.15, 1"
-        ];
-        animation = [
-          "windowsIn, 1, 3, windowIn, slide #popin 20%"
-          "windowsOut, 1, 3, windowIn, slide #popin 70%"
-          "windowsMove, 1, 2.5, windowResize"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 3, default"
-          "workspaces, 1, 5, workspacesMove, slidevert"
-          "layers, 1, 5, windowIn, slide"
-        ];
-      };
       misc = {
         render_unfocused_fps = 60;
         disable_hyprland_qtutils_check = true;
         force_default_wallpaper = 1;
         disable_hyprland_logo = true;
-        enable_swallow = true;
-        swallow_regex = "(?i)^(foot|alacritty)";
-        swallow_exception_regex = "(?i)^(alacritty:alacritty)$";
+        # enable_swallow = true;
+        # swallow_regex = "(?i)^(foot|alacritty)";
+        # swallow_exception_regex = "(?i)^(foot:foot)$";
         font_family = "Iosevka Nerd Font Propo";
         splash_font_family = "iosevka nerd font propo";
-        vfr = "on";
       };
+
       debug = {
-        disable_logs = "no";
-        overlay = "off";
+        disable_logs = false;
       };
+
       input = {
         repeat_delay = 300;
         repeat_rate = 60;
@@ -104,98 +94,32 @@ in {
           natural_scroll = true;
         };
       };
+
+      animations.enabled = false;
       gestures = {
-        workspace_swipe = true;
-        workspace_swipe_fingers = 4;
-        workspace_swipe_forever = true;
-        workspace_swipe_cancel_ratio = 0.15;
+        workspace_swipe = false;
       };
-      # layerrule = [
-      #   "blur, test"
-      #   "ignorezero, test"
-      #   "noanim, test"
-      #
-      #   "blur, wofi"
-      #   "ignorezero, wofi"
-      #   "noanim, ^(selection)$"
-      #
-      #   "blur, termspawner"
-      #   "ignorezero, termspawner"
-      #   "noanim, termspawner"
-      #
-      #   "animation fade, shell:background"
-      #
-      #   "blur, shell:bar"
-      #   "blurpopups, shell:bar"
-      #   "ignorezero, shell:bar"
-      #   "blur, shell:notifications"
-      #   "ignorezero, shell:notifications"
-      #   "noanim, shell:notifications"
-      #
-      #   "noanim, shell:screenshot"
-      #
-      #   "blur, shell:launcher"
-      #   "ignorezero, shell:launcher"
-      #   "animation popin 90%, shell:launcher"
-      # ];
+
       plugin = {
         hyprsplit = {
           num_workspaces = 10;
         };
-        hy3 = {
-          no_gaps_when_only = 0;
-          node_collapse_policy = 2;
-          group_inset = 10;
-          tab_first_window = false;
-          tabs = {
-            height = 6;
-            padding = 3;
-            from_top = false;
-            radius = 3;
-            render_text = false;
-            text_center = false;
-            # border_width = 1;
-            # text_font = "Iosevka Nerd Font Propo";
-            # text_height = 8;
-            # text_padding = 3;
-            "col.active" = "${activeBorder}";
-            "col.active.border" = "${inactiveBorder}";
-            "col.inactive" = "${activeBorder}";
-            "col.inactive.border" = "${inactiveBorder}";
-            "col.urgent" = "${activeBorder}";
-            "col.urgent.border" = "${inactiveBorder}";
-            blur = true;
-            opacity = 1.0;
-          };
-
-          autotile = {
-            enable = false;
-            ephemeral_groups = true;
-            trigger_width = 0;
-            trigger_height = 0;
-            workspaces = "all";
-          };
-        };
       };
 
       "$mainMod" = "SUPER";
-
       bindm = [
         ''$mainMod, mouse:272, movewindow''
         ''$mainMod, mouse:273, resizewindow''
       ];
-      bindn = [
-        '', mouse_down, hy3:focustab, l, require_hovered''
-        '', mouse_up, hy3:focustab, r, require_hovered''
-      ];
-      bindr = [
-        ''$mainMod, o, exec, hyprctl keyword plugin:hy3:tabs:height 2''
-        ''$mainMod, o, exec, hyprctl keyword plugin:hy3:tabs:render_text false''
-      ];
+
       bind = [
+        ''$mainMod, mouse_down, workspace, e+1''
+        ''$mainMod, mouse_up, workspace, e-1''
+
         ''$mainMod SHIFT, Return, exec, $terminal ''
-        ''$mainMod, P, exec, $menu_drun''
-        ''$mainMod SHIFT, P, exec, $menu_run''
+        ''$mainMod, R, exec, $menu_drun''
+        ''$mainMod SHIFT, R, exec, $menu_run''
+        ''$mainMod SHIFT, C, killactive''
         ''$mainMod SHIFT, Q, exit''
         '', PRINT, exec, flameshot gui -p ~/media/images/screenshots/ -r | wl-copy''
         ''$mainMod CONTROL, F, fullscreen, 2''
@@ -216,8 +140,8 @@ in {
         ''$mainMod, K, layoutmsg,  cycleprev''
         ''$mainMod, Return, layoutmsg, swapwithmaster master''
 
-        ''$mainMod, Y, togglespecialworkspace, magic''
-        ''$mainMod SHIFT, Y, movetoworkspace, special:magic''
+        ''$mainMod, S, togglespecialworkspace, magic''
+        ''$mainMod SHIFT, S, movetoworkspace, special:magic''
 
         ''$mainMod CONTROL, B, exec, notifybattery''
         ''$mainMod CONTROL, V, exec, notifyvolume''
@@ -237,102 +161,36 @@ in {
         ''$mainMod CONTROL, F12, exec, brightnessup''
         ''$mainMod CONTROL, F11, exec, brightnessdown''
 
+        "$mainMod, 1, split:workspace, 1"
+        "$mainMod, 2, split:workspace, 2"
+        "$mainMod, 3, split:workspace, 3"
+        "$mainMod, 4, split:workspace, 4"
+        "$mainMod, 5, split:workspace, 5"
+        "$mainMod, 6, split:workspace, 6"
+        "$mainMod, 7, split:workspace, 7"
+        "$mainMod, 8, split:workspace, 8"
+        "$mainMod, 9, split:workspace, 9"
+        "$mainMod, 0, split:workspace, 10"
+
+        "$mainMod SHIFT, 1, split:movetoworkspacesilent, 1"
+        "$mainMod SHIFT, 2, split:movetoworkspacesilent, 2"
+        "$mainMod SHIFT, 3, split:movetoworkspacesilent, 3"
+        "$mainMod SHIFT, 4, split:movetoworkspacesilent, 4"
+        "$mainMod SHIFT, 5, split:movetoworkspacesilent, 5"
+        "$mainMod SHIFT, 6, split:movetoworkspacesilent, 6"
+        "$mainMod SHIFT, 7, split:movetoworkspacesilent, 7"
+        "$mainMod SHIFT, 8, split:movetoworkspacesilent, 8"
+        "$mainMod SHIFT, 9, split:movetoworkspacesilent, 9"
+        "$mainMod SHIFT, 0, split:movetoworkspacesilent, 10"
+
         ''$mainMod SHIFT, Period, movecurrentworkspacetomonitor, eDP-1''
         ''$mainMod SHIFT, Comma, movecurrentworkspacetomonitor, HDMI-A-2''
 
+        ''$mainMod SHIFT, Period, split:swapactiveworkspaces, l r''
+        ''$mainMod SHIFT, Comma, split:swapactiveworkspaces, r l''
+
         ''$mainMod, Period, focusmonitor, eDP-1''
         ''$mainMod, Comma, focusmonitor, HDMI-A-2''
-
-        ''$mainMod+SHIFT, c, hy3:killactive''
-        ''$mainMod, tab, hy3:togglefocuslayer''
-
-        ''$mainMod, q, hy3:warpcursor''
-        ''$mainMod, s, hy3:makegroup, v''
-        ''$mainMod, d, hy3:makegroup, h''
-        ''$mainMod, z, hy3:makegroup, tab''
-        ''$mainMod, a, hy3:changefocus, raise''
-        ''$mainMod+SHIFT, a, hy3:changefocus, lower''
-        ''$mainMod, e, hy3:expand, expand''
-        ''$mainMod+SHIFT, e, hy3:expand, base''
-        ''$mainMod, r, hy3:changegroup, opposite''
-
-        ''$mainMod, i, exec, hyprctl keyword plugin:hy3:tabs:height 20''
-        ''$mainMod, i, exec, hyprctl keyword plugin:hy3:tabs:render_text true''
-        ''$mainMod, o, exec, hyprctl keyword plugin:hy3:tabs:height 20''
-        ''$mainMod, o, exec, hyprctl keyword plugin:hy3:tabs:render_text true''
-
-        ''$mainMod, h, hy3:movefocus, l''
-        ''$mainMod, j, hy3:movefocus, d''
-        ''$mainMod, k, hy3:movefocus, u''
-        ''$mainMod, l, hy3:movefocus, r''
-
-        ''$mainMod+CONTROL, h, hy3:movefocus, l, visible, nowarp''
-        ''$mainMod+CONTROL, j, hy3:movefocus, d, visible, nowarp''
-        ''$mainMod+CONTROL, k, hy3:movefocus, u, visible, nowarp''
-        ''$mainMod+CONTROL, l, hy3:movefocus, r, visible, nowarp''
-
-        ''$mainMod+SHIFT, h, hy3:movewindow, l, once''
-        ''$mainMod+SHIFT, j, hy3:movewindow, d, once''
-        ''$mainMod+SHIFT, k, hy3:movewindow, u, once''
-        ''$mainMod+SHIFT, l, hy3:movewindow, r, once''
-
-        ''$mainMod+CONTROL+SHIFT, h, hy3:movewindow, l, once, visible''
-        ''$mainMod+CONTROL+SHIFT, j, hy3:movewindow, d, once, visible''
-        ''$mainMod+CONTROL+SHIFT, k, hy3:movewindow, u, once, visible''
-        ''$mainMod+CONTROL+SHIFT, l, hy3:movewindow, r, once, visible''
-
-        ''$mainMod, 1, workspace, 01''
-        ''$mainMod, 2, workspace, 02''
-        ''$mainMod, 3, workspace, 03''
-        ''$mainMod, 4, workspace, 04''
-        ''$mainMod, 5, workspace, 05''
-        ''$mainMod, 6, workspace, 06''
-        ''$mainMod, 7, workspace, 07''
-        ''$mainMod, 8, workspace, 08''
-        ''$mainMod, 9, workspace, 09''
-        ''$mainMod, 0, workspace, 10''
-        ''$mainMod, F1, workspace, 11''
-        ''$mainMod, F2, workspace, 12''
-        ''$mainMod, F3, workspace, 13''
-        ''$mainMod, F4, workspace, 14''
-        ''$mainMod, F5, workspace, 15''
-        ''$mainMod, F6, workspace, 16''
-        ''$mainMod, F7, workspace, 17''
-        ''$mainMod, F8, workspace, 18''
-        ''$mainMod, F9, workspace, 19''
-        ''$mainMod, F10, workspace, 20''
-
-        ''$mainMod+SHIFT, 1, hy3:movetoworkspace, 01''
-        ''$mainMod+SHIFT, 2, hy3:movetoworkspace, 02''
-        ''$mainMod+SHIFT, 3, hy3:movetoworkspace, 03''
-        ''$mainMod+SHIFT, 4, hy3:movetoworkspace, 04''
-        ''$mainMod+SHIFT, 5, hy3:movetoworkspace, 05''
-        ''$mainMod+SHIFT, 6, hy3:movetoworkspace, 06''
-        ''$mainMod+SHIFT, 7, hy3:movetoworkspace, 07''
-        ''$mainMod+SHIFT, 8, hy3:movetoworkspace, 08''
-        ''$mainMod+SHIFT, 9, hy3:movetoworkspace, 09''
-        ''$mainMod+SHIFT, 0, hy3:movetoworkspace, 10''
-        ''$mainMod+SHIFT, F1, hy3:movetoworkspace, 11''
-        ''$mainMod+SHIFT, F2, hy3:movetoworkspace, 12''
-        ''$mainMod+SHIFT, F3, hy3:movetoworkspace, 13''
-        ''$mainMod+SHIFT, F4, hy3:movetoworkspace, 14''
-        ''$mainMod+SHIFT, F5, hy3:movetoworkspace, 15''
-        ''$mainMod+SHIFT, F6, hy3:movetoworkspace, 16''
-        ''$mainMod+SHIFT, F7, hy3:movetoworkspace, 17''
-        ''$mainMod+SHIFT, F8, hy3:movetoworkspace, 18''
-        ''$mainMod+SHIFT, F9, hy3:movetoworkspace, 19''
-        ''$mainMod+SHIFT, F10, hy3:movetoworkspace, 20''
-
-        ''$mainMod+CONTROL, 1, hy3:focustab, index, 01''
-        ''$mainMod+CONTROL, 2, hy3:focustab, index, 02''
-        ''$mainMod+CONTROL, 3, hy3:focustab, index, 03''
-        ''$mainMod+CONTROL, 4, hy3:focustab, index, 04''
-        ''$mainMod+CONTROL, 5, hy3:focustab, index, 05''
-        ''$mainMod+CONTROL, 6, hy3:focustab, index, 06''
-        ''$mainMod+CONTROL, 7, hy3:focustab, index, 07''
-        ''$mainMod+CONTROL, 8, hy3:focustab, index, 08''
-        ''$mainMod+CONTROL, 9, hy3:focustab, index, 09''
-        ''$mainMod+CONTROL, 0, hy3:focustab, index, 10''
       ];
     };
   };

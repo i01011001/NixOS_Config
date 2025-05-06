@@ -1,4 +1,4 @@
 {
   pkgs ? import <nixpkgs> { },
 }:
-pkgs.writeShellScriptBin "capture_section" ''grim -g "$(slurp)" -| swappy -f -''
+pkgs.writeShellScriptBin "capture_whole" ''flameshot gui -p ~/media/images/screenshots/ -r | wl-copy''

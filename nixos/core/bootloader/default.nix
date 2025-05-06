@@ -4,7 +4,7 @@
       enable = true;
       backgroundColor = "#000000";
       device = "nodev";
-      useOSProber = true;
+      # useOSProber = true;
       efiSupport = true;
       gfxmodeBios = "auto";
       gfxmodeEfi = "auto";

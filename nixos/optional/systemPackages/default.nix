@@ -50,6 +50,7 @@
     stlink
     stlink-tool
     segger-jlink
+    kicad-unstable
     (import ../../../customs/pkgs/diagslave { inherit pkgs; })
     (import ../../../customs/pkgs/miniterm { inherit pkgs; })
     (import ../../../customs/pkgs/modpoll { inherit pkgs; })
@@ -149,6 +150,9 @@
 
     libreoffice
     tor-browser
+    dwl
+    nwg-look
+    hubstaff
     
 
     # uuu

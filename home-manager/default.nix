@@ -14,15 +14,15 @@
     ./optional/cursor
     ./optional/tofi
     ./optional/mako
-    ./optional/hypr
     ./optional/zathura
 	./optional/flameshot
     ./optional/foot
 	./optional/firefox
     ./optional/yazi
     ./optional/btop
-    ./optional/alacritty
-    ./optional/sway
+    # ./optional/hypr
+    # ./optional/alacritty
+    # ./optional/sway
     # ./optional/nixvim
   ];
 

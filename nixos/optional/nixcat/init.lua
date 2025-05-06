@@ -27,7 +27,8 @@ vim.opt.scrolloff = 10
 vim.wo.number = true
 
 -- Enable mouse mode
-vim.o.mouse = "a"
+vim.o.mouse = ""
+vim.opt.mousescroll = "ver:0,hor:0" 
 
 -- cursorline
 vim.opt.cursorline = true
@@ -89,6 +90,9 @@ vim.opt.laststatus = 0 -- Set laststatus to 0
 vim.opt.statusline = "%{repeat('─',winwidth('.'))}" -- Set a dynamic statusline
 
 -- vim.o.winborder = "rounded"
+
+vim.opt.shell = "/run/current-system/sw/bin/zsh"
+
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true

@@ -18,7 +18,7 @@ static const float fullscreen_bg[]         = {0.0f, 0.0f, 0.0f, 1.0f}; /* You ca
 static const int cursor_timeout = 3;  //overlay
 
 /* tagging - TAGCOUNT must be no greater than 31 */
-#define TAGCOUNT (9)
+#define TAGCOUNT (10)
 
 /* logging */
 static int log_level = WLR_ERROR;
@@ -26,7 +26,7 @@ static int log_level = WLR_ERROR;
 
 /* Autostart *///overlay
 static const char *const autostart[] = {
-        "swaybg", "-i" ,"/etc/nixos/images/mini-nix.png", "-m", "center", NULL,
+        "swaybg", "-i" ,"/etc/nixos/images/mini-nix-side.png", "-m", "stretch", NULL,
 		"mako" ,NULL, 
         NULL /* terminate */
 };
@@ -34,9 +34,10 @@ static const char *const autostart[] = {
 /* NOTE: ALWAYS keep a rule declared even if you don't use rules (e.g leave at least one example) */
 static const Rule rules[] = {
  	/* app_id             title       tags mask     isfloating  isterm  noswallow  monitor */
- 	{ "Gimp_EXAMPLE",     NULL,       0,            1,          0,      0,         -1 }, /* Start on currently visible tags floating, not tiled */
- 	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,          0,      0,         -1 }, /* Start on ONLY tag "9" */
+ 	// { "Gimp_EXAMPLE",     NULL,       0,            1,          0,      0,         -1 }, /* Start on currently visible tags floating, not tiled */
+ 	// { "firefox_EXAMPLE",  NULL,       1 << 8,       0,          0,      0,         -1 }, /* Start on ONLY tag "9" */
  	{ "foot",             NULL,       0,            0,          1,      1,         -1 }, /* make foot swallow clients that are not foot */
+ 	{ "flameshot",      NULL,       0,            0,          0,      1,         -1 }, 
 };
 
 /* layout(s) */
@@ -181,10 +182,10 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_m,          setlayout,      {.v = &layouts[2]} },
 	// { MODKEY,                    XKB_KEY_y,          setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                    XKB_KEY_space,      setlayout,      {0} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
+    { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
 	{ MODKEY,                    XKB_KEY_e,         togglefullscreen, {0} },
-	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },
+	// { MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
+	// { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },
 	{ MODKEY,                    XKB_KEY_comma,      focusmon,       {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY,                    XKB_KEY_period,     focusmon,       {.i = WLR_DIRECTION_RIGHT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       tagmon,         {.i = WLR_DIRECTION_LEFT} },
@@ -205,7 +206,7 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_CTRL, XKB_KEY_v,		spawn,         {.v = notifyvolume} },
 
 	{ MODKEY                   , XKB_KEY_p,		spawn,       {.v = capturewhole} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_P,		spawn,       {.v = capturesection} },
+	// { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_P,		spawn,       {.v = capturesection} },
 
 	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0),
 	TAGKEYS(          XKB_KEY_2, XKB_KEY_at,                         1),
@@ -216,6 +217,7 @@ static const Key keys[] = {
 	TAGKEYS(          XKB_KEY_7, XKB_KEY_ampersand,                  6),
 	TAGKEYS(          XKB_KEY_8, XKB_KEY_asterisk,                   7),
 	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenleft,                  8),
+	TAGKEYS(          XKB_KEY_0, XKB_KEY_parenright,                9),
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          quit,           {0} },
 
 	/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */

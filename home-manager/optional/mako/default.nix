@@ -15,11 +15,12 @@
     textColor = "#f0f0f0";
     width = 340;
     height = 100;
-    margin = "10";
+    margin = "0";
     borderSize = 1;
-    borderColor = "#393939";
-    borderRadius = 4;
-    progressColor = "#393939";
+    borderColor = "#464646";
+    # borderRadius = 4;
+    borderRadius = 0;
+    progressColor = "#464646";
     icons = true;
     maxIconSize = 64;
 

@@ -86,7 +86,7 @@ local langs = {
 	-- 	root_dir = { ".git" },
 	-- },
 	md = {
-		pattern = "md",
+		pattern = "markdown",
 		name = "Marksman",
 		cmd = { "marksman" },
 		root_dir = { ".git" },
@@ -100,7 +100,7 @@ end
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
 vim.keymap.set("n", "K", function()
-	vim.lsp.buf.hover({ border = "rounded" })
+	vim.lsp.buf.hover({ border = "rounded"})
 end, { desc = "Hover Documentation" })
 vim.keymap.set("n", "<space>e", function()
 	vim.diagnostic.open_float({ border = "rounded" })
