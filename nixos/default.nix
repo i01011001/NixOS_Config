@@ -14,7 +14,7 @@
     ./core/settings
     ./core/users
     ./core/zsh
-	# ./core/xdg
+	./core/xdg
 
     ### optional
     ./optional/adb
@@ -33,6 +33,7 @@
     ./optional/multipass
     ./optional/opentabletdriver
 	./optional/virtual
+	./optional/sway
     # ./optional/qemu
     # ./optional/x11
 

@@ -1,6 +1,10 @@
+include /etc/sway/config.d/*
 
 # autostart
 exec 		    mako	
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_CURRENT_DESKTOP=sway
 
 # style
 font 			            Iosevka Nerd Font Propo 10
@@ -61,7 +65,7 @@ exec swayidle -w \
 
 # key bindings
 # start a terminal
-bindsym 	$mod+Return 	exec 	$term
+bindsym 	$mod+Shift+Return 	exec 	$term
 
 # kill focused window
 bindsym 	$mod+Shift+c 		    kill
@@ -84,7 +88,7 @@ floating_modifier 		$mod 	normal
 bindsym 	$mod+Shift+r 		reload
 
 # restart sway
-bindsym 	$mod+Shift+q 	exec 	swaymsg exit
+bindsym 	$mod+Shift+q 	execr	swaymsg exit
 
 # shortcut
 bindsym $mod+Shift+F8 exec volumeup
