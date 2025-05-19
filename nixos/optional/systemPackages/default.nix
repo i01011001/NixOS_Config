@@ -33,7 +33,7 @@
     luajit
     luarocks
     python3
-    python3Packages.pip
+    # python3Packages.pip
     postman
     ngrok
 
@@ -83,7 +83,6 @@
     mpv
 
     #### Communication & Collaboration
-    skypeforlinux
     slack
     discord-unstable
     thunderbird
@@ -127,17 +126,17 @@
     p7zip
 
     #### Custom Shortcuts & Scripts
-    (import ../../../customs/pkgs/shortcuts/capture/section.nix { inherit pkgs; })
-    (import ../../../customs/pkgs/shortcuts/capture/whole.nix { inherit pkgs; })
-    (import ../../../customs/pkgs/shortcuts/control/brightnessdown.nix { inherit pkgs; })
-    (import ../../../customs/pkgs/shortcuts/control/brightnessup.nix { inherit pkgs; })
-    (import ../../../customs/pkgs/shortcuts/control/volumeup.nix { inherit pkgs; })
-    (import ../../../customs/pkgs/shortcuts/control/volumedown.nix { inherit pkgs; })
-    (import ../../../customs/pkgs/shortcuts/control/volumemute.nix { inherit pkgs; })
-    (import ../../../customs/pkgs/shortcuts/notify/battery.nix { inherit pkgs; })
-    (import ../../../customs/pkgs/shortcuts/notify/brightness.nix { inherit pkgs; })
-    (import ../../../customs/pkgs/shortcuts/notify/time.nix { inherit pkgs; })
-    (import ../../../customs/pkgs/shortcuts/notify/volume.nix { inherit pkgs; })
+
+(writeShellScriptBin "capture_whole" ''flameshot gui -p ~/media/images/screenshots/ -r | wl-copy'')
+(writeShellScriptBin "brightnessdown" ''brightnessctl set 1%-'')
+(writeShellScriptBin "brightnessup" ''brightnessctl set 1%+'')
+(writeShellScriptBin "volumeup" ''wpctl set-volume @DEFAULT_SINK@ 2%+'')
+(writeShellScriptBin "volumedown" ''wpctl set-volume @DEFAULT_SINK@ 2%-'')
+(writeShellScriptBin "volumemute" ''wpctl set-mute @DEFAULT_SINK@ toggle'')
+(writeShellScriptBin "notifybattery" ''notify-send "Capacity" "`echo $(cat /sys/class/power_supply/BAT1/capacity & cat /sys/class/power_supply/BAT1/status)`"'')
+(writeShellScriptBin "notifybrightness" ''notify-send "Brightness" "`brightnessctl g`"'')
+(writeShellScriptBin "notifytime" ''notify-send  "`date +%H:%M`" "`date +%A` `date +%d`. `date +%B`"'')
+(writeShellScriptBin "notifyvolume" ''notify-send "Volume" "`wpctl get-volume @DEFAULT_SINK@ | tr -d Volume: `"'')
 
     #### Custom Nix Packages
     (import ../nixcat/default.nix { inherit pkgs; inherit (inputs) nixCats; })
@@ -152,9 +151,10 @@
     tor-browser
     dwl
     nwg-look
-    hubstaff
-    
 
+    (jdk11_headless.override { enableJavaFX = true; })
+    qtcreator
+    sway
     # uuu
   ];
 

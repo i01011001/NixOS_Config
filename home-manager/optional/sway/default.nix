@@ -17,5 +17,5 @@
   # };
 
 
-  xdg.configFile."sway/config".source = ./sway;
+  xdg.configFile."sway/config".source = ./config;
 }

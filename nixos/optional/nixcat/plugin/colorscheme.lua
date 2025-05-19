@@ -22,6 +22,8 @@ local colors = {
 	cyan = "#7dafac",
 
 	diffadd = "#1c2c21",
+    -- difftext =  "#1e353e",
+    difftext = "#2a373b";
 	diffchange = "#1e253e",
 	diffdelete = "#3b1b20",
 }
@@ -75,7 +77,7 @@ local groups = {
 	DiffAdd = { bg = colors.diffadd },
 	DiffChange = { bg = colors.diffchange },
 	DiffDelete = { bg = colors.diffdelete },
-	DiffText = { bg = colors.diffchange, underline = true },
+	DiffText = { bg = colors.difftext},
 
 	-- Split --
 	VertSplit = { bg = colors.bg, fg = colors.darkgray2 },

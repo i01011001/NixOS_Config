@@ -22,7 +22,7 @@
     ./optional/btop
     # ./optional/hypr
     # ./optional/alacritty
-    # ./optional/sway
+    ./optional/sway
     # ./optional/nixvim
   ];
 

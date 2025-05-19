@@ -8,7 +8,6 @@
     wireless.iwd = {
       enable = true;
       settings = {
-        General.UseDefaultInterface = true;
         Settings.AutoConnect = true;
       };
     };
