@@ -67,8 +67,14 @@ require("gitsigns").setup({
 		-- Toggles
 		map("n", "<leader>gtb", gs.toggle_current_line_blame, { desc = "toggle git blame line" })
 		map("n", "<leader>gtd", gs.toggle_deleted, { desc = "toggle git show deleted" })
+        map("n", "<leader>gtvw", gs.toggle_world_diff, {desc = 'toggle world diff'})
+        map("n", "<leader>gtvl", gs.toggle_linehl, {desc = 'toggle line highlight'})
+        map("n", "<leader>gtvv", gs.toggle_deleted, {desc = 'toggle deleted (all)'})
+
+
 
 		-- Text object
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "select git hunk" })
+
 	end,
 })

@@ -22,8 +22,7 @@ local colors = {
 	cyan = "#7dafac",
 
 	diffadd = "#1c2c21",
-    -- difftext =  "#1e353e",
-    difftext = "#2a373b";
+    difftext = "#2a373b",
 	diffchange = "#1e253e",
 	diffdelete = "#3b1b20",
 }
