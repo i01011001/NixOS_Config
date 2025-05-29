@@ -8,22 +8,47 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 # style
 font 			            Iosevka Nerd Font Propo 10
+smart_borders               on
+# hide_edge_borders --i3 smart
 default_border 		        pixel 	1
-titlebar_border_thickness 	1
-titlebar_padding    1   
+titlebar_border_thickness 	0
+titlebar_padding    0
+title_align center
 
-gaps 			            top	    0
-gaps 			            bottom	0
-gaps 			            left	0
-gaps 			            right	0
-gaps 			            inner 	0
+
+set $bg #000000
+set $fg #FBFBFB
+
+set $darkgray0 #1b1b1b
+set $darkgray1 #303030
+set $darkgray2 #464646
+set $lightgray0 #888888
+set $lightgray1 #ADADAD
+set $lightgray2 #D0D0D0
+
+set $red #bf656e
+set $green #83ad84
+set $yellow #dbcc8c
+set $orange #d0996c
+set $blue #6286ad
+set $purple #8782af
+set $cyan #7dafac
+
+# gaps 			            top	    0
+# gaps 			            bottom	0
+# gaps 			            left	0
+# gaps 			            right	0
+# gaps 			            inner 	5
+# gaps 			            outer 	-1
+
 
 # window decorations
-# class			        border	    background	text        indicator   child_border
-client.focused          #556688     #556688     #000000     #556688     #556688
-client.focused_inactive #000000     #444444     #000000     #444444     #444444
-client.unfocused        #000000     #444444     #000000     #444444     #444444
-client.urgent           #000000     #444444     #000000     #444444     #444444
+# # class			        border	    background	    text        indicator       child_border
+# client.focused          $blue       $blue           $bg         $blue           $blue
+# client.focused_inactive $bg         $darkgray2      $bg         $darkgray2      $darkgray2
+# client.unfocused        $bg         $darkgray2      $bg         $darkgray2      $darkgray2
+# client.urgent           $bg         $darkgray2      $bg         $darkgray2      $darkgray2
+
 
 ## touchpad settings
 input "1267:12632:ELAN050A:01_04F3:3158_Touchpad" {
@@ -33,8 +58,11 @@ input "1267:12632:ELAN050A:01_04F3:3158_Touchpad" {
 	middle_emulation enabled
    }
 
-input "1:1:AT_Translated_Set_2_keyboard" repeat_delay 300 
-input "1:1:AT_Translated_Set_2_keyboard" repeat_rate 60   
+# input "1:1:AT_Translated_Set_2_keyboard" repeat_delay 300 
+# input "1:1:AT_Translated_Set_2_keyboard" repeat_rate 60   
+
+# input "*" repeat_rate 60   
+# input "*" repeat_delay 300  
 
 ## logo key
 set 	$mod 	Mod4
@@ -52,16 +80,15 @@ set 	$menu 	tofi-drun
 ## Output configuration
 output     *   bg      /etc/nixos/images/mini-nix-side.png stretch
 
-hide_edge_borders --i3 smart
 
 # Behavior
 focus_follows_mouse 	yes
 
 # Idle configuration
 exec swayidle -w \
-	timeout 600 'swaylock -f' \
+	timeout 600 'swaylock -f -c 000000FF' \
 	timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-	before-sleep 'swaylock -f'
+	before-sleep 'swaylock -f -c 000000FF'
 
 # key bindings
 # start a terminal
@@ -88,7 +115,7 @@ floating_modifier 		$mod 	normal
 bindsym 	$mod+Shift+r 		reload
 
 # restart sway
-bindsym 	$mod+Shift+q 	execr	swaymsg exit
+bindsym 	$mod+Shift+q 	exec	swaymsg exit
 
 # shortcut
 bindsym $mod+Shift+F8 exec volumeup
@@ -98,10 +125,10 @@ bindsym $mod+Shift+F6 exec volumemute
 bindsym $mod+Shift+F12 exec brightnessup
 bindsym $mod+Shift+F11 exec brightnessdown
 
-bindsym $mod+Control+b exec notifybattery
-bindsym $mod+Control+x exec notifybrightness
-bindsym $mod+Control+c exec notifytime
-bindsym $mod+Control+v exec notifyvolume
+# bindsym $mod+Control+b exec notifybattery
+# bindsym $mod+Control+x exec notifybrightness
+# bindsym $mod+Control+c exec notifytime
+# bindsym $mod+Control+v exec notifyvolume
 
 # Move your focus around
 bindsym 	$mod+$left 	focus 	left
@@ -148,14 +175,12 @@ bindsym 	$mod+Shift+0 	move 	container to 	workspace number 10
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+bindsym $mod+Shift+e layout toggle all
 
 # You can "split" the current object of your focus 
 bindsym 	$mod+b 		splith
 bindsym 	$mod+v 		splitv
-
-# Switch the current container between different layout styles
-bindsym 	$mod+m 		layout 		tabbed
-bindsym 	$mod+t 		layout 		toggle split
+bindsym 	$mod+n 		split n
 
 # Make the current focus fullscreen
 bindsym 	$mod+f 		fullscreen
@@ -163,7 +188,8 @@ bindsym 	$mod+f 		fullscreen
 # Toggle floating 
 bindsym 	$mod+space 		floating 	toggle
 
-# Toggle between floating and other layout
+bindsym $mod+Shift+z bar mode toggle
+
 bindsym 	$mod+Shift+space 	focus 		mode_toggle
 
 # Move floating windows around
@@ -191,8 +217,34 @@ bindsym 	$mod+Shift+minus move 	scratchpad
 bindsym 	$mod+minus 		scratchpad 	show
 
 # Resizing containers:
-bindsym 	$mod+alt+$left 		resize shrink 	width 	20px
-bindsym 	$mod+alt+$up 		resize grow 	height 	20px
-bindsym 	$mod+alt+$down 		resize shrink 	height 	20px
-bindsym 	$mod+alt+$right 	resize grow 	width 	20px
+bindsym 	$mod+Control+$left 		resize shrink 	width 	20px
+bindsym 	$mod+Control+$up 		resize grow 	height 	20px
+bindsym 	$mod+Control+$down 		resize shrink 	height 	20px
+bindsym 	$mod+Control+$right 	resize grow 	width 	20px
 
+
+# ========================
+# Status Bar Configuration
+# ========================
+# i3blocks displays status information to swaybar
+bar {
+    font 			            Iosevka Nerd Font Propo 10
+    position bottom
+
+    status_command /etc/nixos/home-manager/optional/sway/swaybar.sh
+    # status_command /etc/nixos/home-manager/optional/sway/swaybar.sh; do sleep 0.1; done
+
+
+    mode hide
+    hidden_state hide
+    position bottom
+    modifier $mod+Mod1
+    # status_command i3status
+
+    status_edge_padding 6
+    status_padding 0
+    # swaybar_command /nix/store/nwihbay5krqa021zggj6qsh09whxdx48-sway-1.10.1/bin/swaybar
+    workspace_buttons yes
+    strip_workspace_numbers no
+    tray_output primary
+}

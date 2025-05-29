@@ -31,6 +31,15 @@
       libgcc
       icu
       libffi
+
+      # gtk3
+      # pango
+      # atk
+      # cairo
+      # gdk-pixbuf
+      # libunwind
+      # libxc
+
     ];
   };
 }

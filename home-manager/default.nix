@@ -15,12 +15,14 @@
     ./optional/tofi
     ./optional/mako
     ./optional/zathura
-	./optional/flameshot
     ./optional/foot
-    ./optional/sway
 	./optional/firefox
     ./optional/yazi
     ./optional/btop
+    ./optional/satty
+    # ./optional/sway
+	# ./optional/flameshot
+    # ./optional/i3
     # ./optional/xdg
     # ./optional/hypr
     # ./optional/alacritty

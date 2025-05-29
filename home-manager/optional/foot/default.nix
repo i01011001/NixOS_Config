@@ -9,7 +9,7 @@
           # font = "Noto Sans CJK TC: size=10";
           # line-height = 13.5;
         resize-delay-ms=100;
-          pad = "5x3 center";
+          pad = "5x5";
           # term = "foot";
           # title = "Foot";
         };

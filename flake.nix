@@ -21,6 +21,7 @@
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    # nvf.url = "github:notashelf/nvf";
   };
 
   outputs =

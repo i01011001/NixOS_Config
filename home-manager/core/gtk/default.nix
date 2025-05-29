@@ -12,7 +12,7 @@
         # themeVariants = ["blue"];
         colorVariants = ["dark"];
         sizeVariants = ["compact"];
-        tweaks = ["black" "float"];
+        tweaks = ["float"];
       };
       name = "Colloid-Dark-Compact";
     };
@@ -31,13 +31,13 @@
     gtk3 = {
       extraCss = builtins.readFile ./gtk.css;
       extraConfig = {
-        gtk-application-prefer-dark-theme = true;
+        gtk-application-prefer-dark-theme = "1";
       };
     };
     gtk4 = {
       extraCss = builtins.readFile ./gtk.css;
       extraConfig = {
-        gtk-application-prefer-dark-theme = true;
+        gtk-application-prefer-dark-theme = "1";
       };
     };
   };

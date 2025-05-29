@@ -40,6 +40,7 @@
       "/build/"
 	  "*/build/"
       "*.d"
+      "yeti-docs"
 
       # Container specific files
       ".devcontainer/"

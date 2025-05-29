@@ -65,6 +65,8 @@
     swayimg
     swaylock
     swayidle
+    # grim
+    # slurp
     # xdg-desktop-portal-wlr
     # xdg-desktop-portal
     wl-clipboard
@@ -134,15 +136,14 @@
     #### Custom Shortcuts & Scripts
 
     (writeShellScriptBin "capture_whole" ''flameshot gui -p ~/media/images/screenshots/ -r | wl-copy'')
-    (writeShellScriptBin "brightnessdown" ''brightnessctl set 1%-'')
-    (writeShellScriptBin "brightnessup" ''brightnessctl set 1%+'')
-    (writeShellScriptBin "volumeup" ''wpctl set-volume @DEFAULT_SINK@ 2%+'')
-    (writeShellScriptBin "volumedown" ''wpctl set-volume @DEFAULT_SINK@ 2%-'')
-    (writeShellScriptBin "volumemute" ''wpctl set-mute @DEFAULT_SINK@ toggle'')
-    (writeShellScriptBin "notifybattery" ''notify-send "Capacity" "`echo $(cat /sys/class/power_supply/BAT1/capacity & cat /sys/class/power_supply/BAT1/status)`"'')
-    (writeShellScriptBin "notifybrightness" ''notify-send "Brightness" "`brightnessctl g`"'')
-    (writeShellScriptBin "notifytime" ''notify-send  "`date +%H:%M`" "`date +%A` `date +%d`. `date +%B`"'')
-    (writeShellScriptBin "notifyvolume" ''notify-send "Volume" "`wpctl get-volume @DEFAULT_SINK@ | tr -d Volume: `"'')
+    (writeShellScriptBin "brightness_down" ''brightnessctl set 1%-'')
+    (writeShellScriptBin "brightness_up" ''brightnessctl set 1%+'')
+    (writeShellScriptBin "audio_up" ''wpctl set-volume @DEFAULT_SINK@ 2%+'')
+    (writeShellScriptBin "audio_down" ''wpctl set-volume @DEFAULT_SINK@ 2%-'')
+    (writeShellScriptBin "audio_toggle" ''wpctl set-mute @DEFAULT_SINK@ toggle'')
+    (writeShellScriptBin "audio_mic_toggle" ''wpctl set-mute @DEFAULT_SOURCE@ toggle'')
+
+    (writeShellScriptBin "enter_the_void" ''sway --unsupported-gpu'')
 
     #### Custom Nix Packages
     (import ../nixcat/default.nix {
@@ -162,15 +163,38 @@
 
     (jdk11_headless.override {enableJavaFX = true;})
     qtcreator
-    obs-studio
-    # uuu
+    hubstaff
+    satty
+    betaflight-configurator
+    # zenity 
+    # protontricks
+    nvtopPackages.full
+
+    arduino-ide
+    arduino-cli
+
+    scrcpy
+
+    niri
+
+    # cutecom
+    # kitty
+    
+    # obs-studio
   ];
 
-  services.xserver.displayManager.sessionPackages = [pkgs.sway];
+  # services.xserver.displayManager.sessionPackages = [pkgs.sway];
 
   services.udev.packages = with pkgs; [
     saleae-logic-2
     stlink
     # edl
   ];
+
+services.udev.extraRules = 
+  ''
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="1001", SYMLINK+="my_serial_device"
+  '';
+
+
 }

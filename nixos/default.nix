@@ -33,7 +33,9 @@
     ./optional/multipass
     ./optional/opentabletdriver
 	./optional/virtual
-	./optional/sway
+	# ./optional/sway
+    ./optional/steam
+    ./optional/i3
     # ./optional/qemu
     # ./optional/x11
 
