@@ -4,8 +4,8 @@
     enableZshIntegration = true;
     enableBashIntegration = false;
     colors = {
-      bg = "#000000";
-      "bg+" = "#000000";
+      bg = "#131313";
+      "bg+" = "#131313";
       fg = "#dddddd";
       "fg+" = "#dddddd";
     };

@@ -3,10 +3,10 @@ if not nixCats("general") then
 end
 
 local colors = {
-	bg = "#000000",
+	bg = "#131313",
 	fg = "#FBFBFB",
 
-	darkgray0 = "#1b1b1b",
+	darkgray0 = "#131313",
 	darkgray1 = "#303030",
 	darkgray2 = "#464646",
 	lightgray0 = "#888888",

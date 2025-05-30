@@ -12,7 +12,7 @@
       zoom-min = 10;
       guioptions = "";
       font = "Iosevka Nerd Font Propo 10";
-      default-bg = "#000000";
+      default-bg = "#131313";
       default-fg = "#F7F7F6";
 
       statusbar-fg = "#B0B0B0";
@@ -40,7 +40,7 @@
       notification-fg = "#151515";
 
       recolor = "true";
-      recolor-lightcolor = "#000000";
+      recolor-lightcolor = "#131313";
       recolor-darkcolor = "#E0E0E0";
       recolor-reverse-video = "true";
       recolor-keephue = "true";

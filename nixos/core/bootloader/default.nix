@@ -2,7 +2,7 @@
   boot.loader = {
     grub = {
       enable = true;
-      backgroundColor = "#000000";
+      backgroundColor = "#131313";
       device = "nodev";
       # useOSProber = true;
       efiSupport = true;

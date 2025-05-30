@@ -20,6 +20,8 @@
 
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
+    niri.url = "github:sodiboo/niri-flake";
+
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     # nvf.url = "github:notashelf/nvf";
   };

@@ -3,24 +3,25 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
+  hardware.nvidia = {
+    prime = {
+      # sync.enable = true;
 
-  hardware.nvidia.prime = {
-    # sync.enable = true;
-
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      # Make sure to use the correct Bus ID values for your system!
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
     };
-    # Make sure to use the correct Bus ID values for your system!
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
+      # forceFullCompositionPipeline = true;
   };
   # boot.kernelModules = [ "nvidia_uvm" ];
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   # nix.settings.substituters = [
   #     "https://cuda-maintainers.cachix.org"
@@ -35,6 +36,5 @@
     # nvidiaSettings = true;
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.latest;
-
   };
 }

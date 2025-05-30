@@ -72,6 +72,7 @@
     wl-clipboard
     wlr-randr
     wf-recorder
+    xwayland-satellite
 
     #### Productivity & Utilities
     unzip
@@ -143,7 +144,9 @@
     (writeShellScriptBin "audio_toggle" ''wpctl set-mute @DEFAULT_SINK@ toggle'')
     (writeShellScriptBin "audio_mic_toggle" ''wpctl set-mute @DEFAULT_SOURCE@ toggle'')
 
-    (writeShellScriptBin "enter_the_void" ''sway --unsupported-gpu'')
+    (writeShellScriptBin "enter_the_void" ''
+      dbus-run-session niri --
+    '')
 
     #### Custom Nix Packages
     (import ../nixcat/default.nix {
@@ -166,7 +169,7 @@
     hubstaff
     satty
     betaflight-configurator
-    # zenity 
+    # zenity
     # protontricks
     nvtopPackages.full
 
@@ -175,12 +178,10 @@
 
     scrcpy
 
-    niri
-
     # cutecom
     # kitty
-    
-    # obs-studio
+
+    obs-studio
   ];
 
   # services.xserver.displayManager.sessionPackages = [pkgs.sway];
@@ -191,10 +192,7 @@
     # edl
   ];
 
-services.udev.extraRules = 
-  ''
+  services.udev.extraRules = ''
     SUBSYSTEM=="tty", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="1001", SYMLINK+="my_serial_device"
   '';
-
-
 }

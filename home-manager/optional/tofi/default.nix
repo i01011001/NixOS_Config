@@ -2,7 +2,7 @@
   programs.tofi = {
     enable = true;
     settings = {
-      background-color = "#000000";
+      background-color = "#131313";
       border-width = 0;
       font = "Iosevka Nerd Font Propo";
       font-size = 13;

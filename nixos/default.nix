@@ -14,7 +14,7 @@
     ./core/settings
     ./core/users
     ./core/zsh
-	./core/xdg
+	# ./core/xdg
 
     ### optional
     ./optional/adb
@@ -34,6 +34,7 @@
     ./optional/opentabletdriver
 	./optional/virtual
 	# ./optional/sway
+    ./optional/niri
     ./optional/steam
     ./optional/i3
     # ./optional/qemu

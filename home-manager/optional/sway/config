@@ -2,9 +2,9 @@ include /etc/sway/config.d/*
 
 # autostart
 exec 		    mako	
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_CURRENT_DESKTOP=sway
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_CURRENT_DESKTOP=niri
 
 # style
 font 			            Iosevka Nerd Font Propo 10
@@ -19,7 +19,7 @@ title_align center
 set $bg #000000
 set $fg #FBFBFB
 
-set $darkgray0 #1b1b1b
+set $darkgray0 #131313
 set $darkgray1 #303030
 set $darkgray2 #464646
 set $lightgray0 #888888

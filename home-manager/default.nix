@@ -20,6 +20,7 @@
     ./optional/yazi
     ./optional/btop
     ./optional/satty
+    ./optional/niri
     # ./optional/sway
 	# ./optional/flameshot
     # ./optional/i3

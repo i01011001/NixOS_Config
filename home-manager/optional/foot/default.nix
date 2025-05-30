@@ -9,13 +9,13 @@
           # font = "Noto Sans CJK TC: size=10";
           # line-height = 13.5;
         resize-delay-ms=100;
-          pad = "5x5";
+          pad = "5x4";
           # term = "foot";
           # title = "Foot";
         };
         colors = {
           # alpha = 1;
-          background = "000000";
+          background = "141414";
           foreground = "E0E0E0";
 
           regular0 = "303030";

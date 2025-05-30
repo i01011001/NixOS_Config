@@ -5,16 +5,11 @@
       xdgOpenUsePortal = true;
       wlr.enable = true;
       config = {
-        common.default = ["gtk"];
+        common.default = ["gnome"];
       };
       extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-gnome
       ];
     };
   };
-
-  # environment.systemPackages = with pkgs; [
-  #   xdg-desktop-portal-gtk
-  #   xdg-desktop-portal-wlr
-  # ];
 }

@@ -18,6 +18,6 @@
       size = 10000;
       path = "$HOME/.cache/zsh/history";
     };
-    initExtraFirst = builtins.readFile ./zsh;
+    initContent = builtins.readFile ./zsh;
   };
 }
