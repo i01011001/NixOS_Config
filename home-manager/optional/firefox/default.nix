@@ -6,7 +6,7 @@
 			package = inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
 # package = pkgs.latest.firefox-nightly-bin;
 			profiles = {
-				delta = {
+				i01011001 = {
 					settings = {
 						"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 						"browser.uidensity" = 1;

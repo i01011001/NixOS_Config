@@ -3,12 +3,12 @@
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = false;
-    colors = {
-      bg = "#131313";
-      "bg+" = "#131313";
-      fg = "#dddddd";
-      "fg+" = "#dddddd";
-    };
+    # colors = {
+    #   bg = "#181818";
+    #   "bg+" = "#181818";
+    #   fg = "#dddddd";
+    #   "fg+" = "#dddddd";
+    # };
 
     defaultCommand = "fd --type file --hidden ";
     defaultOptions = [

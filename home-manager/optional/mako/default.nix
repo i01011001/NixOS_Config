@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  colors = config.lib.stylix.colors;
+  getColor = x: lib.mkForce "#colors.${x}";
+in {
   services.mako = {
     enable = true;
     # package = pkgs.mako_beta;
@@ -9,18 +17,19 @@
       sort = "-time";
 
       layer = "overlay";
-      anchor = "top-right";
+      anchor = "top-center";
 
-      font = "Iosevka Nerd Font Propo 10";
-      background-color = "#131313";
-      text-color = "#f0f0f0";
+      # font = "Iosevka Nerd Font Propo 10";
+      # background-color = lib "#181818";
+      # text-color = "#f0f0f0";
       width = 340;
       height = 100;
-      margin = "7";
-      border-size = 5;
-      border-color = "#393939";
-      border-radius = 7;
-      progress-color = "#505050";
+      margin = "20";
+      border-size = 1;
+      # border-color = lib.mkForce "#${colors.base04}";
+      border-color = getColor colors.base03;
+      border-radius = 0;
+      # progress-color = "#505050";
       icons = true;
       max-icon-size = 64;
 

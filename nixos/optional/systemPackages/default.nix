@@ -65,14 +65,10 @@
     swayimg
     swaylock
     swayidle
-    # grim
-    # slurp
-    # xdg-desktop-portal-wlr
-    # xdg-desktop-portal
     wl-clipboard
     wlr-randr
     wf-recorder
-    xwayland-satellite
+    wayland-utils
 
     #### Productivity & Utilities
     unzip
@@ -145,14 +141,13 @@
     (writeShellScriptBin "audio_mic_toggle" ''wpctl set-mute @DEFAULT_SOURCE@ toggle'')
 
     (writeShellScriptBin "enter_the_void" ''
-      dbus-run-session niri --
+      systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP='niri'
+      niri --session
+
     '')
 
     #### Custom Nix Packages
-    (import ../nixcat/default.nix {
-      inherit pkgs;
-      inherit (inputs) nixCats;
-    })
 
     ####
     ungoogled-chromium
@@ -182,6 +177,9 @@
     # kitty
 
     obs-studio
+    # (inputs.pinnacle.devShell.x86_64-linux)
+
+
   ];
 
   # services.xserver.displayManager.sessionPackages = [pkgs.sway];

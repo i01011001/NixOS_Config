@@ -1,7 +1,7 @@
 local hl = vim.api.nvim_set_hl
 local color = {
   base00 = "#000000",
-  base01 = "#141414",
+  base01 = "#181818",
   base02 = "#2F2F2F",
   base03 = "#444444",
   base04 = "#898989",
@@ -21,7 +21,7 @@ local color = {
 local colors = {
 	bg = "#000000",
 	fg = "#F9f9f9",
-	darkgray0= "#141414",
+	darkgray0= "#181818",
 	darkgray1= "#3D3D3D",
 	darkgray2= "#505050",
 	lightgray0= "#898989",

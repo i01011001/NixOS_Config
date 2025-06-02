@@ -2,12 +2,12 @@
   programs.tofi = {
     enable = true;
     settings = {
-      background-color = "#131313";
+      # background-color = "#131313";
       border-width = 0;
-      font = "Iosevka Nerd Font Propo";
-      font-size = 13;
-      text-color = "#aaaaaa";
-      selection-color = "#ffffff";
+      # font = "Iosevka Nerd Font Propo";
+      # font-size = 13;
+      # text-color = "#aaaaaa";
+      # selection-color = "#ffffff";
       height = "100%";
       num-results = 5;
       outline-width = 0;

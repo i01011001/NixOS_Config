@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-	stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix";
 
     #### neovim
     nixvim = {
@@ -20,41 +20,44 @@
 
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
-    niri.url = "github:sodiboo/niri-flake";
+    # niri.url = "github:sodiboo/niri-flake";
 
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
-    # nvf.url = "github:notashelf/nvf";
+
+    base16.url = "github:SenchoPens/base16.nix";
+
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland";
   };
 
-  outputs =
-    { nixpkgs, home-manager, ... }@inputs:
-    let
-      hostname = "nixos";
-      username = "i01011001";
-    in
-    {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    hostname = "nixos";
+    username = "i01011001";
+  in {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
 
-      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./nixos
-          ./overlays
-		  inputs.stylix.nixosModules.stylix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useUserPackages = true;
-              # useGlobalPkgs = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.${username} = {
-                imports = [
-                  ./home-manager
-                ];
-              };
-            };
-          }
-        ];
-      };
+    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./nixos
+        ./overlays
+        inputs.stylix.nixosModules.stylix
+        home-manager.nixosModules.home-manager
+
+        {
+          home-manager = {
+            useUserPackages = true;
+            useGlobalPkgs = true;
+            extraSpecialArgs = {inherit inputs;};
+            users.${username}.imports = [./home-manager];
+          };
+        }
+
+        inputs.base16.nixosModule
+      ];
     };
+  };
 }
