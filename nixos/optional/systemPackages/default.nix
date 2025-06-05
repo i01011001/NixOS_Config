@@ -90,7 +90,11 @@
 
     #### Communication & Collaboration
     slack
-    discord-unstable
+    (discord.override {
+      withOpenASAR = true;
+      withVencord = true;
+    })
+
     thunderbird
 
     #### Graphics & Media
@@ -178,8 +182,6 @@
 
     obs-studio
     # (inputs.pinnacle.devShell.x86_64-linux)
-
-
   ];
 
   # services.xserver.displayManager.sessionPackages = [pkgs.sway];

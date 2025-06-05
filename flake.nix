@@ -10,23 +10,26 @@
 
     stylix.url = "github:danth/stylix";
 
-    #### neovim
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
-    # niri.url = "github:sodiboo/niri-flake";
+    niri.url = "github:sodiboo/niri-flake";
 
-    nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    # niri = {
+    #   url = "github:YaLTer/niri";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
-    base16.url = "github:SenchoPens/base16.nix";
-
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland";
+    #nvim plugins
+    plugin-onedark = {
+      url = "github:navarasu/onedark.nvim";
+      flake = false;
+    };
+    plugin-nordic = {
+        url = "github:AlexvZyl/nordic.nvim";
+        flake = false;
+        };
   };
 
   outputs = {
@@ -45,8 +48,8 @@
         ./nixos
         ./overlays
         inputs.stylix.nixosModules.stylix
-        home-manager.nixosModules.home-manager
 
+        home-manager.nixosModules.home-manager
         {
           home-manager = {
             useUserPackages = true;
@@ -55,8 +58,6 @@
             users.${username}.imports = [./home-manager];
           };
         }
-
-        inputs.base16.nixosModule
       ];
     };
   };

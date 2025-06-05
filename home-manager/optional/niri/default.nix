@@ -1,18 +1,17 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
-  # xdg.configFile."niri/config.kdl".source = ./config.kdl;
   home.packages = with pkgs; [
-    niri
+    # (inputs.niri.packages.x86_64-linux.niri)
+    wayland-utils
     gnome-keyring
-    # xdg-desktop-portal-gnome
-    # xdg-desktop-portal-gtk
-    xwayland-satellite
-    # libsecret
-    # cage
-    # gamescope
+    xwayland-satellite-unstable
+    libsecret
+    cage
+    gamescope
   ];
 
   xdg.configFile."niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink /etc/nixos/home-manager/optional/niri/config.kdl;

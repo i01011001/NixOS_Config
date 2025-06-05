@@ -2,28 +2,30 @@
   stylix = {
     enable = true;
     base16Scheme = {
-      base08 = "bf656E"; #red
-      base09 = "de9c6e"; #Orange
-      base0A = "dbcc8c"; #yellow
-      base0B = "83ad84"; #green
-      base0C = "7dafac"; #cyan
-      base0D = "6286ad"; #blue
-      base0E = "a78eaf"; #magenta
-      base0F = "8782af"; #violet
-      base00 = "181818"; # ----
-      base01 = "3c3c3c"; # ---
-      base02 = "585858"; # --
-      base03 = "757575"; # -
-      base04 = "929292"; # +
-      base05 = "a8a8a8"; # ++
-      base06 = "c6c6c6"; # +++
-      base07 = "e4e4e4"; # ++++
+      base00 = "#181818";
+      base01 = "#282828";
+      base02 = "#383838";
+      base03 = "#585858";
+      base04 = "#B8B8B8";
+      base05 = "#D8D8D8";
+      base06 = "#E8E8E8";
+      base07 = "#F8F8F8";
+      base08 = "#BF616A"; #red
+      base09 = "#D08770"; #Orange
+      base0A = "#EBCB8B"; #yellow
+      base0B = "#A3BE8C"; #green
+      base0C = "#88C0D0"; #cyan
+      base0D = "#81A1C1"; #blue
+      base0E = "#B48EAD"; #magenta
+      base0F = "#5E81AC"; #violet
     };
+
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic-Right";
       size = 24;
     };
+
     fonts = {
       serif = {
         package = pkgs.iosevka;
@@ -54,17 +56,31 @@
         popups = 10;
       };
     };
+
+    iconTheme = {
+      enable = true;
+      package = pkgs.colloid-icon-theme;
+      dark = "Colloid-Dark";
+    };
+
     opacity = {
       applications = 1.0;
       terminal = 1.0;
       desktop = 1.0;
       popups = 1.0;
     };
+
     polarity = "dark";
 
     targets = {
-      neovim = {
+      firefox = {
         enable = true;
+        profileNames = ["i01011001"];
+      };
+
+      neovim = {
+        enable = false;
+        plugin = "mini.base16";
         transparentBackground = {
           main = true;
           numberLine = true;

@@ -6,7 +6,7 @@
 }: {
   imports = [
     ### core
-    ./core/gtk
+    # ./core/gtk
     ./core/fd
     ./core/fzf
     ./core/zsh
@@ -16,11 +16,9 @@
 
     ### optional
     ./optional/direnv
-    # ./optional/cursor
     ./optional/tofi
     ./optional/mako
     ./optional/zathura
-    ./optional/foot
     ./optional/firefox
     ./optional/yazi
     ./optional/btop
@@ -28,13 +26,16 @@
     ./optional/niri
     ./optional/stylix
     ./optional/neovim
+    ./optional/foot
+    ./optional/alacritty
+    # ./optional/waybar
+    # ./optional/hypr
+    # ./optional/cursor
     # ./optional/gbar
     # ./optional/sway
     # ./optional/flameshot
     # ./optional/i3
     # ./optional/xdg
-    # ./optional/hypr
-    ./optional/alacritty
     # ./optional/nixvim
   ];
 

@@ -17,18 +17,19 @@ overview {
     workspace-shadow {
         off
     }
-    backdrop-color "#505056"
+    backdrop-color "#4b4b4b"
 }
+
 gestures {
     hot-corners {
         off
     }
 }
 
-
 hotkey-overlay {
     skip-at-startup
 }
+
 input {
     keyboard {
         xkb {
@@ -54,21 +55,25 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-output "eDP-1" {
-    // off
-    mode "1920x1080@60"
-    scale 1
-    transform "normal"
-    position x=0 y=0
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
 }
+// /-output "eDP-1" {
+//     // off
+//     // mode "1920x1080@60"
+//     scale 1
+//     transform "normal"
+//     position x=0 y=0
+// }
 
-output "HDMI-A-2" {
-    // off
-    mode "1440x900@60"
-    scale 1
-    transform "normal"
-    position x=-1440 y=0
-}
+// output "HDMI-A-2" {
+//     // off
+//     mode "1440x900@60"
+//     scale 1
+//     transform "normal"
+//     position x=-1440 y=0
+// }
 
 layout {
     gaps 8
@@ -89,7 +94,7 @@ layout {
     focus-ring {
         off
         width 1;
-        active-color "#61afef"
+        active-color "#6286ad"
         // inactive-color "#505050"
         inactive-color "#999999"
         urgent-color "#999999"
@@ -99,7 +104,7 @@ layout {
         off
 
         width 0.5
-        active-color "#999999"
+        active-color "#6286ad"
         inactive-color "#999999"
         urgent-color "#999999"
     }
@@ -131,7 +136,7 @@ animations {
 
 window-rule {
     open-floating false
-    // geometry-corner-radius 12
+    // geometry-corner-radius 9
     // clip-to-geometry true
     draw-border-with-background true
 }
@@ -228,4 +233,5 @@ binds {
 
     Mod+Shift+P { power-off-monitors; }
 }
+
 

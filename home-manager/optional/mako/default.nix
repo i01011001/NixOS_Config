@@ -5,7 +5,7 @@
   ...
 }: let
   colors = config.lib.stylix.colors;
-  getColor = x: lib.mkForce "#colors.${x}";
+  getColor = x: lib.mkForce "#${x}";
 in {
   services.mako = {
     enable = true;

@@ -14,6 +14,7 @@
     ./core/settings
     ./core/users
     ./core/zsh
+    ./core/dbus
 	# ./core/xdg
 
     ### optional
@@ -33,8 +34,8 @@
     ./optional/multipass
     ./optional/opentabletdriver
 	./optional/virtual
-    # ./optional/niri
     ./optional/steam
+    ./optional/niri
 	# ./optional/sway
     # ./optional/i3
     # ./optional/qemu

@@ -1,7 +1,3 @@
-if not nixCats("general") then
-	return
-end
-
 local harpoon = require("harpoon")
 
 -- REQUIRED

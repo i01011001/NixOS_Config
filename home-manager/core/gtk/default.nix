@@ -1,6 +1,11 @@
 {pkgs, ...}: {
   gtk = {
     enable = true;
+
+    iconTheme = {
+      package = pkgs.colloid-icon-theme;
+      name = "Colloid-Dark";
+    };
     # font = {
     #   name = "Iosevka Nerd Font Propo";
     #   size = 10;
@@ -24,21 +29,17 @@
     #   # name = "Bibata-Modern-Classic";
     #   # size = 16;
     # };
-    iconTheme = {
-      package = pkgs.colloid-icon-theme;
-      name = "Colloid-Dark";
-    };
-    gtk3 = {
-      extraCss = builtins.readFile ./gtk.css;
-      extraConfig = {
-        gtk-application-prefer-dark-theme = "1";
-      };
-    };
-    gtk4 = {
-      extraCss = builtins.readFile ./gtk.css;
-      extraConfig = {
-        gtk-application-prefer-dark-theme = "1";
-      };
-    };
+    # gtk3 = {
+    #   extraCss = builtins.readFile ./gtk.css;
+    #   extraConfig = {
+    #     gtk-application-prefer-dark-theme = "1";
+    #   };
+    # };
+    # gtk4 = {
+    #   extraCss = builtins.readFile ./gtk.css;
+    #   extraConfig = {
+    #     gtk-application-prefer-dark-theme = "1";
+    #   };
+    # };
   };
 }

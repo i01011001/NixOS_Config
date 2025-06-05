@@ -1,7 +1,3 @@
-if not nixCats('general') then
-	return
-end
-
 require("oil").setup({
   keymaps = {
     ["g?"] = { "actions.show_help", mode = "n" },

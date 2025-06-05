@@ -64,6 +64,7 @@ export TERM=xterm-256color
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
 export IDF_PATH="$HOME/code/esp/idf/esp-idf"
 export RMAKER_PATH="$HOME/code/esp/idf/esp-components/esp-rainmaker/"
+export IDF_CCACHE_ENABLE=1
 
 # export MANPAGER="nvim -c 'Man!' -o -"
 

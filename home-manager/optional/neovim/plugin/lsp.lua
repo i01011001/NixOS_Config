@@ -1,7 +1,3 @@
-if not nixCats("general") then
-	return
-end
-
 function lsp_setup(lang)
 	if not vim.fn.executable(lang.cmd[1]) then
 		vim.notify(string.format('LSP server "%s" not found.', lang.name), vim.log.levels.WARN)

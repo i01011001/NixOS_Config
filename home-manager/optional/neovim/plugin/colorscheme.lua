@@ -1,7 +1,3 @@
-if not nixCats("general") then
-	return
-end
-
 local colors = {
 	bg = "#181818",
 	fg = "#FBFBFB",

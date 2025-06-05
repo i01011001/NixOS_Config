@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   nixpkgs.overlays = [
     # (final: prev: {
     # wireshark = prev.wireshark.overrideAttrs (oldAttrs:{
@@ -15,12 +18,10 @@
 
     (final: prev: {
       old_libunistring = prev.libunistring.overrideAttrs (
-        oldAttrs:
-        let
+        oldAttrs: let
           pname = "libunistring";
           version = "0.9.10";
-        in
-        {
+        in {
           version = "${version}";
           src = pkgs.fetchurl {
             url = "mirror://gnu/libunistring/${pname}-${version}.tar.gz";
@@ -28,19 +29,11 @@
           };
         }
       );
-
-      discord-unstable = prev.discord.override {
-        withOpenASAR = true;
-        withVencord = true;
-      };
-
-      mako_beta = prev.mako.overrideAttrs (oldAttrs: {
-        src = ../customs/pkgs/mako;
-      });
-
     })
 
-    (self: super: {
+    inputs.niri.overlays.niri
+
+    (final: super: {
       dwl =
         (super.dwl.overrideAttrs (oldAttrs: {
           patches = [
@@ -60,7 +53,23 @@
             # ../customs/pkgs/dwl/dwl-patches/cfact.patch
           ];
         })).override
-          { configH = ../customs/pkgs/dwl/config.h; };
+        {configH = ../customs/pkgs/dwl/config.h;};
+    })
+
+    (final: prev: {
+      vimPlugins =
+        prev.vimPlugins
+        // {
+          nordic = prev.vimUtils.buildVimPlugin {
+            name = "nordic";
+            src = inputs.plugin-nordic;
+          };
+
+          own-onedark-nvim = prev.vimUtils.buildVimPlugin {
+            name = "onedark";
+            src = inputs.plugin-onedark;
+          };
+        };
     })
   ];
 }

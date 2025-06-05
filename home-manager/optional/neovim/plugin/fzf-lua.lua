@@ -1,7 +1,3 @@
-if not nixCats("general") then
-	return
-end
-
 require("fzf-lua").setup({
 	winopts = {
 		fullscreen = true,

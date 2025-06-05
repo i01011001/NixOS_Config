@@ -1,36 +1,41 @@
 {pkgs, ...}: {
   xdg = {
-    portal = {
+    # portal = {
+    #   enable = true;
+    #   xdgOpenUsePortal = true;
+    #   config = {
+    #     common = {
+    #       default = [
+    #         "gnome"
+    #         "gtk"
+    #       ];
+    #       "org.freedesktop.impl.portal.Secret" = [
+    #         "gnome-keyring"
+    #       ];
+    #     };
+    #   };
+    #   extraPortals = [
+    #     pkgs.xdg-desktop-portal-gnome
+    #     pkgs.xdg-desktop-portal-gtk
+    #   ];
+    # };
+
+    mimeApps = {
       enable = true;
-      xdgOpenUsePortal = true;
-      config = {
-        common = {
-          default = ["*"];
-        };
+      defaultApplications = {
+        "inode/directory" = ["term_fm.desktop"];
       };
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gnome
-        pkgs.xdg-desktop-portal-gtk
-      ];
     };
 
-    # mimeApps = {
-    #   enable = true;
-    #   defaultApplications = {
-    #     "inode/directory" = ["term_fm.desktop"];
-    #   };
-    # };
-    #
-    # desktopEntries = {
-    #   term_fm = {
-    #     name = "Terminal File Manager";
-    #     genericName = "File Manager";
-    #     exec = "foot -e ranger %U"; # Launch ranger in foot for directory handling
-    #     terminal = false; # foot is a terminal emulator, no additional terminal needed
-    #     mimeType = ["inode/directory"];
-    #     type = "Application";
-    #     categories = ["Utility;FileManager"]; # Semicolon-separated for desktop menu
-    #   };
-    # };
+    desktopEntries = {
+      term_fm = {
+        name = "Terminal File Manager";
+        genericName = "File Manager";
+        exec = "foot -e yazi %U"; # Assuming `lf` is the terminal file manager
+        terminal = true; # foot is a terminal; setting this true
+        mimeType = ["inode/directory"];
+        categories = ["Utility" "FileManager"];
+      };
+    };
   };
 }

@@ -1,6 +1,3 @@
-if not nixCats("general") then
-	return
-end
 local conform = require("conform")
 conform.setup({
 	formatters_by_ft = {
