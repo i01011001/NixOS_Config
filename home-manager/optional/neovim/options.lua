@@ -86,9 +86,10 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menu,preview,noselect"
 
-vim.opt.wildoptions:remove("pum") -- Remove 'pum' from 'wildoptions'
+-- vim.opt.wildoptions:remove("pum") -- Remove 'pum' from 'wildoptions'
 vim.opt.laststatus = 0 -- Set laststatus to 0
 vim.opt.statusline = "%{repeat('─',winwidth('.'))}" -- Set a dynamic statusline
+-- vim.opt.cmdheight = 0
 
 -- vim.o.winborder = "rounded"
 
@@ -104,6 +105,7 @@ vim.g.netrw_liststyle = 0
 vim.g.netrw_banner = 0
 -- [[ Disable auto comment on enter ]]
 -- See :help formatoptions
+
 vim.api.nvim_create_autocmd("FileType", {
 	desc = "remove formatoptions",
 	callback = function()

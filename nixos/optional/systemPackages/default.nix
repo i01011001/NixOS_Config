@@ -144,6 +144,14 @@
     (writeShellScriptBin "audio_toggle" ''wpctl set-mute @DEFAULT_SINK@ toggle'')
     (writeShellScriptBin "audio_mic_toggle" ''wpctl set-mute @DEFAULT_SOURCE@ toggle'')
 
+    # (writeShellScriptBin "notifybattery" ''notify-send "Capacity" "`echo $(cat /sys/class/power_supply/BAT1/capacity & cat /sys/class/power_supply/BAT1/status)`"'')
+    # (writeShellScriptBin "notifybrightness" ''notify-send "Brightness" "`brightnessctl g`"'')
+    # (writeShellScriptBin "notifytime" ''notify-send  "`date +%H:%M`" "`date +%A` `date +%d`. `date +%B`"'')
+    # (writeShellScriptBin "notifyvolume" ''notify-send "Volume" "`wpctl get-volume @DEFAULT_SINK@ | tr -d Volume:\ `"'')
+   
+    (writeShellScriptBin "notify-widget" ''notify-send "`echo $(cat /sys/class/power_supply/BAT1/capacity & cat /sys/class/power_supply/BAT1/status)` | `brightnessctl g` | `wpctl get-volume @DEFAULT_SINK@ | tr -d Volume:\ ` | `date +%A` `date +%d`. `date +%B` "
+'')
+
     (writeShellScriptBin "enter_the_void" ''
       systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP='niri'
@@ -151,6 +159,7 @@
 
     '')
 
+    (writeShellScriptBin "nval" ''nvidia-offload alacritty'')
     #### Custom Nix Packages
 
     ####
@@ -182,6 +191,13 @@
 
     obs-studio
     # (inputs.pinnacle.devShell.x86_64-linux)
+    nautilus
+    # proton-ge-bin
+    # dwl
+
+    steam-run
+    testdisk
+    # gnome-randr
   ];
 
   # services.xserver.displayManager.sessionPackages = [pkgs.sway];

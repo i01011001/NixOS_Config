@@ -16,6 +16,7 @@
 
     niri.url = "github:sodiboo/niri-flake";
 
+
     # niri = {
     #   url = "github:YaLTer/niri";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +31,14 @@
         url = "github:AlexvZyl/nordic.nvim";
         flake = false;
         };
+    plugin-moonfly = {
+        url = "github:bluz71/vim-moonfly-colors";
+        flake = false;
+        };
+    mellifluos = {
+        url = "github:ramojus/mellifluous.nvim";
+        flake = false;
+    };
   };
 
   outputs = {

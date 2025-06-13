@@ -69,6 +69,16 @@
             name = "onedark";
             src = inputs.plugin-onedark;
           };
+
+          moonfly = prev.vimUtils.buildVimPlugin {
+            name = "moonfly";
+            src = inputs.plugin-moonfly;
+          };
+
+          mellifluos = prev.vimUtils.buildVimPlugin {
+            name = "melliflous";
+            src = inputs.mellifluos;
+          };
         };
     })
   ];

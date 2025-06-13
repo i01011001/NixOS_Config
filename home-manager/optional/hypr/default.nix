@@ -13,6 +13,7 @@
 
     plugins = with pkgs.hyprlandPlugins; [
       hyprsplit
+      hy3
     ];
 
     settings = {
@@ -20,8 +21,8 @@
         ''eDP-1, 1920x1080@144, 0x0, 1''
         ''HDMI-A-2,1440x900,-1440x0,1''
       ];
-      "$terminal" = "alacritty";
-      "$fileManager" = "thunar";
+      "$terminal" = "foot";
+      "$fileManager" = "";
       "$menu_drun" = "tofi-drun";
       "$menu_run" = "exec $(tofi-run)";
 

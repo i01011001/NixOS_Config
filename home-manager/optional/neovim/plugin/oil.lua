@@ -17,9 +17,9 @@ require("oil").setup({
     ["g."] = { "actions.toggle_hidden", mode = "n" },
     ["g\\"] = { "actions.toggle_trash", mode = "n" },
   },
-  keymaps_help = {
-    border = "rounded",
-  },
+  -- keymaps_help = {
+  --   border = "rounded",
+  -- },
 })
 
 vim.keymap.set('n', '-', "<cmd>Oil<cr>", { desc = 'Oil' })

@@ -1,5 +1,5 @@
 {
-  pkgs,
+  # pkgs,
   lib,
   inputs,
   ...
@@ -26,10 +26,12 @@
     ./optional/niri
     ./optional/stylix
     ./optional/neovim
+
     ./optional/foot
+    ./optional/wezterm
     ./optional/alacritty
-    # ./optional/waybar
     # ./optional/hypr
+    # ./optional/waybar
     # ./optional/cursor
     # ./optional/gbar
     # ./optional/sway

@@ -36,9 +36,9 @@
       "*.log"
       "managed_components"
 
-      # Build directories
-      "/build/"
-	  "*/build/"
+	  #    # Build directories
+	  #    "/build/"
+	  # "*/build/"
       "*.d"
       "yeti-docs"
 

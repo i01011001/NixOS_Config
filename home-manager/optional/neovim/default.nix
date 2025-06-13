@@ -45,7 +45,22 @@
       harpoon2
       nvim-treesitter
       nvim-lspconfig
-      nordic
+      kanagawa-nvim
+      # nui-nvim
+      # noice-nvim
+      #   nvim-treesitter-textobjects
+      #   nvim-treesitter.withAllGrammars
+      # # vscode-nvim
+      # github-nvim-theme
+      # mellifluos
+      # no-clown-fiesta-nvim
+
+      # nightfox-nvim
+      # kanagawa-paper-nvim
+      # lualine-nvim
+      # nordic
+      # moonfly
+      # base16-nvim
       # (onedark-nvim.overrideAttrs (oldAttrs: {
       #   meta = oldAttrs.meta // { skipNeovimRequireCheck = true; };
       # }))
@@ -53,6 +68,11 @@
 
     # ${builtins.readFile ./plugin/lsp.lua}
     # ${builtins.readFile ./plugin/colorscheme.lua}
+    # ${builtins.readFile ./plugin/nightfox.lua}
+    # ${builtins.readFile ./plugin/lualine.lua}
+    # ${builtins.readFile ./plugin/vscode.lua}
+    # ${builtins.readFile ./plugin/treesitter.lua}
+    # ${builtins.readFile ./plugin/noice.lua}
     extraLuaConfig = ''
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./plugin/diffview.lua}
@@ -64,10 +84,11 @@
       ${builtins.readFile ./plugin/markdown.lua}
       ${builtins.readFile ./plugin/oil.lua}
       ${builtins.readFile ./plugin/lspconfig.lua}
+      ${builtins.readFile ./plugin/whichkey.lua}
+      ${builtins.readFile ./plugin/kanagawa.lua}
     '';
   };
-  imports = 
-  [
-        ./theme/default.nix
+  imports = [
+    # ./theme/default.nix
   ];
 }

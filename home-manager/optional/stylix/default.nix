@@ -2,22 +2,22 @@
   stylix = {
     enable = true;
     base16Scheme = {
-      base00 = "#181818";
-      base01 = "#282828";
-      base02 = "#383838";
-      base03 = "#585858";
-      base04 = "#B8B8B8";
-      base05 = "#D8D8D8";
-      base06 = "#E8E8E8";
-      base07 = "#F8F8F8";
-      base08 = "#BF616A"; #red
-      base09 = "#D08770"; #Orange
-      base0A = "#EBCB8B"; #yellow
-      base0B = "#A3BE8C"; #green
-      base0C = "#88C0D0"; #cyan
-      base0D = "#81A1C1"; #blue
-      base0E = "#B48EAD"; #magenta
-      base0F = "#5E81AC"; #violet
+      base00 = "181616";
+      base01 = "0d0c0c";
+      base02 = "2d4f67";
+      base03 = "a6a69c";
+      base04 = "7fb4ca";
+      base05 = "c5c9c5";
+      base06 = "938aa9";
+      base07 = "c5c9c5";
+      base08 = "c4746e";
+      base09 = "e46876";
+      base0A = "c4b28a";
+      base0B = "8a9a7b";
+      base0C = "8ea4a2";
+      base0D = "8ba4b0";
+      base0E = "a292a3";
+      base0F = "7aa89f";
     };
 
     cursor = {
@@ -35,14 +35,14 @@
 
       sansSerif = {
         package = pkgs.iosevka;
-        name = "Iosevka Nerd Font Mono";
+        name = "Iosevka Nerd Font Propo";
         # size = 10;
       };
 
       monospace = {
         package = pkgs.nerd-fonts.iosevka;
         name = "Iosevka Nerd Font Mono";
-        # size = 10;
+        # size = 9;
       };
 
       emoji = {
@@ -77,7 +77,7 @@
         enable = true;
         profileNames = ["i01011001"];
       };
-
+      wezterm.enable = true;
       neovim = {
         enable = false;
         plugin = "mini.base16";

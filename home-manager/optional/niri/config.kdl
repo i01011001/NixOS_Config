@@ -10,6 +10,7 @@ environment {
     WLR_RENDERER "vulkan"
     GTK_USE_PORTAL "1"
     TERMINAL "foot"
+    TERM "xterm-256color"
 }
 
 overview {
@@ -17,7 +18,7 @@ overview {
     workspace-shadow {
         off
     }
-    backdrop-color "#4b4b4b"
+    backdrop-color "#42403d"
 }
 
 gestures {
@@ -101,11 +102,11 @@ layout {
     }
 
     border {
-        off
+        // off
 
-        width 0.5
-        active-color "#6286ad"
-        inactive-color "#999999"
+        width 0.1
+        active-color "#505050"
+        inactive-color "#505050"
         urgent-color "#999999"
     }
 
@@ -125,6 +126,14 @@ layout {
         // You can also change the shadow color and opacity.
         color "#fff7"
     }
+    struts {
+        left 0
+        right 0
+        top 0
+
+        bottom 0
+
+    }
 }
 
 prefer-no-csd
@@ -135,10 +144,11 @@ animations {
 }
 
 window-rule {
+    // opacity 
     open-floating false
-    // geometry-corner-radius 9
-    // clip-to-geometry true
-    draw-border-with-background true
+    geometry-corner-radius 9
+    clip-to-geometry true
+    // tiled-state true
 }
 
 binds {
@@ -147,7 +157,9 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+P hotkey-overlay-title="Run an Application: tofi-drun" { spawn "tofi-drun"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+
+    Mod+Space hotkey-overlay-title="Run Notify-widget" { spawn "notify-widget"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "audio_up"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "audio_down"; }
@@ -233,5 +245,3 @@ binds {
 
     Mod+Shift+P { power-off-monitors; }
 }
-
-

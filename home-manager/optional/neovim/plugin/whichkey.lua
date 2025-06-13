@@ -1,4 +1,4 @@
 require("which-key").setup({
-  preset = "modern",
+  preset = "classic",
   delay = 500,
 })

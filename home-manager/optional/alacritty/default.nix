@@ -4,8 +4,8 @@
     settings = {
       window = {
         padding = {
-          x = 7;
-          y = 7;
+          x = 5;
+          y = 5;
         };
         # dynamic_padding = true;
         decorations = "None";

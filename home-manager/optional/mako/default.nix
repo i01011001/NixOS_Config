@@ -17,18 +17,20 @@ in {
       sort = "-time";
 
       layer = "overlay";
-      anchor = "top-center";
+      anchor = "top-right";
 
       # font = "Iosevka Nerd Font Propo 10";
       # background-color = lib "#181818";
       # text-color = "#f0f0f0";
-      width = 340;
+      width = 420;
       height = 100;
-      margin = "20";
+      margin = "10";
+      outer-margin = "20";
       border-size = 1;
-      # border-color = lib.mkForce "#${colors.base04}";
-      border-color = getColor colors.base03;
-      border-radius = 0;
+      border-color = lib.mkForce "#505050";
+      text-alignment= "center";
+      # border-color = getColor colors.base03;
+      border-radius = 9;
       # progress-color = "#505050";
       icons = true;
       max-icon-size = 64;

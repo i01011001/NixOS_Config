@@ -15,7 +15,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel"];
   boot.extraModulePackages = [ ];
-  boot.kernelPackages = pkgs.linuxPackages_6_14;
+  boot.kernelPackages = pkgs.linuxPackages_6_15;
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXROOT";

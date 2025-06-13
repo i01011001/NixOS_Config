@@ -34,7 +34,6 @@
     ./optional/multipass
     ./optional/opentabletdriver
 	./optional/virtual
-    ./optional/steam
     ./optional/niri
 	# ./optional/sway
     # ./optional/i3
