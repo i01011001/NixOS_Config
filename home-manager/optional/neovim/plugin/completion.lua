@@ -9,7 +9,7 @@ require("blink.cmp").setup({
 	signature = {
 		enabled = true,
 		window = {
-			-- border = "rounded",
+			border = "rounded",
 		},
 	},
 
@@ -21,7 +21,7 @@ require("blink.cmp").setup({
 			enabled = true,
 			min_width = 10,
 			max_height = 10,
-			-- border = "rounded", -- Defaults to `vim.o.winborder` on nvim 0.11+
+			border = "rounded", -- Defaults to `vim.o.winborder` on nvim 0.11+
 
 			winblend = 0,
 			scrolloff = 2,
@@ -63,7 +63,7 @@ require("blink.cmp").setup({
 				min_width = 20,
 				max_width = 80,
 				max_height = 20,
-				-- border = "rounded", -- Defaults to `vim.o.winborder` on nvim 0.11+ or 'padded' when not defined/<=0.10
+				border = "rounded", -- Defaults to `vim.o.winborder` on nvim 0.11+ or 'padded' when not defined/<=0.10
 				scrollbar = false,
 			},
 		},

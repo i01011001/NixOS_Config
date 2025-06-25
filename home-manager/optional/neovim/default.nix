@@ -45,7 +45,15 @@
       harpoon2
       nvim-treesitter
       nvim-lspconfig
-      kanagawa-nvim
+      # kanagawa-nvim
+      # zenbones-nvim
+      # no-clown-fiesta-nvim
+      # lackluster-nvim
+      
+      # material-nvim
+      # oh-lucy
+      # kanagawa-paper-nvim
+      kanso
       # nui-nvim
       # noice-nvim
       #   nvim-treesitter-textobjects
@@ -68,11 +76,12 @@
 
     # ${builtins.readFile ./plugin/lsp.lua}
     # ${builtins.readFile ./plugin/colorscheme.lua}
-    # ${builtins.readFile ./plugin/nightfox.lua}
     # ${builtins.readFile ./plugin/lualine.lua}
     # ${builtins.readFile ./plugin/vscode.lua}
     # ${builtins.readFile ./plugin/treesitter.lua}
     # ${builtins.readFile ./plugin/noice.lua}
+    # ${builtins.readFile ./plugin/kanagawa.lua}
+   # ${builtins.readFile ./plugin/nightfox.lua}
     extraLuaConfig = ''
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./plugin/diffview.lua}
@@ -85,7 +94,7 @@
       ${builtins.readFile ./plugin/oil.lua}
       ${builtins.readFile ./plugin/lspconfig.lua}
       ${builtins.readFile ./plugin/whichkey.lua}
-      ${builtins.readFile ./plugin/kanagawa.lua}
+      ${builtins.readFile ./plugin/kanso.lua}
     '';
   };
   imports = [

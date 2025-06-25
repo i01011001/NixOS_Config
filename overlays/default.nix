@@ -79,6 +79,18 @@
             name = "melliflous";
             src = inputs.mellifluos;
           };
+          kanso= prev.vimUtils.buildVimPlugin {
+            name = "kanso";
+            src = inputs.kanso;
+          };
+          oh-lucy= prev.vimUtils.buildVimPlugin {
+            name = "oh-lucy";
+            src = inputs.oh-lucy;
+          };
+          rasmus = prev.vimUtils.buildVimPlugin {
+            name = "rasmus";
+            src = inputs.rasmus;
+          };
         };
     })
   ];

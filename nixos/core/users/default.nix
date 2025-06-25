@@ -14,6 +14,7 @@
         "lp"
         "scanner"
         "networkmanager"
+        "docker"
       ];
     };
     defaultUserShell = pkgs.zsh;

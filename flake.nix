@@ -8,14 +8,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
     niri.url = "github:sodiboo/niri-flake";
-
 
     # niri = {
     #   url = "github:YaLTer/niri";
@@ -28,16 +30,28 @@
       flake = false;
     };
     plugin-nordic = {
-        url = "github:AlexvZyl/nordic.nvim";
-        flake = false;
-        };
+      url = "github:AlexvZyl/nordic.nvim";
+      flake = false;
+    };
     plugin-moonfly = {
-        url = "github:bluz71/vim-moonfly-colors";
-        flake = false;
-        };
+      url = "github:bluz71/vim-moonfly-colors";
+      flake = false;
+    };
     mellifluos = {
-        url = "github:ramojus/mellifluous.nvim";
-        flake = false;
+      url = "github:ramojus/mellifluous.nvim";
+      flake = false;
+    };
+    kanso = {
+      url = "github:webhooked/kanso.nvim";
+      flake = false;
+    };
+    oh-lucy = {
+      url = "github:yazeed1s/oh-lucy.nvim";
+      flake = false;
+    };
+    rasmus = {
+      url = "github:kvrohit/rasmus.nvim";
+      flake = false;
     };
   };
 

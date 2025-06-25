@@ -28,7 +28,8 @@
     ./optional/neovim
 
     ./optional/foot
-    ./optional/wezterm
+    # ./optional/fnott
+    # ./optional/wezterm
     ./optional/alacritty
     # ./optional/hypr
     # ./optional/waybar

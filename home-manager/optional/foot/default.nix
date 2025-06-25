@@ -8,8 +8,8 @@
           # font = "Iosevka Nerd Font: size=10, ";
           # font = "Noto Sans CJK TC: size=10";
           # line-height = 13.5;
-        resize-delay-ms=100;
-          pad = "5x4";
+          resize-delay-ms = 100;
+          pad = "6x6 center";
           # term = "foot";
           # title = "Foot";
         };
@@ -36,6 +36,9 @@
         #   bright6 = "7dafac";
         #   bright7 = "d0d0d0";
         # };
+        csd = {
+            preferred = "server";
+        };
         scrollback = {
           lines = 5000;
           multiplier = 2;
@@ -48,8 +51,8 @@
           beam-thickness = 1;
         };
         mouse = {
-            hide-when-typing = "yes";
-            };
+          hide-when-typing = "yes";
+        };
       };
     };
   };

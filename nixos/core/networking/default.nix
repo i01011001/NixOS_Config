@@ -1,16 +1,16 @@
 {
   networking = {
-    # networkmanager = {
-    # 	enable = true;
-    # 	wifi.backend = "iwd";
-    # 	};
+    networkmanager = {
+    	enable = true;
+    	# wifi.backend = "iwd";
+    	};
     hostName = "nixos";
-    wireless.iwd = {
-      enable = true;
-      settings = {
-        Settings.AutoConnect = true;
-      };
-    };
+    # wireless.iwd = {
+    #   enable = true;
+    #   settings = {
+    #     Settings.AutoConnect = true;
+    #   };
+    # };
     firewall = {
       enable = false;
       allowedTCPPorts = [ 22 ];

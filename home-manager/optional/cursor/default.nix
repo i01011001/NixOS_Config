@@ -6,6 +6,6 @@
     # size = 32;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic-Right";
-    size = 24;
+    size = 16;
   };
 }

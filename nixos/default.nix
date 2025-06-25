@@ -24,6 +24,7 @@
     ./optional/nix-ld
     ./optional/nvidia
     # ./optional/printer
+    # ./optional/steam
     ./optional/scanner
     ./optional/ssh
     ./optional/systemPackages
@@ -35,6 +36,7 @@
     ./optional/opentabletdriver
 	./optional/virtual
     ./optional/niri
+    ./optional/stylix
 	# ./optional/sway
     # ./optional/i3
     # ./optional/qemu

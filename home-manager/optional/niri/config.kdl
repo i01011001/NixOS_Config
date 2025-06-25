@@ -18,7 +18,7 @@ overview {
     workspace-shadow {
         off
     }
-    backdrop-color "#42403d"
+    backdrop-color "#2d2d2d"
 }
 
 gestures {
@@ -54,6 +54,7 @@ input {
 
     warp-mouse-to-focus mode="center-xy"
     focus-follows-mouse max-scroll-amount="0%"
+
 }
 
 layer-rule {
@@ -105,9 +106,10 @@ layout {
         // off
 
         width 0.1
-        active-color "#505050"
-        inactive-color "#505050"
-        urgent-color "#999999"
+        active-color "#3d3d3d"
+        // active-color "#808080"
+        inactive-color "#3d3d3d"
+        urgent-color "#3d3d3d"
     }
 
     shadow {
@@ -141,6 +143,53 @@ prefer-no-csd
 screenshot-path "~/media/images/screenshots from %Y-%m-%d %H-%M-%S.png"
 
 animations {
+    // Uncomment to turn off all animations.
+    // You can also put "off" into each individual animation to disable it.
+    // off
+
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    // slowdown 3.0
+
+    // Individual animations.
+
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=1600 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.0 stiffness=1600 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=1.0 stiffness=1600 epsilon=0.0001
+    }
+
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=2000 epsilon=0.001
+    }
+
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=1600 epsilon=0.0001
+    }
 }
 
 window-rule {
@@ -160,6 +209,7 @@ binds {
     Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     Mod+Space hotkey-overlay-title="Run Notify-widget" { spawn "notify-widget"; }
+    Mod+Alt+Space hotkey-overlay-title="Run Notify-network" { spawn "notify-network"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "audio_up"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "audio_down"; }

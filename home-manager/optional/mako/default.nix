@@ -17,7 +17,7 @@ in {
       sort = "-time";
 
       layer = "overlay";
-      anchor = "top-right";
+      anchor = "bottom-right";
 
       # font = "Iosevka Nerd Font Propo 10";
       # background-color = lib "#181818";
@@ -25,9 +25,9 @@ in {
       width = 420;
       height = 100;
       margin = "10";
-      outer-margin = "20";
+      outer-margin = "16, 6, 16, 6";
       border-size = 1;
-      border-color = lib.mkForce "#505050";
+      border-color = lib.mkForce "#404040";
       text-alignment= "center";
       # border-color = getColor colors.base03;
       border-radius = 9;

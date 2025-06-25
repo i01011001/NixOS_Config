@@ -31,7 +31,7 @@
 
     #### Development Environment
     vscode
-    deno
+    # deno
     nodejs_22
     luajit
     luarocks
@@ -78,7 +78,7 @@
     sqlitebrowser
     ntfs3g
     transmission_4-gtk
-    rpi-imager
+    # rpi-imager
     system-config-printer
     usbutils
     alsa-utils
@@ -137,8 +137,8 @@
     #### Custom Shortcuts & Scripts
 
     (writeShellScriptBin "capture_whole" ''flameshot gui -p ~/media/images/screenshots/ -r | wl-copy'')
-    (writeShellScriptBin "brightness_down" ''brightnessctl set 1%-'')
-    (writeShellScriptBin "brightness_up" ''brightnessctl set 1%+'')
+    (writeShellScriptBin "brightness_down" ''brightnessctl set 2%-'')
+    (writeShellScriptBin "brightness_up" ''brightnessctl set 2%+'')
     (writeShellScriptBin "audio_up" ''wpctl set-volume @DEFAULT_SINK@ 2%+'')
     (writeShellScriptBin "audio_down" ''wpctl set-volume @DEFAULT_SINK@ 2%-'')
     (writeShellScriptBin "audio_toggle" ''wpctl set-mute @DEFAULT_SINK@ toggle'')
@@ -149,18 +149,20 @@
     # (writeShellScriptBin "notifytime" ''notify-send  "`date +%H:%M`" "`date +%A` `date +%d`. `date +%B`"'')
     # (writeShellScriptBin "notifyvolume" ''notify-send "Volume" "`wpctl get-volume @DEFAULT_SINK@ | tr -d Volume:\ `"'')
    
-    (writeShellScriptBin "notify-widget" ''notify-send "`echo $(cat /sys/class/power_supply/BAT1/capacity & cat /sys/class/power_supply/BAT1/status)` | `brightnessctl g` | `wpctl get-volume @DEFAULT_SINK@ | tr -d Volume:\ ` | `date +%A` `date +%d`. `date +%B` "
-'')
-
-    (writeShellScriptBin "enter_the_void" ''
-      systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP='niri'
-      niri --session
-
+    (writeShellScriptBin "notify-widget" ''notify-send "`echo $(cat /sys/class/power_supply/BAT1/capacity & cat /sys/class/power_supply/BAT1/status)` | `brightnessctl g` | `wpctl get-volume @DEFAULT_SINK@ | tr -d Volume:\ ` | `date +%H:%M` `date +%A` `date +%d`. `date +%B` " '')
+    (writeShellScriptBin "notify-network" '' 
+        iface=$(ip route | awk '/default/ {print $5}' | head -n1)
+        local_ip=$(ip -4 addr show "$iface" | awk '/inet / {print $2}' | cut -d/ -f1)
+        if iw dev "$iface" info &>/dev/null; then
+            ssid=$(iw dev "$iface" link | awk -F': ' '/SSID/ {print $2}')
+            bitrate=$(iw dev "$iface" link | awk -F': ' '/tx bitrate/ {print $2}')
+            signal=$(iw dev "$iface" link | awk '/signal:/ {print $2 " dBm"}')
+            notify-send "$ssid | $local_ip | $signal"
+        else
+            notify-send "$iface | $local_ip"
+        fi
     '')
 
-    (writeShellScriptBin "nval" ''nvidia-offload alacritty'')
-    #### Custom Nix Packages
 
     ####
     ungoogled-chromium
@@ -197,6 +199,7 @@
 
     steam-run
     testdisk
+    iw
     # gnome-randr
   ];
 
