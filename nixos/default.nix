@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ### core
     ./core/audio
@@ -10,12 +9,12 @@
     ./core/hardware
     ./core/networking
     ./core/opengl
-    ./core/qt
+    # ./core/qt
     ./core/settings
     ./core/users
     ./core/zsh
     ./core/dbus
-	# ./core/xdg
+    # ./core/xdg
 
     ### optional
     ./optional/adb
@@ -34,15 +33,22 @@
     ./optional/mosquitto
     ./optional/multipass
     ./optional/opentabletdriver
-	./optional/virtual
+    ./optional/virtual
     ./optional/niri
     ./optional/stylix
-	# ./optional/sway
+    # ./optional/sway
     # ./optional/i3
     # ./optional/qemu
     # ./optional/x11
-
   ];
+
+  # console = {
+  #   packages = with pkgs; [
+  #     terminus-nerdfont
+  #     terminus_font
+  #   ];
+  #   font = "ter-v16n";
+  # };
 
   programs.nano.enable = false;
   time.timeZone = "Asia/Kathmandu";

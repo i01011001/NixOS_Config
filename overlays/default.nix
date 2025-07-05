@@ -74,7 +74,6 @@
             name = "moonfly";
             src = inputs.plugin-moonfly;
           };
-
           mellifluos = prev.vimUtils.buildVimPlugin {
             name = "melliflous";
             src = inputs.mellifluos;

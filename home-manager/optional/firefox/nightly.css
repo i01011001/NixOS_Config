@@ -1,4 +1,10 @@
 
+/* Prevent window border/titlebar color change on focus/unfocus */
+:root {
+  --lwt-accent-color-inactive: var(--lwt-accent-color) !important;
+  --lwt-text-color-inactive: var(--lwt-text-color) !important;
+}
+
 .titlebar-spacer {
     display     : none !important;
 }

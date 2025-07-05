@@ -30,6 +30,7 @@
       marksman
       gopls
       pyright
+      vscode-langservers-extracted
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -45,30 +46,7 @@
       harpoon2
       nvim-treesitter
       nvim-lspconfig
-      # kanagawa-nvim
-      # zenbones-nvim
-      # no-clown-fiesta-nvim
-      # lackluster-nvim
-      
-      # material-nvim
-      # oh-lucy
-      # kanagawa-paper-nvim
       kanso
-      # nui-nvim
-      # noice-nvim
-      #   nvim-treesitter-textobjects
-      #   nvim-treesitter.withAllGrammars
-      # # vscode-nvim
-      # github-nvim-theme
-      # mellifluos
-      # no-clown-fiesta-nvim
-
-      # nightfox-nvim
-      # kanagawa-paper-nvim
-      # lualine-nvim
-      # nordic
-      # moonfly
-      # base16-nvim
       # (onedark-nvim.overrideAttrs (oldAttrs: {
       #   meta = oldAttrs.meta // { skipNeovimRequireCheck = true; };
       # }))

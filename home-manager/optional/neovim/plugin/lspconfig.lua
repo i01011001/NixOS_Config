@@ -5,7 +5,12 @@ langs = {
     "nixd",
     "marksman",
     "lua_ls",
-    "ts_ls"
+    "ts_ls",
+    "cssls",
+    "html",
+    "jsonls",
+    "qmlls",
+    "cmake",
 }
 
 for _, lang in pairs(langs) do

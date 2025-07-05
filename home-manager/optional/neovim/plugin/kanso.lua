@@ -1,8 +1,9 @@
 
 local colors = {
-	bg = "#161616",
-    black = "#030303",
-	darkgray = "#3d3d3d",
+	gray0 = "#121212",
+    gray1 = "#212121",
+    gray2 = "#303030";
+	gray3 = "#4d4d4d",
 }
 
 -- Default options:
@@ -21,10 +22,10 @@ require("kanso").setup({
 	terminalColors = true, -- define vim.g.terminal_color_{0,17}
 	colors = { -- add/modify theme and palette colors
 		palette = {
-			zen0 = colors.bg,
-			zen1 = colors.black,
-			zen2 = "#292929",
-			zen3 = colors.darkgray,
+			zen0 = colors.gray0,
+			zen1 = colors.gray1,
+			zen2 = colors.gray2,
+			zen3 = colors.gray3,
 
 		},
 	},
@@ -33,7 +34,6 @@ require("kanso").setup({
 	end,
 })
 
-
 vim.api.nvim_command("hi clear")
 if vim.fn.exists("syntax_on") then
 	vim.api.nvim_command("syntax reset")
@@ -41,40 +41,37 @@ end
 -- setup must be called before loading
 vim.cmd("colorscheme kanso-zen")
 
-
 local groups = {
 	--------------------------- Plugin ----------------------------
 	---------------------------------------------------------------
 	---Blink---
-	BlinkCmpMenuBorder = { fg = colors.darkgray },
-	BlinkCmpDocBorder = { fg = colors.darkgray },
-	BlinkCmpSignatureHelpBorder = { fg = colors.darkgray },
+	BlinkCmpMenuBorder = { fg = colors.gray3 },
+	BlinkCmpDocBorder = { fg = colors.gray3 },
+	BlinkCmpSignatureHelpBorder = { fg = colors.gray3 },
 
-	FzfLuaBorder = { fg = colors.darkgray },
+	FzfLuaBorder = { fg = colors.gray3 },
 
 	-- WhichKey --
-	WhichKeyBorder = { bg = colors.bg, fg = colors.darkgray },
+	WhichKeyBorder = { bg = colors.gray0, fg = colors.gray3 },
 
 	--------------------------- Native ----------------------------
 	---------------------------------------------------------------
 	-- -- Pmenu --
 	-- Pmenu = { fg = colors.lightgray1 },
 	-- PmenuThumb = { fg = colors.lightgray },
-	PmenuSel = { bg = colors.black},
+	PmenuSel = { bg = colors.gray1},
 	-- PmenuSbar = { bg = colors.darkgray },
 
 	-- -- WildMenu --
 	-- WildMenu = { bg = colors.bg, fg = colors.lightgray},
 
 	-- Split --
-	VertSplit = { bg = colors.bg, fg = colors.darkgray },
-	WinSeparator = { bg = colors.bg, fg = colors.darkgray },
+	VertSplit = { bg = colors.gray0, fg = colors.gray3 },
+	WinSeparator = { bg = colors.gray0, fg = colors.gray3 },
 
-	FloatBorder = { bg = colors.bg, fg = colors.darkgray },
-
-
+	FloatBorder = { bg = colors.gray0, fg = colors.gray3 },
+	Folded = { bg = colors.gray0},
 }
-
 
 for group, style in pairs(groups) do
 	vim.api.nvim_set_hl(0, group, style)

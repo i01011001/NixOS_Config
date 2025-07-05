@@ -1,20 +1,20 @@
 {
   pkgs,
+  lib,
   inputs,
   ...
 }: {
-
   stylix = {
     enable = true;
     base16Scheme = {
-      base00 = "161616"; # Background (very dark gray)
-      base01 = "040404"; # Normal black
-      base02 = "292929"; # Bright black (slightly lighter)
-      base03 = "3d3d3d"; # Selection background
-      base04 = "BEBEBE"; # Selection foreground (light gray)
-      base05 = "C5C5C5"; # Foreground (light gray)
-      base06 = "D5D5D5"; # Normal white (near white)
-      base07 = "E5E5E5"; # Bright white (true white-ish)
+      base00 = "121212"; # Darkest background (slightly darker)
+      base01 = "1E1E1E"; # Dark background
+      base02 = "2A2A2A"; # Secondary background
+      base03 = "4E4E4E"; # Comments/secondary text
+      base04 = "6E6E6E"; # Secondary text
+      base05 = "C5C5C5"; # Primary text
+      base06 = "E0E0E0"; # Bright text
+      base07 = "FFFFFF"; # Lightest text
       base08 = "c4746e"; # Normal red
       base09 = "e46876"; # Bright red
       base0A = "c4b28a"; # Normal yellow
@@ -35,16 +35,22 @@
       serif = {
         package = pkgs.iosevka;
         name = "Iosevka Nerd Font Propo";
+        # package = pkgs.nerd-fonts.terminess-ttf;
+        # name = "Terminess Nerd Font Propo";
       };
 
       sansSerif = {
         package = pkgs.iosevka;
         name = "Iosevka Nerd Font Propo";
+        # package = pkgs.nerd-fonts.terminess-ttf;
+        # name = "Terminess Nerd Font Propo";
       };
 
       monospace = {
         package = pkgs.nerd-fonts.iosevka;
-        name = "Iosevka Nerd Font Mono";
+        name = "Iosevka NF Medium";
+        # package = pkgs.nerd-fonts.terminess-ttf;
+        # name = "Terminess Nerd Font";
       };
 
       emoji = {
@@ -52,10 +58,10 @@
         name = "Noto Color Emoji";
       };
       sizes = {
-        applications = 9;
-        terminal = 9;
-        desktop = 9;
-        popups = 9;
+        applications = 10;
+        terminal = 10;
+        desktop = 10;
+        popups = 10;
       };
     };
 
@@ -73,6 +79,11 @@
     };
 
     polarity = "dark";
+
+    targets = {
+      grub.enable = false;
+      # qt.enable = false;
+    };
 
     # targets = {
     #   firefox = {
@@ -95,4 +106,3 @@
     #     };
   };
 }
-

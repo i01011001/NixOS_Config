@@ -4,7 +4,6 @@ spawn-at-startup "mako"
 environment {
     DISPLAY ":0"
     NIXOS_OZONE_WL   "1" 
-    QT_QPA_PLATFORMTHEME   "qt5ct"
     _JAVA_AWT_WM_NONREPARENTING   "1"
     QT_WAYLAND_DISABLE_WINDOWDECORATION   "1"
     WLR_RENDERER "vulkan"
@@ -61,21 +60,21 @@ layer-rule {
     match namespace="^wallpaper$"
     place-within-backdrop true
 }
-// /-output "eDP-1" {
-//     // off
-//     // mode "1920x1080@60"
-//     scale 1
-//     transform "normal"
-//     position x=0 y=0
-// }
+/-output "eDP-1" {
+    // off
+    // mode "1920x1080@60"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
 
-// output "HDMI-A-2" {
-//     // off
-//     mode "1440x900@60"
-//     scale 1
-//     transform "normal"
-//     position x=-1440 y=0
-// }
+output "HDMI-A-2" {
+    // off
+    // mode "1440x900@60"
+    scale 1
+    transform "normal"
+    position x=-1440 y=0
+}
 
 layout {
     gaps 8

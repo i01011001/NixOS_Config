@@ -99,9 +99,7 @@
 
       env = [
         "DISPLAY, :0"
-        "QT_QPA_PLATFORM,wayland"
         "NIXOS_OZONE_WL,   1"
-        "QT_QPA_PLATFORMTHEME,   qt5ct"
         "_JAVA_AWT_WM_NONREPARENTING,   1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,  1"
         "WLR_RENDERER, vulkan"

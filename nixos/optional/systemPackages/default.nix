@@ -12,6 +12,7 @@
     cmake
     gnumake
     gcc-arm-embedded
+    libgccjit
     go
     gcc
     ninja
@@ -148,21 +149,20 @@
     # (writeShellScriptBin "notifybrightness" ''notify-send "Brightness" "`brightnessctl g`"'')
     # (writeShellScriptBin "notifytime" ''notify-send  "`date +%H:%M`" "`date +%A` `date +%d`. `date +%B`"'')
     # (writeShellScriptBin "notifyvolume" ''notify-send "Volume" "`wpctl get-volume @DEFAULT_SINK@ | tr -d Volume:\ `"'')
-   
-    (writeShellScriptBin "notify-widget" ''notify-send "`echo $(cat /sys/class/power_supply/BAT1/capacity & cat /sys/class/power_supply/BAT1/status)` | `brightnessctl g` | `wpctl get-volume @DEFAULT_SINK@ | tr -d Volume:\ ` | `date +%H:%M` `date +%A` `date +%d`. `date +%B` " '')
-    (writeShellScriptBin "notify-network" '' 
-        iface=$(ip route | awk '/default/ {print $5}' | head -n1)
-        local_ip=$(ip -4 addr show "$iface" | awk '/inet / {print $2}' | cut -d/ -f1)
-        if iw dev "$iface" info &>/dev/null; then
-            ssid=$(iw dev "$iface" link | awk -F': ' '/SSID/ {print $2}')
-            bitrate=$(iw dev "$iface" link | awk -F': ' '/tx bitrate/ {print $2}')
-            signal=$(iw dev "$iface" link | awk '/signal:/ {print $2 " dBm"}')
-            notify-send "$ssid | $local_ip | $signal"
-        else
-            notify-send "$iface | $local_ip"
-        fi
-    '')
 
+    (writeShellScriptBin "notify-widget" ''notify-send "`echo $(cat /sys/class/power_supply/BAT1/capacity & cat /sys/class/power_supply/BAT1/status)` | `brightnessctl g` | `wpctl get-volume @DEFAULT_SINK@ | tr -d Volume:\ ` | `date +%H:%M` `date +%A` `date +%d`. `date +%B` " '')
+    (writeShellScriptBin "notify-network" ''
+      iface=$(ip route | awk '/default/ {print $5}' | head -n1)
+      local_ip=$(ip -4 addr show "$iface" | awk '/inet / {print $2}' | cut -d/ -f1)
+      if iw dev "$iface" info &>/dev/null; then
+          ssid=$(iw dev "$iface" link | awk -F': ' '/SSID/ {print $2}')
+          bitrate=$(iw dev "$iface" link | awk -F': ' '/tx bitrate/ {print $2}')
+          signal=$(iw dev "$iface" link | awk '/signal:/ {print $2 " dBm"}')
+          notify-send "$ssid | $local_ip | $signal"
+      else
+          notify-send "$iface | $local_ip"
+      fi
+    '')
 
     ####
     ungoogled-chromium
@@ -175,7 +175,9 @@
     nwg-look
 
     (jdk11_headless.override {enableJavaFX = true;})
+
     qtcreator
+
     hubstaff
     satty
     betaflight-configurator
@@ -200,6 +202,9 @@
     steam-run
     testdisk
     iw
+    gemini-cli
+    nstool
+
     # gnome-randr
   ];
 

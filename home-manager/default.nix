@@ -13,6 +13,7 @@
     ./core/git
     ./core/ripgrep
     ./core/xdg
+    ./core/qt
 
     ### optional
     ./optional/direnv

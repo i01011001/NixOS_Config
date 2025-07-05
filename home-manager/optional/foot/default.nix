@@ -6,7 +6,7 @@
         main = {
           # font = "Iosevka Nerd Font: size=10: weight=medium";
           # font = "Iosevka Nerd Font: size=10, ";
-          # font = "Noto Sans CJK TC: size=10";
+          # font = "style=bold";
           # line-height = 13.5;
           resize-delay-ms = 100;
           pad = "6x6 center";
