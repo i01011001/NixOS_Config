@@ -1,9 +1,9 @@
 
 local colors = {
 	gray0 = "#121212",
-    gray1 = "#212121",
-    gray2 = "#303030";
-	gray3 = "#4d4d4d",
+    gray1 = "#1E1e1e",
+    gray2 = "#2a2a2a";
+	gray3 = "#4e4e4e",
 }
 
 -- Default options:
@@ -20,15 +20,18 @@ require("kanso").setup({
 	transparent = true, -- do not set background color
 	dimInactive = false, -- dim inactive window `:h hl-NormalNC`
 	terminalColors = true, -- define vim.g.terminal_color_{0,17}
-	colors = { -- add/modify theme and palette colors
-		palette = {
-			zen0 = colors.gray0,
-			zen1 = colors.gray1,
-			zen2 = colors.gray2,
-			zen3 = colors.gray3,
-
-		},
-	},
+	-- colors = { -- add/modify theme and palette colors
+	-- 	palette = {
+	-- 		zen0 = "#ffffff",
+	-- 		-- zen1 = colors.gray1,
+	-- 		-- zen2 = colors.gray2,
+	-- 		-- zen3 = colors.gray3,
+	--            zen1 = "#442222";
+	--            zen2 = "#224422";
+	--            zen3 = "#222244";
+	--
+	-- 	},
+	-- },
 	overrides = function(colors) -- add/modify highlights
 		return {}
 	end,
@@ -69,6 +72,7 @@ local groups = {
 	VertSplit = { bg = colors.gray0, fg = colors.gray3 },
 	WinSeparator = { bg = colors.gray0, fg = colors.gray3 },
 
+	NormalFloat = { bg = colors.gray0, fg = colors.gray2 },
 	FloatBorder = { bg = colors.gray0, fg = colors.gray3 },
 	Folded = { bg = colors.gray0},
 }

@@ -43,8 +43,8 @@ vim.opt.foldcolumn = "0"
 vim.opt.foldenable = true
 vim.opt.foldtext = ""
 vim.opt.foldnestmax = 4
--- foldlevel = 99;
--- foldlevelstart = 99;
+vim.opt.foldlevel = 99;
+vim.opt.foldlevelstart = 99;
 
 vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()";

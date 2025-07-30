@@ -31,6 +31,7 @@
       gopls
       pyright
       vscode-langservers-extracted
+      bash-language-server
     ];
 
     plugins = with pkgs.vimPlugins; [

@@ -10,6 +10,7 @@
 
     stylix = {
       url = "github:danth/stylix";
+      # url = "github:yugen-m7/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

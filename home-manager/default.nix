@@ -7,12 +7,12 @@
   imports = [
     ### core
     # ./core/gtk
+    # ./core/xdg
     ./core/fd
     ./core/fzf
     ./core/zsh
     ./core/git
     ./core/ripgrep
-    ./core/xdg
     ./core/qt
 
     ### optional

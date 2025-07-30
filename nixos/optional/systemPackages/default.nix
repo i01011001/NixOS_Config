@@ -38,7 +38,7 @@
     luarocks
     python3
     # python3Packages.pip
-    postman
+    # postman
     ngrok
 
     #### Package Management & Version Control
@@ -88,6 +88,7 @@
     playerctl
     postgresql
     mpv
+    ffmpeg-full
 
     #### Communication & Collaboration
     slack
@@ -100,7 +101,7 @@
 
     #### Graphics & Media
     blender
-    gimp
+    gimp3
     krita
     imagemagick
     rnote
@@ -130,7 +131,7 @@
     lshw
     man-pages
     rlwrap
-    audacity
+    # audacity
     f3
     rar
     p7zip
@@ -177,6 +178,8 @@
     (jdk11_headless.override {enableJavaFX = true;})
 
     qtcreator
+    qt6.full
+    qt5.full
 
     hubstaff
     satty
@@ -196,16 +199,18 @@
     obs-studio
     # (inputs.pinnacle.devShell.x86_64-linux)
     nautilus
-    # proton-ge-bin
-    # dwl
 
     steam-run
     testdisk
     iw
     gemini-cli
     nstool
-
-    # gnome-randr
+    taskwarrior3
+    timewarrior
+    whatsapp-for-linux
+    programmer-calculator
+    jq
+    yt-dlp
   ];
 
   # services.xserver.displayManager.sessionPackages = [pkgs.sway];

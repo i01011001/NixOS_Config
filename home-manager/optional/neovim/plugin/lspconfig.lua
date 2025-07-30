@@ -11,6 +11,7 @@ langs = {
     "jsonls",
     "qmlls",
     "cmake",
+    "bashls"
 }
 
 for _, lang in pairs(langs) do

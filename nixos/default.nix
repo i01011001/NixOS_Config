@@ -23,7 +23,7 @@
     ./optional/nix-ld
     ./optional/nvidia
     # ./optional/printer
-    # ./optional/steam
+    ./optional/steam
     ./optional/scanner
     ./optional/ssh
     ./optional/systemPackages
