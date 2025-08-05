@@ -19,6 +19,7 @@
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
     niri.url = "github:sodiboo/niri-flake";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     # niri = {
     #   url = "github:YaLTer/niri";

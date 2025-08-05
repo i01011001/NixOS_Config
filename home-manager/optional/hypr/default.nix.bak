@@ -8,16 +8,16 @@
 in {
   wayland.windowManager.hyprland = {
     enable = true;
-    # packages = inputs.hyprland.packages.x86_64-linux.hyprland;
+
     systemd = {
       enable = true;
       enableXdgAutostart = true;
     };
     xwayland.enable = true;
 
-    plugins = [
-      # hyprsplit
-      inputs.hy3.packages.x86_64-linux.hy3
+    plugins = with pkgs.hyprlandPlugins; [
+      hyprsplit
+      hy3
     ];
 
     settings = {
@@ -25,7 +25,7 @@ in {
         ''eDP-1, 1920x1080@144, 0x0, 1''
         ''HDMI-A-2,1440x900,-1440x0,1''
       ];
-      "$terminal" = "alacritty";
+      "$terminal" = "foot";
       "$fileManager" = "thunar";
       "$menu_drun" = "tofi-drun";
       "$menu_run" = "exec $(tofi-run)";
@@ -40,8 +40,8 @@ in {
         hide_on_touch = true;
       };
       general = {
-        gaps_in = 3;
-        gaps_out = 3;
+        gaps_in = 4;
+        gaps_out = 8;
         # "col.active_border" = "${activeBorder}";
         # "col.inactive_border" = "${inactiveBorder}";
         resize_on_border = true;
@@ -49,6 +49,8 @@ in {
       };
       decoration = {
         rounding = 4;
+        # active_opacity = 1;
+        # inactive_opacity = 0.86;
         shadow = {
           enabled = false;
         };
@@ -60,9 +62,13 @@ in {
         };
       };
 
+      binds = {
+            hide_special_on_workspace_change = true;
+          };
+
       animations = {
         enabled = "no";
-        first_launch_animation = "no";
+        # first_launch_animation = "no";
         bezier = [
           "windowIn, 0.06, 0.71, 0.25, 1"
           "windowResize, 0.04, 0.67, 0.38, 1"
@@ -84,9 +90,9 @@ in {
         disable_hyprland_qtutils_check = true;
         force_default_wallpaper = 1;
         disable_hyprland_logo = true;
-        enable_swallow = true;
-        swallow_regex = "(?i)^(foot|alacritty)";
-        swallow_exception_regex = "(?i)^(alacritty:alacritty)$";
+        enable_swallow = false;
+        swallow_regex = "(?i)^(foot|alacritty)$";
+        swallow_exception_regex = "(?i)^(foot:foot|alacritty:alacritty)$";
         font_family = "Iosevka Nerd Font Propo";
         splash_font_family = "iosevka nerd font propo";
         vfr = "on";
@@ -96,8 +102,8 @@ in {
         overlay = "off";
       };
       input = {
-        repeat_delay = 300;
-        repeat_rate = 60;
+        # repeat_delay = 300;
+        # repeat_rate = 60;
         kb_layout = "us";
         follow_mouse = 1;
         sensitivity = 0;
@@ -141,12 +147,13 @@ in {
       #   "animation popin 90%, shell:launcher"
       # ];
       plugin = {
-        # hyprsplit = {
-        #   num_workspaces = 10;
-        # };
+        hyprsplit = {
+          num_workspaces = 10;
+        };
         hy3 = {
           no_gaps_when_only = 0;
           node_collapse_policy = 2;
+          special_scale_factor = 0.8;
           group_inset = 10;
           tab_first_window = false;
           tabs = {
@@ -195,7 +202,7 @@ in {
         ''$mainMod, o, exec, hyprctl keyword plugin:hy3:tabs:render_text false''
       ];
       bind = [
-        ''$mainMod SHIFT, Return, exec, $terminal ''
+        ''$mainMod, T, exec, $terminal ''
         ''$mainMod, P, exec, $menu_drun''
         ''$mainMod SHIFT, P, exec, $menu_run''
         ''$mainMod SHIFT, Q, exit''
@@ -203,42 +210,28 @@ in {
         ''$mainMod , F, fullscreen, 2''
         ''$mainMod SHIFT, F, fullscreen, 1''
         ''$mainMod CONTROL, F, fullscreen, 0''
-        ''$mainMod, Space, togglefloating''
 
-        ''$mainMod SHIFT, J, layoutmsg, swapnext ''
-        ''$mainMod SHIFT, K, layoutmsg, swapprev''
-        ''$mainMod CONTROL, H, layoutmsg, orientationleft''
-        ''$mainMod CONTROL, L, layoutmsg, orientationright''
-        ''$mainMod CONTROL, K, layoutmsg, orientationtop''
-        ''$mainMod CONTROL, J, layoutmsg, orientationbottom''
-        ''$mainMod CONTROL, SEMICOLON, layoutmsg, orientationcenter''
-        ''$mainMod SHIFT, H, layoutmsg, mfact -0.05''
-        ''$mainMod SHIFT, L, layoutmsg, mfact +0.05''
-        ''$mainMod, H,  layoutmsg, focusmaster master''
-        ''$mainMod, J,  layoutmsg, cyclenext''
-        ''$mainMod, K, layoutmsg,  cycleprev''
-        ''$mainMod, Return, layoutmsg, swapwithmaster master''
+        ''$mainMod, return, exec, notify-widget''
+        ''$mainMod SHIFT, return, exec, notify-network''
+
+        ''$mainMod, space, togglefloating''
 
         ''$mainMod, Y, togglespecialworkspace, magic''
         ''$mainMod SHIFT, Y, movetoworkspace, special:magic''
 
-        ''$mainMod CONTROL, B, exec, notifybattery''
-        ''$mainMod CONTROL, V, exec, notifyvolume''
-        ''$mainMod CONTROL, C, exec, notifytime''
-        ''$mainMod CONTROL, X, exec, notifybrightness''
+        '',XF86AudioRaiseVolume, exec, audio_up''
+        '',XF86AudioLowerVolume, exec, audio_down''
+        '',XF86AudioMute, exec, wpctl audio_toggle''
 
-        '',XF86AudioRaiseVolume, exec, volumeup''
-        '',XF86AudioLowerVolume, exec, volumedown''
-        '',XF86AudioMute, exec, wpctl volumemute''
+        ''$mainMod CONTROL, F8, exec, audio_up''
+        ''$mainMod CONTROL, F7, exec, audio_down''
+        ''$mainMod CONTROL, F6, exec, audio_toggle''
 
-        ''$mainMod CONTROL, F8, exec, volumeup''
-        ''$mainMod CONTROL, F7, exec, volumedown''
-        ''$mainMod CONTROL, F6, exec, volumemute''
+        '',XF86MonBrightnessUp, exec, brightness_up ''
+        '',XF86MonBrightnessDown, exec, brightness_down''
 
-        '',XF86MonBrightnessUp, exec, brightnessup ''
-        '',XF86MonBrightnessDown, exec, brightnessdown''
-        ''$mainMod CONTROL, F12, exec, brightnessup''
-        ''$mainMod CONTROL, F11, exec, brightnessdown''
+        ''$mainMod CONTROL, F12, exec, brightness_up''
+        ''$mainMod CONTROL, F11, exec, brightness_down''
 
         ''$mainMod SHIFT, Period, movecurrentworkspacetomonitor, eDP-1''
         ''$mainMod SHIFT, Comma, movecurrentworkspacetomonitor, HDMI-A-2''
@@ -249,7 +242,7 @@ in {
         ''$mainMod SHIFT, Period, split:swapactiveworkspaces, l r''
         ''$mainMod SHIFT, Comma, split:swapactiveworkspaces, r l''
 
-        ''$mainMod+SHIFT, c, hy3:killactive''
+        ''$mainMod, q, hy3:killactive''
         ''$mainMod, tab, hy3:togglefocuslayer''
 
         ''$mainMod, q, hy3:warpcursor''

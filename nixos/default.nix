@@ -34,7 +34,7 @@
     ./optional/multipass
     ./optional/opentabletdriver
     ./optional/virtual
-    ./optional/niri
+    # ./optional/niri
     ./optional/stylix
     # ./optional/sway
     # ./optional/i3

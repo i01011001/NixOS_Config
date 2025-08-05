@@ -5,13 +5,14 @@ langs = {
     "nixd",
     "marksman",
     "lua_ls",
-    "ts_ls",
+    "tsserver",    -- note: the correct name is "tsserver", not "ts_ls"
     "cssls",
     "html",
     "jsonls",
     "qmlls",
     "cmake",
-    "bashls"
+    "bashls",
+    "rust_analyzer"  -- fixed from "rustls"
 }
 
 for _, lang in pairs(langs) do

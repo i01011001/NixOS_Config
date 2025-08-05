@@ -32,6 +32,7 @@
       pyright
       vscode-langservers-extracted
       bash-language-server
+      rust-analyzer
     ];
 
     plugins = with pkgs.vimPlugins; [

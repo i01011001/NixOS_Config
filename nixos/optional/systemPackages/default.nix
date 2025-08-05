@@ -62,10 +62,10 @@
     # qdl
 
     #### Wayland Native Tools
-    swaybg
     swayimg
-    swaylock
-    swayidle
+    # swaybg
+    # swaylock
+    # swayidle
     wl-clipboard
     wlr-randr
     wf-recorder
@@ -138,7 +138,7 @@
 
     #### Custom Shortcuts & Scripts
 
-    (writeShellScriptBin "capture_whole" ''flameshot gui -p ~/media/images/screenshots/ -r | wl-copy'')
+    (writeShellScriptBin "capture_whole" ''grim -g "$(slurp -o -r -c '##ffffffdd')" -t ppm - | satty --filename - --fullscreen --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png'')
     (writeShellScriptBin "brightness_down" ''brightnessctl set 2%-'')
     (writeShellScriptBin "brightness_up" ''brightnessctl set 2%+'')
     (writeShellScriptBin "audio_up" ''wpctl set-volume @DEFAULT_SINK@ 2%+'')
@@ -211,6 +211,10 @@
     programmer-calculator
     jq
     yt-dlp
+
+
+    # wideriver
+    # dwl
   ];
 
   # services.xserver.displayManager.sessionPackages = [pkgs.sway];
