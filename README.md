@@ -4,7 +4,7 @@
 
 #### Packages Used
 - **Compositor** -> [Hyprland](https://github.com/hyprwm/Hyprland)
-- **Browser** -> [Floorp](https://github.com/Floorp-Projects/Floorp)
+- **Browser** -> [Firefox](https://github.com/mozilla-firefox/firefox)
 - **Terminal** -> [Foot](https://codeberg.org/dnkl/foot)
 - **Shell** -> [Zsh](https://www.zsh.org/)
 - **Font** -> [Iosevka](https://github.com/be5invis/Iosevka)
