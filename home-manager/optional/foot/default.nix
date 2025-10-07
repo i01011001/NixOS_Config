@@ -40,10 +40,10 @@
             preferred = "server";
         };
         scrollback = {
-          lines = 5000;
+          lines = 20000;
           multiplier = 2;
-          indicator-format = "percentage";
-          indicator-position = "fixed";
+          indicator-format = "line";
+          # indicator-position = "fixed";
         };
         cursor = {
           style = "block";

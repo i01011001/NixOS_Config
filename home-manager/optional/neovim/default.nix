@@ -9,8 +9,8 @@
     toLua = str: "lua << EOF\n${str}\nEOF\n";
     toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 
-    colors = config.lib.stylix.colors;
-    getColor = x: lib.mkForce "#colors.${x}";
+    # colors = config.lib.stylix.colors;
+    # getColor = x: lib.mkForce "#colors.${x}";
   in {
     enable = true;
     viAlias = true;
@@ -18,21 +18,51 @@
     vimdiffAlias = true;
 
     extraPackages = with pkgs; [
-      # luajitPackages.lua-lsp
-      # rnix-lsp
+      # Lua
       lua-language-server
       stylua
+
+      # Nix
       nil
       nixd
       alejandra
+
+      # C/C++
       clang-tools
+
+      # TypeScript/JavaScript
       typescript-language-server
+      vscode-langservers-extracted # also provides prettier
+
+      # Markdown
       marksman
+
+      # Go
       gopls
+
+      # Python
       pyright
-      vscode-langservers-extracted
+      black
+      isort
+
+      # Shell
       bash-language-server
+      shfmt
+
+      # Rust
       rust-analyzer
+
+      # JSON/YAML
+      jq
+      yamlfmt
+
+      # TOML
+      taplo
+
+      #Cmake
+      cmake-format
+
+      prettier
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -45,10 +75,11 @@
       markdown-preview-nvim
       which-key-nvim
       conform-nvim
-      harpoon2
       nvim-treesitter
       nvim-lspconfig
       kanso
+      # harpoon2
+      # orgmode
       # (onedark-nvim.overrideAttrs (oldAttrs: {
       #   meta = oldAttrs.meta // { skipNeovimRequireCheck = true; };
       # }))
@@ -61,14 +92,14 @@
     # ${builtins.readFile ./plugin/treesitter.lua}
     # ${builtins.readFile ./plugin/noice.lua}
     # ${builtins.readFile ./plugin/kanagawa.lua}
-   # ${builtins.readFile ./plugin/nightfox.lua}
+    # ${builtins.readFile ./plugin/nightfox.lua}
+    # ${builtins.readFile ./plugin/harpoon2.lua}
     extraLuaConfig = ''
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./plugin/diffview.lua}
       ${builtins.readFile ./plugin/completion.lua}
       ${builtins.readFile ./plugin/format.lua}
       ${builtins.readFile ./plugin/fzf-lua.lua}
-      ${builtins.readFile ./plugin/harpoon2.lua}
       ${builtins.readFile ./plugin/gitsigns.lua}
       ${builtins.readFile ./plugin/markdown.lua}
       ${builtins.readFile ./plugin/oil.lua}

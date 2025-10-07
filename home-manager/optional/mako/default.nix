@@ -22,7 +22,7 @@ in {
       # font = "Iosevka Nerd Font Propo 10";
       # background-color = lib "#181818";
       # text-color = "#f0f0f0";
-      width = 420;
+      width = 400;
       height = 100;
       margin = "10";
       outer-margin = "16, 6, 16, 6";

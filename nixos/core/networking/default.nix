@@ -26,22 +26,22 @@
     #   ];
     # };
     # defaultGateway = "192.168.1.254";
-    # nameservers = [
-    #   "1.1.1.1"
-    #   "8.8.8.8"
-    # ];
+    nameservers = [
+      "1.1.1.1"
+      "8.8.8.8"
+    ];
     # enableIPv6 = false;
     # dhcpcd.extraConfig = "nohook resolv.conf";
   };
 
-  services.resolved = {
-    enable = false;
-    dnssec = "true";
-    dnsovertls = "true";
-    extraConfig = ''
-      [Resolve]
-      MulticastDNS=no
-      LLMNR=no         # optional, unless you want Windows-style name resolution
-    '';
-  };
+#   services.resolved = {
+#     enable = false;
+#     dnssec = "true";
+#     dnsovertls = "true";
+#     extraConfig = ''
+#       [Resolve]
+#       MulticastDNS=no
+#       LLMNR=no         # optional, unless you want Windows-style name resolution
+#     '';
+#   };
 }

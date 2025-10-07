@@ -2,23 +2,19 @@
 {
   fonts = {
     packages = with pkgs; [
-      nerd-fonts.iosevka
-      #    nerd-fonts.hack
-      # nerd-fonts.mononoki
-
-      # normal Fonts
-
+      # General purpose
       noto-fonts
-      noto-fonts-cjk-sans
+      noto-fonts-cjk-sans   # Chinese, Japanese, Korean
       noto-fonts-emoji
+      noto-fonts-extra      # serif, mono, display variants
 
-      # icon Fonts
+      # Unicode coverage
+      unifont               # fallback for rare symbols
+      dejavu_fonts
+
+      # Icon fonts
       material-design-icons
+      font-awesome
     ];
-    fontconfig.defaultFonts = {
-      monospace = [ "Iosevka Nerd Font Propo" ];
-      sansSerif = [ "Iosevka Nerd Font Propo" ];
-      serif = [ "Iosevka Nerd Font Propo" ];
-    };
   };
 }

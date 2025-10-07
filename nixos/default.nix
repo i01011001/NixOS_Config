@@ -5,7 +5,7 @@
     ./core/bluetooth
     ./core/bootloader
     ./core/environment
-    # ./core/fonts
+    ./core/fonts
     ./core/hardware
     ./core/networking
     ./core/opengl
@@ -22,8 +22,6 @@
     ./optional/insecure
     ./optional/nix-ld
     ./optional/nvidia
-    # ./optional/printer
-    ./optional/steam
     ./optional/scanner
     ./optional/ssh
     ./optional/systemPackages
@@ -34,8 +32,10 @@
     ./optional/multipass
     ./optional/opentabletdriver
     ./optional/virtual
-    # ./optional/niri
     ./optional/stylix
+    ./optional/postgresql
+    # ./optional/printer
+    ./optional/niri
     # ./optional/sway
     # ./optional/i3
     # ./optional/qemu

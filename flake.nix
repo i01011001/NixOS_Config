@@ -18,8 +18,15 @@
 
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
-    niri.url = "github:sodiboo/niri-flake";
-    hyprland.url = "github:hyprwm/Hyprland";
+    niri.url = "github:YaLTeR/niri";
+    # niri.url = "github:sodiboo/niri-flake";
+    # hyprland.url = "github:hyprwm/Hyprland";
+
+    # niri-tag = {
+    #   url = "git+https://git.atagen.co/atagen/niri-tag";
+    #   inputs.niri-flake.follows = "niri-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # niri = {
     #   url = "github:YaLTer/niri";
@@ -74,6 +81,7 @@
         ./overlays
 
         inputs.stylix.nixosModules.stylix
+        # inputs.niri-tag.nixosModules.niri-tag
 
         home-manager.nixosModules.home-manager
         {

@@ -12,10 +12,10 @@
     };
 
     targets = {
-      # firefox = {
-      #   enable = true;
-      #   profileNames = ["i01011001"];
-      # };
+      firefox = {
+        enable = true;
+        profileNames = ["i01011001"];
+      };
       # wezterm.enable = true;
       neovim = {
         enable = false;

@@ -1,5 +1,5 @@
 {
-  programs.vim = {
+  services.postgresql = {
     enable = true;
   };
 }

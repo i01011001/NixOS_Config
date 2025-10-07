@@ -6,17 +6,18 @@
 }: {
   home.packages = with pkgs; [
     # hyprcursor
-    hyprpaper
-    hypridle
-    hyprlock
+    # hyprpaper
+    # hypridle
+    # hyprlock
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd = {
-      enable = true;
-      enableXdgAutostart = true;
-    };
+    # systemd = {
+    #   enable = true;
+    #   # variables = ["--all"];
+    #   enableXdgAutostart = false;
+    # };
     xwayland.enable = true;
     settings = {
       monitor = [
@@ -30,7 +31,7 @@
 
       exec-once = [
         ''mako''
-        ''swaybg -m stretch -i /etc/nixos/images/mini-nix-side-grey.png''
+        ''systemctl --user start xdg-desktop-portal-gtk.service''
         # ''swaybg -c #383838''
       ];
 
@@ -62,7 +63,7 @@
       };
 
       decoration = {
-        rounding = 7;
+        rounding = 6;
         shadow = {
           enabled = false;
         };
@@ -72,6 +73,22 @@
           special = true;
           popups = true;
           size = 4;
+        };
+      };
+      group = {
+        "col.border_active" = lib.mkForce "rgba(464646ff)";
+        "col.border_inactive" = lib.mkForce "rgba(464646ff)";
+        groupbar = {
+          font_size = 0;
+          indicator_height = 12;
+          # indicator_gap = 3;
+          render_titles = false;
+          rounding = 4;
+          gaps_out = 4;
+          gaps_in = 4;
+          "col.active" = lib.mkForce "rgba(262626ff)";
+          "col.inactive" = lib.mkForce "rgba(000000ff)";
+          "keep_upper_gap" = false;
         };
       };
 
@@ -108,9 +125,8 @@
         "NIXOS_OZONE_WL,   1"
         "_JAVA_AWT_WM_NONREPARENTING,   1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,  1"
-        # "WLR_RENDERER, vulkan"
+        "WLR_RENDERER, vulkan"
         "QT_QPA_PLATFORM, xcb"
-        "GTK_USE_PORTAL, 1"
         "TERMINAL, foot"
       ];
 
@@ -191,10 +207,10 @@
 
       "$mainMod" = "SUPER";
 
-      bindm = [
-        ''$mainMod, mouse:272, movewindow''
-        ''$mainMod, mouse:273, resizewindow''
-      ];
+      # bindm = [
+      #   ''$mainMod, mouse:272, movewindow''
+      #   ''$mainMod, mouse:273, resizewindow''
+      # ];
 
       bind = [
         ''$mainMod, mouse_down, workspace, e+1''
@@ -211,15 +227,15 @@
 
         ''$mainMod CONTROL, F, togglefloating''
 
-        ''$mainMod SHIFT, J, layoutmsg, swapnext ''
-        ''$mainMod SHIFT, K, layoutmsg, swapprev''
-        ''$mainMod CONTROL, H, layoutmsg, orientationleft''
-        ''$mainMod CONTROL, L, layoutmsg, orientationright''
-        ''$mainMod CONTROL, K, layoutmsg, orientationtop''
-        ''$mainMod CONTROL, J, layoutmsg, orientationbottom''
+        ''$mainMod CONTROL, J, layoutmsg, swapnext ''
+        ''$mainMod CONTROL, K, layoutmsg, swapprev''
+        ''$mainMod CONTROL, left, layoutmsg, orientationleft''
+        ''$mainMod CONTROL, right, layoutmsg, orientationright''
+        ''$mainMod CONTROL, up, layoutmsg, orientationtop''
+        ''$mainMod CONTROL, down, layoutmsg, orientationbottom''
         ''$mainMod CONTROL, SEMICOLON, layoutmsg, orientationcenter''
-        ''$mainMod SHIFT, H, layoutmsg, mfact -0.05''
-        ''$mainMod SHIFT, L, layoutmsg, mfact +0.05''
+        ''$mainMod CONTROL, H, layoutmsg, mfact -0.05''
+        ''$mainMod CONTROL, L, layoutmsg, mfact +0.05''
         ''$mainMod, H,  layoutmsg, focusmaster master''
         ''$mainMod, J,  layoutmsg, cyclenext''
         ''$mainMod, K, layoutmsg,  cycleprev''
@@ -275,6 +291,17 @@
 
         ''$mainMod, Period, focusmonitor, eDP-1''
         ''$mainMod, Comma, focusmonitor, HDMI-A-2''
+
+        "$mainMod SHIFT, z, togglegroup"
+        "$mainMod, z, moveoutofgroup"
+        "$mainMod SHIFT, j, moveintogroup, d"
+        "$mainMod SHIFT, k, moveintogroup, u"
+        "$mainMod SHIFT, h, moveintogroup, l"
+        "$mainMod SHIFT, l, moveintogroup, r"
+        "$mainMod, n, changegroupactive"
+        "$mainMod SHIFT, n, changegroupactive, b"
+        "$mainMod, m, movegroupwindow"
+        "$mainMod SHIFT, m, movegroupwindow, b"
       ];
     };
   };
@@ -303,7 +330,7 @@
       };
     };
     hyprpaper = {
-      enable = true;
+      enable = false;
       settings = {
         # ipc = "on";
         # splash = false;
@@ -318,9 +345,5 @@
         ];
       };
     };
-    hyprshell = {
-        enable = true;
-        
-        };
   };
 }

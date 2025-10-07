@@ -4,7 +4,6 @@
 		firefox = {
 			enable = true;
 			package = inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
-# package = pkgs.latest.firefox-nightly-bin;
 			profiles = {
 				i01011001 = {
 					settings = {
@@ -14,7 +13,7 @@
 						"browser.compactmode.show" = true;
 						"sidebar.animation.enabled" = false;
 						"sidebar.verticalTabs" = true;
-						# "sidebar.visibility" = "hide-sidebar";
+						"sidebar.visibility" = "hide-sidebar";
 						"sidebar.position_start" = true;
 						"font.minimum-size.x-western" = 10;
 						"font.size.variable.x-western" = 12;

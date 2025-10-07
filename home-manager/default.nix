@@ -7,7 +7,7 @@
   imports = [
     ### core
     # ./core/gtk
-    ./core/xdg
+    # ./core/xdg
     ./core/fd
     ./core/fzf
     ./core/zsh
@@ -20,20 +20,21 @@
     ./optional/tofi
     ./optional/mako
     ./optional/zathura
-    ./optional/firefox
     ./optional/yazi
     ./optional/btop
     ./optional/satty
-    # ./optional/niri
     ./optional/stylix
     ./optional/neovim
-    # ./optional/river
-
     ./optional/foot
+    ./optional/firefox
+    ./optional/niri
+    # ./optional/hypr
+    # ./optional/floorp
+    ./optional/brave
+    # ./optional/river
     # ./optional/fnott
     # ./optional/wezterm
     # ./optional/alacritty
-    ./optional/hypr
     # ./optional/waybar
     # ./optional/cursor
     # ./optional/gbar

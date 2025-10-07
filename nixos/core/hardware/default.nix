@@ -22,6 +22,11 @@
     fsType = "ext4";
   };
 
+ fileSystems."/mnt" ={
+    device = "/dev/disk/by-uuid/a35ac5e7-392f-4b5b-9dc6-7ba056f97c8d";
+    fsType = "ext4";
+    };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/NIXBOOT";
     fsType = "vfat";

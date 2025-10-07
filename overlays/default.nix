@@ -31,7 +31,7 @@
       );
     })
 
-    inputs.niri.overlays.niri
+    # inputs.niri.overlays.niri
 
     (final: super: {
       dwl =

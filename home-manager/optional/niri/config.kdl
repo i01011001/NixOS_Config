@@ -3,31 +3,28 @@ spawn-at-startup "mako"
 
 environment {
     DISPLAY ":0"
-    NIXOS_OZONE_WL   "1" 
-    _JAVA_AWT_WM_NONREPARENTING   "1"
-    QT_WAYLAND_DISABLE_WINDOWDECORATION   "1"
+    NIXOS_OZONE_WL "1" 
+    _JAVA_AWT_WM_NONREPARENTING "1"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
     QT_QPA_PLATFORM "xcb"
     WLR_RENDERER "vulkan"
     GTK_USE_PORTAL "1"
     TERMINAL "foot"
     TERM "xterm-256color"
 }
-// debug {
-//     wait-for-frame-completion-before-queueing
-// }
 
 overview {
     zoom 0.3
     workspace-shadow {
-        off
-    }
-    backdrop-color "#323232"
+    off 
+}
+    backdrop-color "#363636"
 }
 
 gestures {
-    hot-corners {
-        off
-    }
+    hot-corners { 
+    off 
+}
 }
 
 hotkey-overlay {
@@ -36,14 +33,11 @@ hotkey-overlay {
 
 input {
     keyboard {
-        xkb {
-        }
-
+        xkb { }
         numlock
     }
 
     touchpad {
-        // off
         tap
         dwt
         dwtp
@@ -57,7 +51,6 @@ input {
 
     warp-mouse-to-focus mode="center-xy"
     focus-follows-mouse max-scroll-amount="0%"
-
 }
 
 layer-rule {
@@ -65,31 +58,24 @@ layer-rule {
     place-within-backdrop true
 }
 
-/-output "eDP-1" {
-    // off
-    // mode "1920x1080@60"
+output "eDP-1" {
     scale 1
     transform "normal"
     position x=0 y=0
 }
 
 output "HDMI-A-2" {
-    // off
-    // mode "1440x900@60"
     scale 1
     transform "normal"
-    position x=-1440 y=0
+    position x=-1920 y=0
 }
 
 layout {
-    gaps 5
-
+    gaps 8
     background-color "transparent"
-
-    // always-center-single-column
     empty-workspace-above-first
-
     center-focused-column "never"
+    // default-column-display "tabbed"
 
     preset-column-widths {
         proportion 0.33333
@@ -99,62 +85,52 @@ layout {
 
     focus-ring {
         off
-        width 1;
+        width 1
         active-color "#6286ad"
-        // inactive-color "#505050"
         inactive-color "#999999"
         urgent-color "#999999"
     }
 
     border {
-        // off
-
         width 1
-        active-color "#3d3d3d"
-        inactive-color "#3d3d3d"
-        urgent-color "#3d3d3d"
+        active-color "#444444"
+        inactive-color "#444444"
+        urgent-color "#444444"
     }
 
     shadow {
-        // on
         draw-behind-window true
-
-        // Softness controls the shadow blur radius.
         softness 5
-
-        // Spread expands the shadow.
         spread 1
-
-        // Offset moves the shadow relative to the window.
         offset x=0 y=0
-
-        // You can also change the shadow color and opacity.
         color "#fff7"
     }
+
     struts {
-        left 0
-        right 0
-        top 0
+        left -2
+        right -2
+        top -2
+        bottom -2
+    }
 
-        bottom 0
-
+    tab-indicator {
+        width 8
+        gap 6
+        corner-radius 3
+        gaps-between-tabs 20
+        length total-proportion=0.44
+        position "top"
+        place-within-column
+        active-color "#8ba4b077"
+        inactive-color "#000000"
     }
 }
 
 prefer-no-csd
 
-screenshot-path "~/media/images/screenshots from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Documents/Pictures/screenshot/%Y-%m-%d %H-%M-%S.png"
 
 animations {
-    // Uncomment to turn off all animations.
-    // You can also put "off" into each individual animation to disable it.
-    // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
-
-    // Individual animations.
-
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
@@ -196,70 +172,69 @@ animations {
 }
 
 window-rule {
-    // opacity 
     open-floating false 
     geometry-corner-radius 9
     clip-to-geometry true
-    // tiled-state true
 }
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
-   Mod+W { toggle-column-tabbed-display; }
-    // Mod+Tab { focus-workspace-previous; }
+    Mod+W { toggle-column-tabbed-display; }
 
-    // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-    Mod+P hotkey-overlay-title="Run an Application: tofi-drun" { spawn "tofi-drun"; }
-    Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+P hotkey-overlay-title="Run an Desktop Application: tofi-drun" { spawn "tofi-drun"; }
+    Mod+Shift+P hotkey-overlay-title="Run an command: tofi-run" { spawn "tofi-runn"; }
+    // Mod+Adfst+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     Mod+Space hotkey-overlay-title="Run Notify-widget" { spawn "notify-widget"; }
-    Mod+Alt+Space hotkey-overlay-title="Run Notify-network" { spawn "notify-network"; }
+    Mod+Shift+Space hotkey-overlay-title="Run Notify-network" { spawn "notify-network"; }
+    Mod+Control+Space hotkey-overlay-title="Run Notify-time" { spawn "notify-time"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "audio_up"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "audio_down"; }
-    XF86AudioMute        allow-when-locked=true { spawn "audio_toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "audio_mic_toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "audio_sink_up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "audio_sink_down"; }
+    XF86AudioMute        allow-when-locked=true { spawn "audio_sink_toggle"; }
 
-    Mod+Shift+F8 allow-when-locked=true { spawn "audio_up"; }
-    Mod+Shift+F7 allow-when-locked=true { spawn "audio_down"; }
-    Mod+Shift+F6 allow-when-locked=true { spawn "audio_toggle"; }
-    Mod+Shift+F5 allow-when-locked=true { spawn "audio_mic_toggle"; }
+    Mod+Shift+F8 allow-when-locked=true { spawn "audio_sink_up"; }
+    Mod+Shift+F7 allow-when-locked=true { spawn "audio_sink_down"; }
+    Mod+Shift+F6 allow-when-locked=true { spawn "audio_sink_toggle"; }
+
+    Mod+Shift+F4 allow-when-locked=true { spawn "audio_source_up"; }
+    Mod+Shift+F3 allow-when-locked=true { spawn "audio_source_down"; }
+    Mod+Shift+F2 allow-when-locked=true { spawn "audio_source_toggle"; }
 
     Mod+Shift+F12 allow-when-locked=true { spawn "brightness_up"; }
     Mod+Shift+F11 allow-when-locked=true { spawn "brightness_down"; }
 
     Mod+O repeat=false { toggle-overview; }
-
     Mod+Q { close-window; }
 
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
+    Mod+H { focus-column-left; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+    Mod+L { focus-column-right; }
 
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    Mod+Ctrl+H { move-column-left; }
+    Mod+Ctrl+J { move-window-down; }
+    Mod+Ctrl+K { move-window-up; }
+    Mod+Ctrl+L { move-column-right; }
 
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    Mod+Shift+H { focus-monitor-left; }
+    Mod+Shift+J { focus-monitor-down; }
+    Mod+Shift+K { focus-monitor-up; }
+    Mod+Shift+L { focus-monitor-right; }
 
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+H { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
 
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+    Mod+U { focus-workspace-down; }
+    Mod+I { focus-workspace-up; }
+    Mod+Ctrl+U { move-column-to-workspace-down; }
+    Mod+Ctrl+I { move-column-to-workspace-up; }
 
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    Mod+Ctrl+Shift+U { move-workspace-down; }
+    Mod+Ctrl+Shift+I { move-workspace-up; }
 
     Mod+Tab { focus-workspace-previous; }
     Mod+BracketLeft  { consume-or-expel-window-left; }
@@ -267,7 +242,7 @@ binds {
 
     Mod+Comma  { focus-column-first; }
     Mod+Period { focus-column-last; }
-    Mod+Ctrl+Comma  { move-column-to-first ; }
+    Mod+Ctrl+Comma  { move-column-to-first; }
     Mod+Ctrl+Period { move-column-to-last; }
 
     Mod+R { switch-preset-column-width; }
@@ -276,11 +251,9 @@ binds {
 
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-
     Mod+Ctrl+F { expand-column-to-available-width; }
 
     Mod+C { center-column; }
-
     Mod+Ctrl+C { center-visible-columns; }
 
     Mod+Minus { set-column-width "-10%"; }
@@ -289,7 +262,7 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 
-    Mod+V       { toggle-window-floating; }
+    Mod+V { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     Print { screenshot; }
@@ -297,8 +270,8 @@ binds {
     Alt+Print { screenshot-window; }
 
     Mod+Shift+Q { quit skip-confirmation=true; }
+    Mod+Control+Q { power-off-monitors; }
 
-    Mod+Shift+P { power-off-monitors; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
@@ -309,6 +282,7 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
+
     Mod+Ctrl+1 { move-column-to-workspace 1; }
     Mod+Ctrl+2 { move-column-to-workspace 2; }
     Mod+Ctrl+3 { move-column-to-workspace 3; }
@@ -318,4 +292,26 @@ binds {
     Mod+Ctrl+7 { move-column-to-workspace 7; }
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
+    
+    // Mod+Shift+1 { spawn "tagctl" "toggle" "1"; }
+    // Mod+Shift+2 { spawn "tagctl" "toggle" "2"; }
+    // Mod+Shift+3 { spawn "tagctl" "toggle" "3"; }
+    // Mod+Shift+4 { spawn "tagctl" "toggle" "4"; }
+    // Mod+Shift+5 { spawn "tagctl" "toggle" "5"; }
+    // Mod+Shift+6 { spawn "tagctl" "toggle" "6"; }
+    // Mod+Shift+7 { spawn "tagctl" "toggle" "7"; }
+    // Mod+Shift+8 { spawn "tagctl" "toggle" "8"; }
+    // Mod+Shift+9 { spawn "tagctl" "toggle" "9"; }
+    // // Mod+Shift+0 { spawn "tagctl toggle 0"; }
+    //
+    // Mod+1 { spawn "tagctl" "toggle-tag" "1"; }
+    // Mod+2 { spawn "tagctl" "toggle-tag" "2"; }
+    // Mod+3 { spawn "tagctl" "toggle-tag" "3"; }
+    // Mod+4 { spawn "tagctl" "toggle-tag" "4"; }
+    // Mod+5 { spawn "tagctl" "toggle-tag" "5"; }
+    // Mod+6 { spawn "tagctl" "toggle-tag" "6"; }
+    // Mod+7 { spawn "tagctl" "toggle-tag" "7"; }
+    // Mod+8 { spawn "tagctl" "toggle-tag" "8"; }
+    // Mod+9 { spawn "tagctl" "toggle-tag" "9"; }
+    // // Mod+0 { spawn "tagctl toggle-tag 0"; }
 }

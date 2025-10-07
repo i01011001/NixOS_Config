@@ -8,7 +8,7 @@
     cargo
     ccache
     # clang
-    # clang-tools
+    clang-tools
     cmake
     gnumake
     gcc-arm-embedded
@@ -53,7 +53,7 @@
     openocd
     stlink
     stlink-tool
-    segger-jlink
+    # segger-jlink
     kicad-unstable
     (import ../../../customs/pkgs/diagslave {inherit pkgs;})
     (import ../../../customs/pkgs/miniterm {inherit pkgs;})
@@ -86,7 +86,7 @@
     brightnessctl
     libnotify
     playerctl
-    postgresql
+    # postgresql
     mpv
     ffmpeg-full
 
@@ -118,8 +118,9 @@
     curl
 
     #### Windows Compatibility
-    wineWowPackages.unstable
+    wineWowPackages.staging
     winetricks
+
     putty
     woeusb
 
@@ -131,7 +132,7 @@
     lshw
     man-pages
     rlwrap
-    # audacity
+    audacity
     f3
     rar
     p7zip
@@ -139,19 +140,40 @@
     #### Custom Shortcuts & Scripts
 
     (writeShellScriptBin "capture_whole" ''grim -g "$(slurp -o -r -c '##ffffffdd')" -t ppm - | satty --filename - --fullscreen --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png'')
+    (writeShellScriptBin "edit-image" ''wl-paste | satty --filename - --fullscreen --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png'')
     (writeShellScriptBin "brightness_down" ''brightnessctl set 2%-'')
     (writeShellScriptBin "brightness_up" ''brightnessctl set 2%+'')
-    (writeShellScriptBin "audio_up" ''wpctl set-volume @DEFAULT_SINK@ 2%+'')
-    (writeShellScriptBin "audio_down" ''wpctl set-volume @DEFAULT_SINK@ 2%-'')
-    (writeShellScriptBin "audio_toggle" ''wpctl set-mute @DEFAULT_SINK@ toggle'')
-    (writeShellScriptBin "audio_mic_toggle" ''wpctl set-mute @DEFAULT_SOURCE@ toggle'')
 
-    # (writeShellScriptBin "notifybattery" ''notify-send "Capacity" "`echo $(cat /sys/class/power_supply/BAT1/capacity & cat /sys/class/power_supply/BAT1/status)`"'')
-    # (writeShellScriptBin "notifybrightness" ''notify-send "Brightness" "`brightnessctl g`"'')
-    # (writeShellScriptBin "notifytime" ''notify-send  "`date +%H:%M`" "`date +%A` `date +%d`. `date +%B`"'')
-    # (writeShellScriptBin "notifyvolume" ''notify-send "Volume" "`wpctl get-volume @DEFAULT_SINK@ | tr -d Volume:\ `"'')
+    (writeShellScriptBin "audio_sink_up" ''wpctl set-volume @DEFAULT_SINK@ 2%+'')
+    (writeShellScriptBin "audio_sink_down" ''wpctl set-volume @DEFAULT_SINK@ 2%-'')
+    (writeShellScriptBin "audio_sink_toggle" ''wpctl set-mute @DEFAULT_SINK@ toggle'')
 
-    (writeShellScriptBin "notify-widget" ''notify-send "`echo $(cat /sys/class/power_supply/BAT1/capacity & cat /sys/class/power_supply/BAT1/status)` | `brightnessctl g` | `wpctl get-volume @DEFAULT_SINK@ | tr -d Volume:\ ` | `date +%H:%M` `date +%A` `date +%d`. `date +%B` " '')
+    (writeShellScriptBin "audio_source_up" ''wpctl set-volume @DEFAULT_SOURCE@ 2%+'')
+    (writeShellScriptBin "audio_source_down" ''wpctl set-volume @DEFAULT_SOURCE@ 2%-'')
+    (writeShellScriptBin "audio_source_toggle" ''wpctl set-mute @DEFAULT_SOURCE@ toggle'')
+
+    (writeShellScriptBin "tofi-runn" ''exec $(tofi-run)'')
+
+    (writeShellScriptBin "notify-widget" ''
+      capacity=$(< /sys/class/power_supply/BAT1/capacity)
+      status=$(< /sys/class/power_supply/BAT1/status)
+      brightness=$(brightnessctl g)
+      audio_sink=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2 $3}')
+      audio_source=$(wpctl get-volume @DEFAULT_SOURCE@ | awk '{print $2 $3}')
+
+      notify-send "$capacity $status | $brightness | $audio_sink | $audio_source"
+    '')
+
+    (writeShellScriptBin "notify-time" ''
+      time=$(date '+%H:%M:%S')
+      day=$(date '+%A')
+      daynum=$(date '+%d')
+      month=$(date '+%B')
+      year=$(date '+%Y')
+
+      notify-send "$time $day $daynum. $month $year"
+
+    '')
     (writeShellScriptBin "notify-network" ''
       iface=$(ip route | awk '/default/ {print $5}' | head -n1)
       local_ip=$(ip -4 addr show "$iface" | awk '/inet / {print $2}' | cut -d/ -f1)
@@ -163,6 +185,10 @@
       else
           notify-send "$iface | $local_ip"
       fi
+    '')
+
+    (writeShellScriptBin "scrcpy-custom" ''
+      scrcpy -b 4M --max-size 1920 --max-fps 30 --turn-screen-off --render-driver=opengl
     '')
 
     ####
@@ -177,9 +203,9 @@
 
     (jdk11_headless.override {enableJavaFX = true;})
 
-    qtcreator
-    qt6.full
-    qt5.full
+    # qtcreator
+    # qt6.full
+    # qt5.full
 
     hubstaff
     satty
@@ -205,14 +231,30 @@
     iw
     gemini-cli
     nstool
-    taskwarrior3
-    timewarrior
-    whatsapp-for-linux
-    programmer-calculator
+    # taskwarrior3
+    # timewarrior
+    # whatsapp-for-linux
     jq
     yt-dlp
 
+    xdg-utils
 
+    openssl
+    smartmontools
+    pyload-ng
+
+    # davinci-resolve
+    # libsForQt5.kdenlive
+    kdePackages.kdenlive
+    dig
+    claude-code
+    zoom
+    # teamviewer
+    anydesk
+    gh
+    # openshot-qt
+
+    cmake-format
     # wideriver
     # dwl
   ];
@@ -226,6 +268,6 @@
   ];
 
   services.udev.extraRules = ''
-    SUBSYSTEM=="tty", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="1001", SYMLINK+="my_serial_device"
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="1001", ATTRS{serial}=="D8:3B:DA:A3:FC:44" SYMLINK+="i01011001-s3_0"
   '';
 }

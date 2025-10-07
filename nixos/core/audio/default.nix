@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   security.rtkit.enable = true;
 
   services = {
@@ -7,6 +7,8 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      jack.enable = true;
     };
   };
+  programs.noisetorch.enable = true;
 }
