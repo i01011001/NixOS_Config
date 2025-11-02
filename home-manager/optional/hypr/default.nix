@@ -6,9 +6,7 @@
 }: {
   home.packages = with pkgs; [
     # hyprcursor
-    # hyprpaper
-    # hypridle
-    # hyprlock
+    hyprlock
   ];
 
   wayland.windowManager.hyprland = {

@@ -4,7 +4,7 @@
     systemd.enable = true;
     settings = {
       mainBar = {
-          height = 50;
+        height = 50;
       };
     };
   };

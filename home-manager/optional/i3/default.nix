@@ -1,10 +1,10 @@
-{pkgs, ...}:{
-#in configuration.nix
+{pkgs, ...}: {
+  #in configuration.nix
   # services.displayManager = {
   #   defaultSession = "none+i3";
   # };
 
-#in home.nix
+  #in home.nix
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;

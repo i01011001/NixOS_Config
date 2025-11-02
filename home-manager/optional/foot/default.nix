@@ -37,7 +37,7 @@
         #   bright7 = "d0d0d0";
         # };
         csd = {
-            preferred = "server";
+          preferred = "server";
         };
         scrollback = {
           lines = 20000;

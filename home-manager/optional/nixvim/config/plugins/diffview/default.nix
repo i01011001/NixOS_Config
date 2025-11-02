@@ -4,7 +4,6 @@
       enable = true;
     };
     keymaps = [
-
       # {
       #     mode = "n";
       #     key = "<leader>d";

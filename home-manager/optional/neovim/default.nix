@@ -8,7 +8,6 @@
   programs.neovim = let
     toLua = str: "lua << EOF\n${str}\nEOF\n";
     toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-
     # colors = config.lib.stylix.colors;
     # getColor = x: lib.mkForce "#colors.${x}";
   in {
@@ -16,54 +15,6 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-
-    extraPackages = with pkgs; [
-      # Lua
-      lua-language-server
-      stylua
-
-      # Nix
-      nil
-      nixd
-      alejandra
-
-      # C/C++
-      clang-tools
-
-      # TypeScript/JavaScript
-      typescript-language-server
-      vscode-langservers-extracted # also provides prettier
-
-      # Markdown
-      marksman
-
-      # Go
-      gopls
-
-      # Python
-      pyright
-      black
-      isort
-
-      # Shell
-      bash-language-server
-      shfmt
-
-      # Rust
-      rust-analyzer
-
-      # JSON/YAML
-      jq
-      yamlfmt
-
-      # TOML
-      taplo
-
-      #Cmake
-      cmake-format
-
-      prettier
-    ];
 
     plugins = with pkgs.vimPlugins; [
       lazydev-nvim
@@ -89,7 +40,6 @@
     # ${builtins.readFile ./plugin/colorscheme.lua}
     # ${builtins.readFile ./plugin/lualine.lua}
     # ${builtins.readFile ./plugin/vscode.lua}
-    # ${builtins.readFile ./plugin/treesitter.lua}
     # ${builtins.readFile ./plugin/noice.lua}
     # ${builtins.readFile ./plugin/kanagawa.lua}
     # ${builtins.readFile ./plugin/nightfox.lua}
@@ -106,6 +56,7 @@
       ${builtins.readFile ./plugin/lspconfig.lua}
       ${builtins.readFile ./plugin/whichkey.lua}
       ${builtins.readFile ./plugin/kanso.lua}
+      ${builtins.readFile ./plugin/treesitter.lua}
     '';
   };
   imports = [

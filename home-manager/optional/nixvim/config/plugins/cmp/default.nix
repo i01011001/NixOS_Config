@@ -1,6 +1,5 @@
 # # Source: https://github.com/hmajid2301/dotfiles/blob/ab7098387426f73c461950c7c0a4f8fb4c843a2c/home-manager/editors/nvim/plugins/coding/cmp.nix
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.nixvim = {
     plugins = {
       luasnip.enable = true;
@@ -34,13 +33,13 @@
             end
           '';
           sources = [
-            { name = "nvim_lsp"; }
-            { name = "luasnip"; }
+            {name = "nvim_lsp";}
+            {name = "luasnip";}
             {
               name = "buffer";
               option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
             }
-            { name = "nvim_lua"; }
+            {name = "nvim_lua";}
             {
               name = "path";
             }
@@ -129,7 +128,6 @@
               scrollbar = false;
               sidepadding = 0;
               border = [
-
                 "╭"
                 "─"
                 "╮"
@@ -146,7 +144,6 @@
               scrollbar = false;
               sidepadding = 0;
               border = [
-
                 "╭"
                 "─"
                 "╮"

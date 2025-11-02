@@ -25,7 +25,7 @@
     };
     keymaps = [
       {
-        mode = [ "n" ];
+        mode = ["n"];
         key = "-";
         action = "<cmd>Oil<cr>";
         options = {

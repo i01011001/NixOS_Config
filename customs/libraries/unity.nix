@@ -4,7 +4,6 @@
   fetchFromGitHub,
   cmake,
 }:
-
 stdenv.mkDerivation (finalAttrs: {
   pname = "unity";
   version = "master";
@@ -16,8 +15,8 @@ stdenv.mkDerivation (finalAttrs: {
     sha256 = "sha256-72aWQ1W2NPmOJgwmakgYlzUF2ALn6cCvYhtmXEcuaNw=";
   };
 
-  nativeBuildInputs = [ cmake ];
-  cmakeFlags = [ ];
+  nativeBuildInputs = [cmake];
+  cmakeFlags = [];
   doCheck = true;
 
   meta = {

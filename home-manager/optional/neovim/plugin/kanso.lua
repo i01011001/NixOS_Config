@@ -15,8 +15,10 @@ Improved Configuration:
 local colors = {
     -- Base background tones from your original config
     bg = "#121212",
-    bg_alt1 = "#1E1e1e",
+    bg_alt1 = "#1e1e1e",
     bg_alt2 = "#2a2a2a",
+
+    white = "#e0e0e0",
 
     -- A neutral color for borders and inactive elements
     border = "#4e4e4e",
@@ -62,6 +64,8 @@ require("kanso").setup({
 
             -- Other UI elements
             Folded = { bg = colors.bg },
+             -- ["@spell.markdown"] = {fg = colors.white}
+
         }
     end,
 })

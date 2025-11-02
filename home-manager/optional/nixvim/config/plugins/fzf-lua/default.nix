@@ -12,7 +12,6 @@
           vertical = "down:60%";
         };
       };
-
     };
     keymaps = {
       "<C-p>" = {

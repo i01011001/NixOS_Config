@@ -14,4 +14,5 @@ require("nvim-treesitter.configs").setup({
 
 	auto_install = false,
 	additional_vim_regex_highlighting = true,
+
 })

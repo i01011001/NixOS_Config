@@ -1,5 +1,5 @@
 {
-    programs.brave = {
-        enable = true;
-    };
+  programs.brave = {
+    enable = true;
+  };
 }

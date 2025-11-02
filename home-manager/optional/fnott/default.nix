@@ -1,6 +1,6 @@
 {
   services.fnott = {
-      enable = true;
-      configFile = ./fnott.ini;
+    enable = true;
+    configFile = ./fnott.ini;
   };
 }

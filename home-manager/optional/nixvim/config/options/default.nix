@@ -66,12 +66,11 @@
       # Set encoding type
       encoding = "utf-8";
       fileencoding = "utf-8";
-
     };
     extraConfigVim = ''
-      			set wildoptions-=pum
-      			set laststatus=0
-      			set statusline=%{repeat('─',winwidth('.'))}
+      set wildoptions-=pum
+      set laststatus=0
+      set statusline=%{repeat('─',winwidth('.'))}
     '';
   };
 }

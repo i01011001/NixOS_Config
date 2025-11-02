@@ -1,4 +1,3 @@
-
 local conform = require("conform")
 conform.setup({
 	formatters_by_ft = {
@@ -14,12 +13,17 @@ conform.setup({
 		toml = { "taplo" },
 		markdown = { "prettier" },
 		sh = { "shfmt" },
-        cmake= {"cmake-format"};
-
-		-- templ = { "templ" },
-		-- javascript = { { "prettierd", "prettier" } },
+		cmake = { "cmake-format" },
+		rust = { "rustfmt" },
 	},
+
 })
+
+conform.formatters["cmake-format"] = {
+  command = "cmake-format",   -- your installed executable
+  args = { "-" },             -- read from stdin
+  stdin = true,
+}
 
 vim.keymap.set({ "n", "v" }, "<leader>FF", function()
 	conform.format({
@@ -28,4 +32,3 @@ vim.keymap.set({ "n", "v" }, "<leader>FF", function()
 		timeout_ms = 1000,
 	})
 end, { desc = "[F]ormat [F]ile" })
-

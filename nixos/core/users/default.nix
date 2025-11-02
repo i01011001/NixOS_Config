@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   users = {
     users.i01011001 = {
       isNormalUser = true;

@@ -18,8 +18,7 @@
     };
     # forceFullCompositionPipeline = true;
   };
-  # boot.kernelModules = [ "nvidia_uvm" ];
-
+  boot.kernelParams = ["nvidia-drm.modeset=1"];
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
   environment.variables."GBM_BACKEND" = "nvidia-drm";

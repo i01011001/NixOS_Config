@@ -28,7 +28,7 @@ in {
       outer-margin = "16, 6, 16, 6";
       border-size = 1;
       border-color = lib.mkForce "#404040";
-      text-alignment= "center";
+      text-alignment = "center";
       # border-color = getColor colors.base03;
       border-radius = 6;
       # progress-color = "#505050";

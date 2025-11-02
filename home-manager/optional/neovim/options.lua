@@ -23,12 +23,13 @@ vim.opt.inccommand = "split"
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+vim.opt.conceallevel = 1
 -- Make line numbers default
 vim.wo.number = true
 
 -- Enable mouse mode
 vim.o.mouse = ""
-vim.opt.mousescroll = "ver:0,hor:0" 
+vim.opt.mousescroll = "ver:0,hor:0"
 
 -- cursorline
 vim.opt.cursorline = true
@@ -43,12 +44,12 @@ vim.opt.foldcolumn = "0"
 vim.opt.foldenable = true
 vim.opt.foldtext = ""
 vim.opt.foldnestmax = 4
-vim.opt.foldlevel = 99;
-vim.opt.foldlevelstart = 99;
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 
 vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()";
-vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.opt.linebreak = true
 
 -- clipboard
@@ -94,7 +95,6 @@ vim.opt.statusline = "%{repeat('─',winwidth('.'))}" -- Set a dynamic statuslin
 -- vim.o.winborder = "rounded"
 
 vim.opt.shell = "/run/current-system/sw/bin/zsh"
-
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
@@ -142,4 +142,3 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
-

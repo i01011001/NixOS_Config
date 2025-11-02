@@ -1,11 +1,12 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   programs.git = {
     enable = true;
-    userName = "i01011001";
-    userEmail = "i01011001.m7@gmail.com";
-    attributes = [ ];
-    extraConfig = {
+    attributes = [];
+    settings = {
+      user = {
+        name = "i01011001";
+        email = "i01011001.m7@gmail.com";
+      };
       merge.tool = "nvimdiff";
       diff = {
         tool = "nvimdiff";
@@ -21,9 +22,13 @@
       };
     };
     ignores = [
+      # ──────────────── ESP-IDF SDK Config Files ────────────────
+      "sdkconfig"
       "sdkconfig.old"
       "sdkconfig.ci"
-      "sdkconfig"
+
+      # ──────────────── Build Artifacts ────────────────
+      "build/"
       "*.bin"
       "*.elf"
       "*.map"
@@ -32,50 +37,62 @@
       "*.lst"
       "*.o"
       "*.a"
+      "*.d"
       "*.ld"
       "*.log"
-      "managed_components"
 
-	  #    # Build directories
-	  #    "/build/"
-	  # "*/build/"
-      "*.d"
-      "yeti-docs"
+      # ──────────────── Managed Components ────────────────
+      "managed_components/"
 
-      # Container specific files
-      ".devcontainer/"
-
-      # VSCode specific files
+      # ──────────────── IDE / Editor Specific ────────────────
+      # VSCode
       ".vscode/"
       ".vscode/settings.json"
       ".vscode/c_cpp_properties.json"
       ".vscode/launch.json"
       ".vscode/tasks.json"
 
-      # Python virtual environments
+      # JetBrains (CLion / Rider)
+      ".idea/"
+
+      # ──────────────── Development Containers ────────────────
+      ".devcontainer/"
+
+      # ──────────────── Python / Scripts ────────────────
       ".venv/"
       "venv/"
       "env/"
       "ENV/"
       "__pycache__/"
       "*.py[cod]"
+      "*.pyo"
 
-      # OS generated files
+      # ──────────────── CCache and Temporary Build Caches ────────────────
+      ".ccache/"
+      ".cache/"
+      "cache/"
+
+      # ──────────────── OS Generated Files ────────────────
       ".DS_Store"
       "Thumbs.db"
       "desktop.ini"
 
-      # Debugger files
-      "*.svd"
-
-      # ccache files
-      ".ccache"
-
-      #cache files
-      ".cache"
-
-      # Dependency directories
+      # ──────────────── Dependency Directories ────────────────
       "node_modules/"
+      "deps/"
+      "third_party/"
+
+      # ──────────────── Debugger / Analyzer Files ────────────────
+      "*.svd"
+      "*.trace"
+      "*.dump"
+
+      # ──────────────── Misc ────────────────
+      "*.bak"
+      "*.tmp"
+      "*.swp"
+      "*.swo"
+      "*.orig"
     ];
   };
 }

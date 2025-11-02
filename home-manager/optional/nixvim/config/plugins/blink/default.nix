@@ -36,7 +36,6 @@
         };
         keymap = {
           preset = "default";
-
         };
         trigger = {
           signature_help = {
@@ -90,6 +89,6 @@
         };
       };
     };
-    extraConfigLua = ''		'';
+    extraConfigLua = '''';
   };
 }

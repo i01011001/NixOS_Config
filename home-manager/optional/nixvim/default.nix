@@ -3,11 +3,8 @@
   pkgs,
   inputs,
   ...
-}:
-let
-
-in
-{
+}: let
+in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ### plugins
@@ -45,7 +42,6 @@ in
       # virtual_lines.only_current_line = false;
       virtual_text = false;
       # signs = false;
-
     };
     package = inputs.neovim-nightly.packages.${pkgs.system}.default;
 
@@ -93,9 +89,9 @@ in
     # 	 rev = "main";
     # 	 hash = "sha256-iVLxQeQqpqohCPZAE3SxReEo3KmWAo+xGAiJJnRBbUE=";
     # 	 };
-# 	 })
-# ];
+    # 	 })
+    # ];
 
-	extraConfigLua = builtins.readFile ./extraConfig.lua;
+    extraConfigLua = builtins.readFile ./extraConfig.lua;
   };
 }

@@ -1,5 +1,7 @@
+spawn-at-startup "swaybg" "-m" "fit" "-i" "/etc/nixos/images/mini-nix-side-greyer.png"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "mako"
+
 
 environment {
     DISPLAY ":0"
@@ -11,14 +13,15 @@ environment {
     GTK_USE_PORTAL "1"
     TERMINAL "foot"
     TERM "xterm-256color"
+    WLR_DRM_NO_ATOMIC "1"
 }
 
 overview {
-    zoom 0.3
+    zoom 0.25
     workspace-shadow {
     off 
 }
-    backdrop-color "#363636"
+    // backdrop-color "#2d2d2d"
 }
 
 gestures {
@@ -26,6 +29,11 @@ gestures {
     off 
 }
 }
+
+// cursor {
+//     hide-when-typing
+//     hide-after-inactive-ms 1000
+// }
 
 hotkey-overlay {
     skip-at-startup
@@ -70,6 +78,13 @@ output "HDMI-A-2" {
     position x=-1920 y=0
 }
 
+layer-rule {
+    // This is for swaybg; change for other wallpaper tools.
+    // Find the right namespace by running niri msg layers.
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+
 layout {
     gaps 8
     background-color "transparent"
@@ -93,9 +108,9 @@ layout {
 
     border {
         width 1
-        active-color "#444444"
-        inactive-color "#444444"
-        urgent-color "#444444"
+        active-color "#484848"
+        inactive-color "#484848"
+        urgent-color "#484848"
     }
 
     shadow {
@@ -175,15 +190,18 @@ window-rule {
     open-floating false 
     geometry-corner-radius 9
     clip-to-geometry true
+    // opacity 0.95
 }
 
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+M repeat=false { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }
+
+    Mod+Slash { show-hotkey-overlay; }
     Mod+W { toggle-column-tabbed-display; }
 
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+P hotkey-overlay-title="Run an Desktop Application: tofi-drun" { spawn "tofi-drun"; }
-    Mod+Shift+P hotkey-overlay-title="Run an command: tofi-run" { spawn "tofi-runn"; }
+    Mod+Shift+P hotkey-overlay-title="Run an command: tofi-run" { spawn "tofi-run"; }
     // Mod+Adfst+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     Mod+Space hotkey-overlay-title="Run Notify-widget" { spawn "notify-widget"; }
@@ -252,6 +270,7 @@ binds {
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
 
     Mod+C { center-column; }
     Mod+Ctrl+C { center-visible-columns; }
@@ -265,14 +284,15 @@ binds {
     Mod+V { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
+
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
     Mod+Shift+Q { quit skip-confirmation=true; }
     Mod+Control+Q { power-off-monitors; }
-
-
+    //
+    //
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -282,7 +302,8 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-
+    Mod+0 { focus-workspace 10; }
+    //
     Mod+Ctrl+1 { move-column-to-workspace 1; }
     Mod+Ctrl+2 { move-column-to-workspace 2; }
     Mod+Ctrl+3 { move-column-to-workspace 3; }
@@ -292,6 +313,7 @@ binds {
     Mod+Ctrl+7 { move-column-to-workspace 7; }
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+Ctrl+0 { move-column-to-workspace 10; }
     
     // Mod+Shift+1 { spawn "tagctl" "toggle" "1"; }
     // Mod+Shift+2 { spawn "tagctl" "toggle" "2"; }
@@ -302,7 +324,7 @@ binds {
     // Mod+Shift+7 { spawn "tagctl" "toggle" "7"; }
     // Mod+Shift+8 { spawn "tagctl" "toggle" "8"; }
     // Mod+Shift+9 { spawn "tagctl" "toggle" "9"; }
-    // // Mod+Shift+0 { spawn "tagctl toggle 0"; }
+    // Mod+Shift+0 { spawn "tagctl" "toggle" "0"; }
     //
     // Mod+1 { spawn "tagctl" "toggle-tag" "1"; }
     // Mod+2 { spawn "tagctl" "toggle-tag" "2"; }
@@ -313,5 +335,5 @@ binds {
     // Mod+7 { spawn "tagctl" "toggle-tag" "7"; }
     // Mod+8 { spawn "tagctl" "toggle-tag" "8"; }
     // Mod+9 { spawn "tagctl" "toggle-tag" "9"; }
-    // // Mod+0 { spawn "tagctl toggle-tag 0"; }
+    // Mod+0 { spawn "tagctl" "toggle-tag" "0"; }
 }

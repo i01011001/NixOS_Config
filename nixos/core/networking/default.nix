@@ -34,14 +34,14 @@
     # dhcpcd.extraConfig = "nohook resolv.conf";
   };
 
-#   services.resolved = {
-#     enable = false;
-#     dnssec = "true";
-#     dnsovertls = "true";
-#     extraConfig = ''
-#       [Resolve]
-#       MulticastDNS=no
-#       LLMNR=no         # optional, unless you want Windows-style name resolution
-#     '';
-#   };
+  #   services.resolved = {
+  #     enable = false;
+  #     dnssec = "true";
+  #     dnsovertls = "true";
+  #     extraConfig = ''
+  #       [Resolve]
+  #       MulticastDNS=no
+  #       LLMNR=no         # optional, unless you want Windows-style name resolution
+  #     '';
+  #   };
 }

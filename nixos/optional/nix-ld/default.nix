@@ -39,7 +39,6 @@
       # gdk-pixbuf
       # libunwind
       # libxc
-
     ];
   };
 }

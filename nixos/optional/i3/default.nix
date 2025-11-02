@@ -31,5 +31,4 @@
       defaultSession = "none+i3";
     };
   };
-
 }

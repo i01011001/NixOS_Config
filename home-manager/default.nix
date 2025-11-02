@@ -28,9 +28,12 @@
     ./optional/foot
     ./optional/firefox
     ./optional/niri
+    ./optional/formatter
+    # ./optional/cwc
+    # ./optional/conky
     # ./optional/hypr
     # ./optional/floorp
-    ./optional/brave
+    # ./optional/brave
     # ./optional/river
     # ./optional/fnott
     # ./optional/wezterm

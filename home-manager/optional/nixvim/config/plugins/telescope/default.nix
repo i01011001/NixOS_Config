@@ -27,7 +27,6 @@
       };
       extensions.fzf-native = {
         enable = true;
-
       };
       keymaps = {
         "<leader><space>" = {
@@ -94,11 +93,9 @@
           action = "lsp_references";
           options.desc = "LSP references";
         };
-
       };
     };
 
     extraConfigLua = builtins.readFile ./telescope.lua;
   };
-
 }
