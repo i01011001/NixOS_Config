@@ -88,6 +88,7 @@
     socat
     sshfs
     websocat
+    iw
 
     ############################################################
     ## Dev Environment & Tools
@@ -200,7 +201,7 @@
     (jdk11_headless.override {enableJavaFX = true;})
     scrcpy
     (writeShellScriptBin "scrcpy-custom" ''
-      scrcpy -b 4M --max-size 1920 --max-fps 30 --turn-screen-off --render-driver=opengl
+      scrcpy -b 4M --max-size 1920 --max-fps 30 --turn-screen-off --render-driver=opengl --stay-awake
     '')
 
     ############################################################
@@ -221,18 +222,61 @@
       wl-paste | satty --filename - --fullscreen \
         --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
     '')
-    (writeShellScriptBin "brightness_down" ''brightnessctl set 2%-'')
-    (writeShellScriptBin "brightness_up" ''brightnessctl set 2%+'')
 
-    (writeShellScriptBin "audio_sink_up" ''wpctl set-volume @DEFAULT_SINK@ 2%+'')
-    (writeShellScriptBin "audio_sink_down" ''wpctl set-volume @DEFAULT_SINK@ 2%-'')
-    (writeShellScriptBin "audio_sink_toggle" ''wpctl set-mute @DEFAULT_SINK@ toggle'')
+    (writeShellScriptBin "notify-dismiss" ''
+      makoctl dismiss
+    '')
 
-    (writeShellScriptBin "audio_source_up" ''wpctl set-volume @DEFAULT_SOURCE@ 2%+'')
-    (writeShellScriptBin "audio_source_down" ''wpctl set-volume @DEFAULT_SOURCE@ 2%-'')
-    (writeShellScriptBin "audio_source_toggle" ''wpctl set-mute @DEFAULT_SOURCE@ toggle'')
+    (writeShellScriptBin "custom-notify-send" ''
+      NID_FILE="$HOME/.cache/notify_id"
 
-    (writeShellScriptBin "tofi-run" ''exec $(tofi-run)'')
+      if [ -f "$NID_FILE" ]; then
+          NID_STR=$(cat "$NID_FILE")
+          NID=$((NID_STR))
+      else
+          mkdir -p "$(dirname "$NID_FILE")"
+          NID="0"
+      fi
+
+      notify-send "$1" -p -r "$NID" > "$NID_FILE"
+    '')
+
+    (writeShellScriptBin "brightness_notify" ''
+      brightness=$(brightnessctl g)
+      custom-notify-send "Brightness: $brightness"
+    '')
+
+    (writeShellScriptBin "audio_sink_notify" ''
+      audio_sink=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2 $3}')
+       custom-notify-send "Audio Sink: $audio_sink"
+    '')
+
+    (writeShellScriptBin "audio_source_notify" ''
+      audio_source=$(wpctl get-volume @DEFAULT_SOURCE@ | awk '{print $2 $3}')
+       custom-notify-send "Audio Source: $audio_source"
+    '')
+
+    # (writeShellScriptBin "brightness_down" ''brightnessctl set 2%-  && brightness_notify'')
+    # (writeShellScriptBin "brightness_up" ''brightnessctl set 2%+ && brightness_notify'')
+    #
+    # (writeShellScriptBin "audio_sink_up" ''wpctl set-volume @DEFAULT_SINK@ 2%+ && audio_sink_notify '')
+    # (writeShellScriptBin "audio_sink_down" ''wpctl set-volume @DEFAULT_SINK@ 2%- && audio_sink_notify '')
+    # (writeShellScriptBin "audio_sink_toggle" ''wpctl set-mute @DEFAULT_SINK@ toggle && audio_sink_notify '')
+    #
+    # (writeShellScriptBin "audio_source_up" ''wpctl set-volume @DEFAULT_SOURCE@ 2%+ && audio_source_notify '')
+    # (writeShellScriptBin "audio_source_down" ''wpctl set-volume @DEFAULT_SOURCE@ 2%- && audio_source_notify'')
+    # (writeShellScriptBin "audio_source_notify" ''wpctl set-mute @DEFAULT_SOURCE@ toggle && audio_source_notify'')
+
+    (writeShellScriptBin "brightness_down" ''brightnessctl set 2%-  && notify-widget'')
+    (writeShellScriptBin "brightness_up" ''brightnessctl set 2%+ && notify-widget'')
+
+    (writeShellScriptBin "audio_sink_up" ''wpctl set-volume @DEFAULT_SINK@ 2%+ &&  notify-widget'')
+    (writeShellScriptBin "audio_sink_down" ''wpctl set-volume @DEFAULT_SINK@ 2%- &&    notify-widget '')
+    (writeShellScriptBin "audio_sink_toggle" ''wpctl set-mute @DEFAULT_SINK@ toggle && notify-widget '')
+
+    (writeShellScriptBin "audio_source_up" ''wpctl set-volume @DEFAULT_SOURCE@ 2%+ &&      notify-widget '')
+    (writeShellScriptBin "audio_source_down" ''wpctl set-volume @DEFAULT_SOURCE@ 2%- &&    notify-widget'')
+    (writeShellScriptBin "audio_source_notify" ''wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-widget'')
 
     (writeShellScriptBin "notify-widget" ''
       capacity=$(< /sys/class/power_supply/BAT1/capacity)
@@ -240,22 +284,29 @@
       brightness=$(brightnessctl g)
       audio_sink=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2 $3}')
       audio_source=$(wpctl get-volume @DEFAULT_SOURCE@ | awk '{print $2 $3}')
-      notify-send "$capacity $status | $brightness | $audio_sink | $audio_source"
+      custom-notify-send "$capacity $status | $brightness | $audio_sink | $audio_source"
     '')
-    (writeShellScriptBin "notify-time" ''
-      notify-send "$(date '+%H:%M:%S %A %d. %B %Y')"
-    '')
+
+    (writeShellScriptBin "notify-time" ''custom-notify-send "$(date '+%H:%M:%S %A %d. %B %Y')" '')
+
     (writeShellScriptBin "notify-network" ''
       iface=$(ip route | awk '/default/ {print $5}' | head -n1)
       local_ip=$(ip -4 addr show "$iface" | awk '/inet / {print $2}' | cut -d/ -f1)
-      if iw dev "$iface" info &>/dev/null; then
-        ssid=$(iw dev "$iface" link | awk -F': ' '/SSID/ {print $2}')
-        signal=$(iw dev "$iface" link | awk '/signal:/ {print $2 " dBm"}')
-        notify-send "$ssid | $local_ip | $signal"
-      else
-        notify-send "$iface | $local_ip"
-      fi
+      ssid=$(iw dev "$iface" link | awk -F': ' '/SSID/ {print $2}')
+      bitrate=$(iw dev "$iface" link | awk -F': ' '/tx bitrate/ {print $2}')
+      signal=$(iw dev "$iface" link | awk '/signal:/ {print $2 " dBm"}')
+
+      custom-notify-send "$iface | $ssid | $local_ip | $signal"
     '')
+
+    ############################################################
+    ## Extra
+    ############################################################
+
+    # nrfconnect
+    # nrfconnect-bluetooth-low-energy
+    lsof
+    nrf-command-line-tools
   ];
 
   ############################################################

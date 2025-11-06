@@ -1,4 +1,4 @@
-spawn-at-startup "swaybg" "-m" "fit" "-i" "/etc/nixos/images/mini-nix-side-greyer.png"
+// spawn-at-startup "swaybg" "-m" "fit" "-i" "/etc/nixos/images/mini-nix-side-grey_0.png"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "mako"
 
@@ -78,13 +78,6 @@ output "HDMI-A-2" {
     position x=-1920 y=0
 }
 
-layer-rule {
-    // This is for swaybg; change for other wallpaper tools.
-    // Find the right namespace by running niri msg layers.
-    match namespace="^wallpaper$"
-    place-within-backdrop true
-}
-
 layout {
     gaps 8
     background-color "transparent"
@@ -108,9 +101,9 @@ layout {
 
     border {
         width 1
-        active-color "#484848"
-        inactive-color "#484848"
-        urgent-color "#484848"
+        active-color "#444444"
+        inactive-color "#444444"
+        urgent-color "#444444"
     }
 
     shadow {
@@ -193,6 +186,14 @@ window-rule {
     // opacity 0.95
 }
 
+window-rule {
+    match app-id="Conky"
+    open-floating true
+    open-focused false
+    baba-is-float true
+    // default-floating-position x=100 y=600 relative-to="bottom-right"
+}
+
 binds {
     Mod+M repeat=false { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }
 
@@ -201,27 +202,31 @@ binds {
 
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+P hotkey-overlay-title="Run an Desktop Application: tofi-drun" { spawn "tofi-drun"; }
-    Mod+Shift+P hotkey-overlay-title="Run an command: tofi-run" { spawn "tofi-run"; }
+    Mod+Shift+P hotkey-overlay-title="Run an command: tofi-run" { spawn "exec" "$(tofi-run)"; }
     // Mod+Adfst+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     Mod+Space hotkey-overlay-title="Run Notify-widget" { spawn "notify-widget"; }
     Mod+Shift+Space hotkey-overlay-title="Run Notify-network" { spawn "notify-network"; }
     Mod+Control+Space hotkey-overlay-title="Run Notify-time" { spawn "notify-time"; }
+    Mod+Control+Shift+Space hotkey-overlay-title="Run Notify-time" { spawn "notify-dismiss"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "audio_sink_up"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "audio_sink_down"; }
     XF86AudioMute        allow-when-locked=true { spawn "audio_sink_toggle"; }
 
-    Mod+Shift+F8 allow-when-locked=true { spawn "audio_sink_up"; }
-    Mod+Shift+F7 allow-when-locked=true { spawn "audio_sink_down"; }
+    Mod+Shift+F1 allow-when-locked=true { spawn "brightness_notify"; }
+    Mod+Shift+F3 allow-when-locked=true { spawn "brightness_down"; }
+    Mod+Shift+F4 allow-when-locked=true { spawn "brightness_up"; }
+
+    Mod+Shift+F5 allow-when-locked=true { spawn "audio_sink_notify"; }
     Mod+Shift+F6 allow-when-locked=true { spawn "audio_sink_toggle"; }
+    Mod+Shift+F7 allow-when-locked=true { spawn "audio_sink_down"; }
+    Mod+Shift+F8 allow-when-locked=true { spawn "audio_sink_up"; }
 
-    Mod+Shift+F4 allow-when-locked=true { spawn "audio_source_up"; }
-    Mod+Shift+F3 allow-when-locked=true { spawn "audio_source_down"; }
-    Mod+Shift+F2 allow-when-locked=true { spawn "audio_source_toggle"; }
-
-    Mod+Shift+F12 allow-when-locked=true { spawn "brightness_up"; }
-    Mod+Shift+F11 allow-when-locked=true { spawn "brightness_down"; }
+    Mod+Shift+F9 allow-when-locked=true { spawn "audio_source_notify"; }
+    Mod+Shift+F10 allow-when-locked=true { spawn "audio_source_toggle"; }
+    Mod+Shift+F11 allow-when-locked=true { spawn "audio_source_down"; }
+    Mod+Shift+F12 allow-when-locked=true { spawn "audio_source_up"; }
 
     Mod+O repeat=false { toggle-overview; }
     Mod+Q { close-window; }

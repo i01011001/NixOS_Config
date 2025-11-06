@@ -1,9 +1,9 @@
 ## My Personal NixOS Config
 
-![logo]()
+![logo](./images/ss_0.png)
 
 #### Packages Used
-- **Compositor** -> [Niri]()
+- **Compositor** -> [Niri](https://github.com/YaLTeR/niri)
 - **Browser** -> [Firefox](https://github.com/mozilla-firefox/firefox)
 - **Terminal** -> [Foot](https://codeberg.org/dnkl/foot)
 - **Shell** -> [Zsh](https://www.zsh.org/)
@@ -13,7 +13,7 @@
 - **Book Reader** -> [Zathura](https://github.com/pwmt/zathura)
 - **Image Viewer** -> [Swayimg](https://github.com/artemsen/swayimg)
 - **Notification Daemon** -> [Mako](https://github.com/emersion/mako)
-- **Screenshot Tool** -> [Niri]()
+- **Screenshot Tool** -> [Niri](https://github.com/YaLTeR/niri)
 - **Snapshot Editor** -> [Satty](https://github.com/gabm/Satty)
 
 

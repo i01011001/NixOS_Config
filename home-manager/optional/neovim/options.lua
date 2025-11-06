@@ -43,7 +43,7 @@ vim.opt.splitkeep = "screen"
 vim.opt.foldcolumn = "0"
 vim.opt.foldenable = true
 vim.opt.foldtext = ""
-vim.opt.foldnestmax = 4
+vim.opt.foldnestmax = 6
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 

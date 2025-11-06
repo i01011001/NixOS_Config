@@ -7,8 +7,8 @@
   stylix = {
     enable = true;
     base16Scheme = {
-      base00 = "121212"; # Darkest background (slightly darker)
-      base01 = "212121"; # Dark background
+      base00 = "0E0E0E"; # Darkest background (slightly darker)
+      base01 = "1F1F1F"; # Dark background
       base02 = "303030"; # Secondary background
       base03 = "4E4E4E"; # Comments/secondary text
       base04 = "6D6D6D"; # Secondary text

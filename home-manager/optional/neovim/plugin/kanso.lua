@@ -13,61 +13,61 @@ Improved Configuration:
 
 -- 1. Define a central color palette for easy management.
 local colors = {
-    -- Base background tones from your original config
-    bg = "#121212",
-    bg_alt1 = "#1e1e1e",
-    bg_alt2 = "#2a2a2a",
+	-- Base background tones from your original config
+	bg = "#0E0E0E",
+	bg_alt1 = "#1e1e1e",
+	bg_alt2 = "#2a2a2a",
 
-    white = "#e0e0e0",
+	grey = "#7d7d7d",
+	white = "#e0e0e0",
 
-    -- A neutral color for borders and inactive elements
-    border = "#4e4e4e",
+	-- A neutral color for borders and inactive elements
+	border = "#4e4e4e",
 }
 
 -- 2. Configure and set up the colorscheme.
 require("kanso").setup({
-    bold = true,
-    italics = true,
-    undercurl = true,
-    transparent = true, -- Keep the background transparent
-    commentStyle = { italic = true },
-    keywordStyle = { italic = true },
+	bold = true,
+	italics = true,
+	undercurl = true,
+	transparent = true, -- Keep the background transparent
+	commentStyle = { italic = true },
+	keywordStyle = { italic = true },
 
-    -- The `overrides` function is the ideal place for your customizations.
-    -- It receives the theme's color palette and returns a table of custom highlights.
-    overrides = function(theme_colors)
-        return {
-            ---------------------------------------------------------------
-            -- Plugin Highlights
-            ---------------------------------------------------------------
-            -- Use your custom palette for consistent borders
-            BlinkCmpMenuBorder = { fg = colors.border },
-            BlinkCmpDocBorder = { fg = colors.border },
-            BlinkCmpSignatureHelpBorder = { fg = colors.border },
-            FzfLuaBorder = { fg = colors.border },
-            WhichKeyBorder = { fg = colors.border, bg = colors.bg },
+	-- The `overrides` function is the ideal place for your customizations.
+	-- It receives the theme's color palette and returns a table of custom highlights.
+	overrides = function(theme_colors)
+		return {
+			---------------------------------------------------------------
+			-- Plugin Highlights
+			---------------------------------------------------------------
+			-- Use your custom palette for consistent borders
+			BlinkCmpMenuBorder = { fg = colors.border },
+			BlinkCmpDocBorder = { fg = colors.border },
+			BlinkCmpSignatureHelpBorder = { fg = colors.border },
+			FzfLuaBorder = { fg = colors.border },
+			WhichKeyBorder = { fg = colors.border, bg = colors.bg },
 
-            ---------------------------------------------------------------
-            -- Native Neovim UI Highlights
-            ---------------------------------------------------------------
-            -- Completion menu
-            PmenuSel = { bg = colors.bg_alt1 },
+			---------------------------------------------------------------
+			-- Native Neovim UI Highlights
+			---------------------------------------------------------------
+			-- Completion menu
+			PmenuSel = { bg = colors.bg_alt1 },
 
-            -- Window splits and separators
-            -- Define VertSplit once, then link WinSeparator to it.
-            VertSplit = { fg = colors.border, bg = colors.bg },
-            WinSeparator = { link = "VertSplit" },
+			-- Window splits and separators
+			-- Define VertSplit once, then link WinSeparator to it.
+			VertSplit = { fg = colors.border, bg = colors.bg },
+			WinSeparator = { link = "VertSplit" },
 
-            -- Floating windows and popups
-            NormalFloat = { bg = colors.bg },
-            FloatBorder = { fg = colors.border, bg = colors.bg },
+			-- Floating windows and popups
+			NormalFloat = { bg = colors.bg },
+			FloatBorder = { fg = colors.border, bg = colors.bg },
 
-            -- Other UI elements
-            Folded = { bg = colors.bg },
-             -- ["@spell.markdown"] = {fg = colors.white}
-
-        }
-    end,
+			-- Other UI elements
+			Folded = { fg = colors.fg, bg = colors.bg },
+			-- ["@spell.markdown"] = {fg = colors.white}
+		}
+	end,
 })
 
 -- 3. Load the colorscheme.

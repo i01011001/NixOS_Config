@@ -18,55 +18,10 @@
 
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
-    # niri.url = "github:YaLTeR/niri";
-    # niri.url = "github:sodiboo/niri-flake";
-    # hyprland.url = "github:hyprwm/Hyprland";
-
-    # niri-tag = {
-    #   url = "git+https://git.atagen.co/atagen/niri-tag";
-    #   inputs.niri-flake.follows = "niri-flake";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # cwc = {
-    #   url = "github:Cudiph/cwcwm";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    #
-    # niri = {
-    #   url = "github:YaLTer/niri";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    #nvim plugins
-    # plugin-onedark = {
-    #   url = "github:navarasu/onedark.nvim";
-    #   flake = false;
-    # };
-    # plugin-nordic = {
-    #   url = "github:AlexvZyl/nordic.nvim";
-    #   flake = false;
-    # };
-    # plugin-moonfly = {
-    #   url = "github:bluz71/vim-moonfly-colors";
-    #   flake = false;
-    # };
-    # mellifluos = {
-    #   url = "github:ramojus/mellifluous.nvim";
-    #   flake = false;
-    # };
     kanso = {
       url = "github:webhooked/kanso.nvim";
       flake = false;
     };
-    # oh-lucy = {
-    #   url = "github:yazeed1s/oh-lucy.nvim";
-    #   flake = false;
-    # };
-    # rasmus = {
-    #   url = "github:kvrohit/rasmus.nvim";
-    #   flake = false;
-    # };
   };
 
   outputs = {
@@ -86,7 +41,6 @@
         ./overlays
 
         inputs.stylix.nixosModules.stylix
-        # inputs.niri-tag.nixosModules.niri-tag
 
         home-manager.nixosModules.home-manager
         {
