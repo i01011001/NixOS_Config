@@ -8,8 +8,8 @@
           # font = "Iosevka Nerd Font: size=10, ";
           # font = "style=bold";
           # line-height = 13.5;
-          resize-delay-ms = 100;
-          pad = "6x6";
+          resize-delay-ms = 10;
+          pad = "8x8";
           # term = "foot";
           # title = "Foot";
         };
