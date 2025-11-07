@@ -1,4 +1,4 @@
-// spawn-at-startup "swaybg" "-m" "fit" "-i" "/etc/nixos/images/mini-nix-side-grey_0.png"
+spawn-at-startup "swaybg" "-m" "fit" "-i" "/etc/nixos/images/01011001-bg.png"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "mako"
 
