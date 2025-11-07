@@ -1,6 +1,6 @@
 ## My Personal NixOS Config
 
-![logo](./images/image_4_readme.png)
+![logo](./images/image_4_readme_00.png)
 
 #### Packages Used
 - **Compositor** -> [Niri](https://github.com/YaLTeR/niri)

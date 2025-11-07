@@ -1,4 +1,4 @@
-spawn-at-startup "swaybg" "-m" "fit" "-i" "/etc/nixos/images/01011001-bg.png"
+spawn-at-startup "swaybg" "-m" "fit" "-i" "/etc/nixos/images/01011001-bg-00.png"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "mako"
 
@@ -25,9 +25,9 @@ overview {
 }
 
 gestures {
-    hot-corners { 
-    off 
-}
+        hot-corners { 
+        off 
+    }
 }
 
 // cursor {
@@ -79,7 +79,7 @@ output "HDMI-A-2" {
 }
 
 layout {
-    gaps 8
+    gaps 4
     background-color "transparent"
     empty-workspace-above-first
     center-focused-column "never"
@@ -101,36 +101,36 @@ layout {
 
     border {
         width 1
-        active-color "#444444"
-        inactive-color "#444444"
-        urgent-color "#444444"
+        active-color "#000000"
+        inactive-color "#000000"
+        urgent-color "#000000"
     }
 
     shadow {
         // on
-        draw-behind-window false 
-        softness 3
+        draw-behind-window true
+        softness 7
         spread 1
-        offset x=1 y=1
+        offset x=0 y=0
         color "#000"
     }
 
     struts {
-        left -2
-        right -2
-        top -2
+        left -1
+        right -1
+        top 2
         bottom -2
     }
 
     tab-indicator {
-        width 8
+        width 6
         gap 6
-        corner-radius 3
+        corner-radius 2
         gaps-between-tabs 20
         length total-proportion=0.44
         position "top"
         place-within-column
-        active-color "#8ba4b099"
+        active-color "#ababab"
         inactive-color "#121212"
     }
 }
@@ -182,7 +182,7 @@ animations {
 
 window-rule {
     open-floating false 
-    geometry-corner-radius 9
+    geometry-corner-radius 5
     clip-to-geometry true
     // opacity 0.9
 }
