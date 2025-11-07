@@ -21,7 +21,7 @@ overview {
     workspace-shadow {
     off 
 }
-    // backdrop-color "#2d2d2d"
+    backdrop-color "#595959"
 }
 
 gestures {
@@ -107,11 +107,12 @@ layout {
     }
 
     shadow {
-        draw-behind-window true
-        softness 5
+        // on
+        draw-behind-window false 
+        softness 3
         spread 1
-        offset x=0 y=0
-        color "#fff7"
+        offset x=1 y=1
+        color "#000"
     }
 
     struts {
@@ -129,8 +130,8 @@ layout {
         length total-proportion=0.44
         position "top"
         place-within-column
-        active-color "#8ba4b077"
-        inactive-color "#000000"
+        active-color "#8ba4b099"
+        inactive-color "#121212"
     }
 }
 
@@ -183,7 +184,7 @@ window-rule {
     open-floating false 
     geometry-corner-radius 9
     clip-to-geometry true
-    // opacity 0.95
+    // opacity 0.9
 }
 
 window-rule {
