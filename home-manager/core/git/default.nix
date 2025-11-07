@@ -5,7 +5,7 @@
     settings = {
       user = {
         name = "i01011001";
-        email = "i01011001.m7@gmail.com";
+        email = "yugen.m7@gmail.com";
       };
       merge.tool = "nvimdiff";
       diff = {
