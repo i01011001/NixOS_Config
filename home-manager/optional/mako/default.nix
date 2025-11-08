@@ -30,7 +30,7 @@ in {
       border-color = lib.mkForce "#404040";
       text-alignment = "center";
       # border-color = getColor colors.base03;
-      border-radius = 6;
+      border-radius = 5;
       # progress-color = "#505050";
       icons = true;
       max-icon-size = 64;

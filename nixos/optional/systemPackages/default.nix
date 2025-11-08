@@ -307,6 +307,7 @@
     # nrfconnect-bluetooth-low-energy
     lsof
     nrf-command-line-tools
+    nvtopPackages.intel
   ];
 
   ############################################################
