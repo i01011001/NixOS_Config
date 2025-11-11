@@ -1,0 +1,14 @@
+# prepopulates a certain number of tags, from 1-255.
+# this is useful for getting the full number of tags you intend to use
+# premade and sent in any initial event stream connection.
+prepopulate = 10
+
+# strict workspaces
+# this prevents you from switching away from the workspaces that were on each monitor
+# when niri-tag was started, ensuring you don't accidentally break the window management
+# paradigm, or get your desktop stuck in a weird state.
+strict = true
+
+# activation on fill
+# this will auto-activate an empty + disabled tags if you send a window to it
+activation_on_fill = true

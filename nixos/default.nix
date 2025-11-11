@@ -36,6 +36,7 @@
     ./optional/postgresql
     # ./optional/printer
     ./optional/niri
+    ./optional/customs/overlays
     # ./optional/qemu
   ];
 

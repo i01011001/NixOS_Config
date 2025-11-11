@@ -38,7 +38,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./nixos
-        ./overlays
+        # ./overlays
 
         inputs.stylix.nixosModules.stylix
 
@@ -48,7 +48,7 @@
             useUserPackages = true;
             useGlobalPkgs = true;
             extraSpecialArgs = {inherit inputs;};
-            users.${username}.imports = [./home-manager];
+            users.${username}.imports = [./hm];
           };
         }
       ];
