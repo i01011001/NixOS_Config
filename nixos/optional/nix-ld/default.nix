@@ -25,7 +25,7 @@
       libxcrypt-legacy
       libunistring
       old_libunistring
-      (import ./../../../customs/libraries/icu/default.nix {inherit stdenv fetchurl;})
+      (import ./../customs/libraries/icu/default.nix {inherit stdenv fetchurl;})
 
       gobject-introspection
       libgcc

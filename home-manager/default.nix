@@ -29,23 +29,8 @@
     ./optional/firefox
     ./optional/niri
     ./optional/formatter
-    # ./optional/cwc
-    # ./optional/conky
-    # ./optional/hypr
-    # ./optional/floorp
-    # ./optional/brave
-    # ./optional/river
-    # ./optional/fnott
-    # ./optional/wezterm
-    # ./optional/alacritty
-    # ./optional/waybar
-    # ./optional/cursor
-    # ./optional/gbar
-    # ./optional/sway
     # ./optional/flameshot
-    # ./optional/i3
     # ./optional/xdg
-    # ./optional/nixvim
   ];
 
   home = {

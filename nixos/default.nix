@@ -36,10 +36,7 @@
     ./optional/postgresql
     # ./optional/printer
     ./optional/niri
-    # ./optional/sway
-    # ./optional/i3
     # ./optional/qemu
-    # ./optional/x11
   ];
 
   # console = {

@@ -73,9 +73,9 @@
     stm32cubemx
     stm32flash
     stm32loader
-    (import ../../../customs/pkgs/diagslave {inherit pkgs;})
-    (import ../../../customs/pkgs/miniterm {inherit pkgs;})
-    (import ../../../customs/pkgs/modpoll {inherit pkgs;})
+    (import ../customs/pkgs/diagslave {inherit pkgs;})
+    (import ../customs/pkgs/miniterm {inherit pkgs;})
+    (import ../customs/pkgs/modpoll {inherit pkgs;})
 
     ############################################################
     ## Networking, Security & Reverse Engineering
