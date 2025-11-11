@@ -48,7 +48,7 @@
             useUserPackages = true;
             useGlobalPkgs = true;
             extraSpecialArgs = {inherit inputs;};
-            users.${username}.imports = [./hm];
+            users.${username}.imports = [./home];
           };
         }
       ];

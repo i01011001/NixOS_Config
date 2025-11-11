@@ -308,6 +308,7 @@
     lsof
     nrf-command-line-tools
     nvtopPackages.intel
+    xxd
   ];
 
   ############################################################
