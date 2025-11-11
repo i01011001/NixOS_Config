@@ -1,4 +1,4 @@
-spawn-at-startup "swaybg" "-m" "fit" "-i" "/etc/nixos/images/01011001-bg-00.png"
+// spawn-at-startup "swaybg" "-m" "fit" "-i" "/etc/nixos/images/01011001-bg-00.png"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "mako"
 
@@ -73,7 +73,7 @@ output "eDP-1" {
 }
 
 output "HDMI-A-2" {
-    scale 1
+    scale 0.9
     transform "normal"
     position x=-1920 y=0
 }
@@ -130,7 +130,7 @@ layout {
         length total-proportion=0.44
         position "top"
         place-within-column
-        active-color "#ababab"
+        active-color "#9a9a9a"
         inactive-color "#121212"
     }
 }
@@ -203,7 +203,7 @@ binds {
 
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+P hotkey-overlay-title="Run an Desktop Application: tofi-drun" { spawn "tofi-drun"; }
-    Mod+Shift+P hotkey-overlay-title="Run an command: tofi-run" { spawn "exec" "$(tofi-run)"; }
+    Mod+Shift+P hotkey-overlay-title="Run an command: tofi-run" { spawn "zsh" "-c" "exec $(tofi-run)"; }
     // Mod+Adfst+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     Mod+Space hotkey-overlay-title="Run Notify-widget" { spawn "notify-widget"; }

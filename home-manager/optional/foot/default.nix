@@ -9,7 +9,7 @@
           # font = "style=bold";
           # line-height = 13.5;
           resize-delay-ms = 10;
-          pad = "8x8";
+          pad = "8x8 center";
           # term = "foot";
           # title = "Foot";
         };
