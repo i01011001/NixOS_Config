@@ -22,6 +22,11 @@
       url = "github:webhooked/kanso.nvim";
       flake = false;
     };
+
+    # cwc = {
+    #   url = "github:i01011001/cwcwm";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = {

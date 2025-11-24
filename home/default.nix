@@ -29,6 +29,7 @@
     ./optional/firefox
     ./optional/niri
     ./optional/formatter
+    ./optional/hypr
     # ./optional/flameshot
     # ./optional/xdg
   ];
@@ -50,6 +51,10 @@
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+
+  home.sessionVariables = {
+    NO_COLOR = "1";
+  };
 
   home.stateVersion = "24.11";
 }

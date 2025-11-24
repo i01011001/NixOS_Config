@@ -29,6 +29,8 @@
       nvim-treesitter
       nvim-lspconfig
       kanso
+      nvim-gdb
+      fyler-nvim
       # harpoon2
       # orgmode
       # (onedark-nvim.overrideAttrs (oldAttrs: {

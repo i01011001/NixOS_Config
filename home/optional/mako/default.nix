@@ -25,7 +25,7 @@ in {
       width = 400;
       height = 100;
       margin = "10";
-      outer-margin = "16, 6, 16, 6";
+      outer-margin = "14, 4, 14, 4";
       border-size = 1;
       border-color = lib.mkForce "#404040";
       text-alignment = "center";

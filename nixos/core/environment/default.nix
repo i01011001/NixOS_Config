@@ -6,12 +6,13 @@
       VISUAL = "nvim";
       FUNCNEST = 1000;
 
-      XDG_PICTURES_DIR = "~/media/images/";
+      XDG_PICTURES_DIR = "/home/i01011001/media/images/";
     };
     sessionVariables = {
       QT_QPA_PLATFORM = "wayland";
       QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_FONT_DPI = "90";
+
     };
   };
 }

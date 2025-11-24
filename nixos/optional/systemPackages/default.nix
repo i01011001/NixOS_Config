@@ -10,7 +10,7 @@
     ccache
     clang-tools
     cmake
-    gcc
+    gcc_latest
     gcc-arm-embedded
     gnumake
     go
@@ -22,6 +22,8 @@
     rust-analyzer
     rustfmt
     rustlings
+
+
 
     ############################################################
     ## Nix Ecosystem
@@ -168,6 +170,7 @@
     ffmpeg-full
     gimp3
     imagemagick
+    inkscape
     krita
     libreoffice
     mpv
@@ -309,6 +312,11 @@
     nrf-command-line-tools
     nvtopPackages.intel
     xxd
+
+    logisim-evolution
+    transmission_4-gtk
+
+    # inputs.cwc.packages.x86_64-linux.cwc
   ];
 
   ############################################################

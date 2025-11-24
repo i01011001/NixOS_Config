@@ -21,7 +21,7 @@ overview {
     workspace-shadow {
     off 
 }
-    backdrop-color "#595959"
+    backdrop-color "#484848"
 }
 
 gestures {
@@ -79,7 +79,7 @@ output "HDMI-A-2" {
 }
 
 layout {
-    gaps 3
+    gaps 0
     background-color "transparent"
     empty-workspace-above-first
     center-focused-column "never"
@@ -116,18 +116,18 @@ layout {
     }
 
     struts {
-        left -2
-        right -2
-        top 2
-        bottom -2
+        left 0
+        right 0
+        top 0
+        bottom 0
     }
 
     tab-indicator {
-        width 6
-        gap 6
-        corner-radius 2
-        gaps-between-tabs 20
-        length total-proportion=0.44
+        // width 5
+        gap 0
+        corner-radius 0
+        // gaps-between-tabs 20
+        length total-proportion=1.0
         position "top"
         place-within-column
         active-color "#9a9a9a"
@@ -140,6 +140,7 @@ prefer-no-csd
 screenshot-path "~/Documents/Pictures/screenshot/%Y-%m-%d %H-%M-%S.png"
 
 animations {
+    off
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
@@ -181,24 +182,25 @@ animations {
 }
 
 window-rule {
-    open-floating false 
-    geometry-corner-radius 5
+    // open-floating false
+    geometry-corner-radius 0
     clip-to-geometry true
+    tiled-state true
     // opacity 0.9
 }
 
-window-rule {
-    match is-floating=true
-    baba-is-float true
-}
+// window-rule {
+//     match is-floating=true
+//     baba-is-float true
+// }
 
-window-rule {
-    match app-id="Conky"
-    open-floating true
-    open-focused false
-    baba-is-float true
-    // default-floating-position x=100 y=600 relative-to="bottom-right"
-}
+// window-rule {
+//     match app-id="Conky"
+//     open-floating true
+//     open-focused false
+//     baba-is-float true
+//     // default-floating-position x=100 y=600 relative-to="bottom-right"
+// }
 
 binds {
     Mod+M repeat=false { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }
