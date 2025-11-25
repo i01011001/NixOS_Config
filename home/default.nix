@@ -27,9 +27,10 @@
     ./optional/neovim
     ./optional/foot
     ./optional/firefox
-    ./optional/niri
     ./optional/formatter
-    ./optional/hypr
+    ./optional/sway
+    # ./optional/niri
+    # ./optional/hypr
     # ./optional/flameshot
     # ./optional/xdg
   ];

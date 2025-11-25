@@ -23,8 +23,6 @@
     rustfmt
     rustlings
 
-
-
     ############################################################
     ## Nix Ecosystem
     ############################################################
@@ -142,8 +140,10 @@
     ############################################################
     ## Wayland Native Tools
     ############################################################
+    sway
     swaybg
     swayimg
+    swaylock
     wayland-utils
     wf-recorder
     wl-clipboard
@@ -259,17 +259,6 @@
        custom-notify-send "Audio Source: $audio_source"
     '')
 
-    # (writeShellScriptBin "brightness_down" ''brightnessctl set 2%-  && brightness_notify'')
-    # (writeShellScriptBin "brightness_up" ''brightnessctl set 2%+ && brightness_notify'')
-    #
-    # (writeShellScriptBin "audio_sink_up" ''wpctl set-volume @DEFAULT_SINK@ 2%+ && audio_sink_notify '')
-    # (writeShellScriptBin "audio_sink_down" ''wpctl set-volume @DEFAULT_SINK@ 2%- && audio_sink_notify '')
-    # (writeShellScriptBin "audio_sink_toggle" ''wpctl set-mute @DEFAULT_SINK@ toggle && audio_sink_notify '')
-    #
-    # (writeShellScriptBin "audio_source_up" ''wpctl set-volume @DEFAULT_SOURCE@ 2%+ && audio_source_notify '')
-    # (writeShellScriptBin "audio_source_down" ''wpctl set-volume @DEFAULT_SOURCE@ 2%- && audio_source_notify'')
-    # (writeShellScriptBin "audio_source_notify" ''wpctl set-mute @DEFAULT_SOURCE@ toggle && audio_source_notify'')
-
     (writeShellScriptBin "brightness_down" ''brightnessctl set 2%-  && notify-widget'')
     (writeShellScriptBin "brightness_up" ''brightnessctl set 2%+ && notify-widget'')
 
@@ -315,6 +304,7 @@
 
     logisim-evolution
     transmission_4-gtk
+    conky
 
     # inputs.cwc.packages.x86_64-linux.cwc
   ];

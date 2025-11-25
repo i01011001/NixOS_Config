@@ -19,18 +19,18 @@ in {
       layer = "overlay";
       anchor = "bottom-right";
 
-      # font = "Iosevka Nerd Font Propo 10";
-      # background-color = lib "#181818";
+      font = lib.mkForce "Iosevka Nerd Font Propo 9";
+      background-color = lib.mkForce "#000000";
       # text-color = "#f0f0f0";
-      width = 400;
+      width = 360;
       height = 100;
-      margin = "10";
-      outer-margin = "14, 4, 14, 4";
-      border-size = 1;
-      border-color = lib.mkForce "#404040";
+      margin = "0";
+      outer-margin = "0";
+      border-size = 0;
+      # border-color = lib.mkForce "#404040";
       text-alignment = "center";
       # border-color = getColor colors.base03;
-      border-radius = 4;
+      # border-radius = 4;
       # progress-color = "#505050";
       icons = true;
       max-icon-size = 64;

@@ -100,7 +100,7 @@ layout {
     }
 
     border {
-        width 1
+        width 2
         active-color "#000000"
         inactive-color "#000000"
         urgent-color "#000000"
@@ -116,14 +116,14 @@ layout {
     }
 
     struts {
-        left 0
-        right 0
+        left -2
+        right -2
         top 0
-        bottom 0
+        bottom -2
     }
 
     tab-indicator {
-        // width 5
+        width 6
         gap 0
         corner-radius 0
         // gaps-between-tabs 20
@@ -131,7 +131,7 @@ layout {
         position "top"
         place-within-column
         active-color "#9a9a9a"
-        inactive-color "#121212"
+        inactive-color "#000000"
     }
 }
 
@@ -140,7 +140,7 @@ prefer-no-csd
 screenshot-path "~/Documents/Pictures/screenshot/%Y-%m-%d %H-%M-%S.png"
 
 animations {
-    off
+    // off
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
@@ -203,7 +203,7 @@ window-rule {
 // }
 
 binds {
-    Mod+M repeat=false { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }
+    Mod+M repeat=false { spawn-sh "wl-mirror $()"; }
 
     Mod+Slash { show-hotkey-overlay; }
     Mod+W { toggle-column-tabbed-display; }

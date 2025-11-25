@@ -14,7 +14,7 @@ Improved Configuration:
 -- 1. Define a central color palette for easy management.
 local colors = {
 	-- Base background tones from your original config
-	bg = "#121212",
+	bg = "#161616",
 	bg_alt1 = "#1e1e1e",
 	bg_alt2 = "#2a2a2a",
 

@@ -30,7 +30,8 @@
       nvim-lspconfig
       kanso
       nvim-gdb
-      fyler-nvim
+      # fyler-nvim
+      # nightfox-nvim
       # harpoon2
       # orgmode
       # (onedark-nvim.overrideAttrs (oldAttrs: {
@@ -46,6 +47,7 @@
     # ${builtins.readFile ./plugin/kanagawa.lua}
     # ${builtins.readFile ./plugin/nightfox.lua}
     # ${builtins.readFile ./plugin/harpoon2.lua}
+    # ${builtins.readFile ./plugin/nightfox.lua}
     extraLuaConfig = ''
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./plugin/diffview.lua}

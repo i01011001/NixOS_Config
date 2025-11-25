@@ -1,0 +1,315 @@
+# ============================================================================
+# SWAY WINDOW MANAGER CONFIGURATION
+# ============================================================================
+
+include /etc/sway/gonfig.d/*
+
+# ============================================================================
+# VARIABLES
+# ============================================================================
+
+# Modifier key (Super/Windows key)
+set $mod Mod4
+
+# Direction keys (vim-style)
+set $left  h
+set $down  j
+set $up    k
+set $right l
+
+# Applications
+set $term foot
+set $menu tofi-drun
+
+# Outputs
+set $pri   eDP-1
+set $sec_l HDMI-A-2
+set $sec_t HDMI-A-l
+set $sec_r HDMI-A-4
+
+# Color definitions
+set $bg #000000
+set $fg #FBFBFB
+
+set $darkgray0  #1d1d1d
+set $darkgray1  #292929
+set $darkgray2  #404040
+set $lightgray0 #888888
+set $lightgray1 #ADADAD
+set $lightgray2 #D0D0D0
+
+set $red  #bf656e
+set $blue #285577
+
+# ============================================================================
+# AUTOSTART
+# ============================================================================
+
+exec mako
+exec swaybg -m fill -i "/etc/nixos/images/nixos.jpg"
+
+# ============================================================================
+# IDLE & LOCK
+# ============================================================================
+
+exec swayidle -w \
+	timeout 600 'swaylock -f -c 000000FF' \
+	timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f -c 000000FF'
+
+# ============================================================================
+# APPEARANCE
+# ============================================================================
+
+# Font
+font pango:Iosevka Nerd Font Propo 8
+
+# Borders
+smart_borders on
+hide_edge_borders --i3 both
+default_border pixel 2
+default_floating_border pixel 0
+titlebar_border_thickness 0
+titlebar_padding 0
+title_align center
+
+# Gaps
+gaps top    0
+gaps bottom 0
+gaps left   0
+gaps right  0
+gaps inner  0
+gaps outer  -2
+
+# Window colors
+# class                 border      background  text  indicator   child_border
+client.focused          $bg         $darkgray1  $fg   $bg         $bg
+client.focused_inactive $bg         $darkgray0  $fg   $bg         $bg
+client.unfocused        $bg         $bg         $fg   $bg         $bg
+client.urgent           $darkgray2  $red        $fg   $red        $red
+
+# ============================================================================
+# INPUT CONFIGURATION
+# ============================================================================
+
+# Touchpad
+input "1267:12632:ELAN050A:01_04F3:3158_Touchpad" {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+}
+
+# Keyboard (commented out)
+# input "1:1:AT_Translated_Set_2_keyboard" repeat_delay 300 
+# input "1:1:AT_Translated_Set_2_keyboard" repeat_rate 60   
+# input "*" repeat_rate 60   
+# input "*" repeat_delay 300  
+
+# Cursor
+seat * hide_cursor 500
+
+# ============================================================================
+# BEHAVIOR
+# ============================================================================
+
+focus_follows_mouse yes
+focus_wrapping yes
+mouse_warping container
+
+# ============================================================================
+# KEY BINDINGS - BASIC
+# ============================================================================
+
+# Applications
+bindsym $mod+t       exec $term
+bindsym $mod+p       exec $menu
+
+# Window management
+bindsym $mod+q       kill
+bindsym $mod+Shift+t border toggle
+
+# Screenshot
+bindsym print        exec capture_whole
+
+# System
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+q exec swaymsg exit
+
+# ============================================================================
+# KEY BINDINGS - AUDIO & BRIGHTNESS
+# ============================================================================
+
+# Audio sink (speakers/headphones)
+bindsym $mod+Control+F8 exec audio_sink_up
+bindsym $mod+Control+F7 exec audio_sink_down 
+bindsym $mod+Control+F6 exec audio_sink_toggle 
+
+# Audio source (microphone)
+bindsym $mod+Control+F12 exec audio_source_up
+bindsym $mod+Control+F11 exec audio_source_down 
+bindsym $mod+Control+F10 exec audio_source_toggle 
+
+# Brightness
+bindsym $mod+Control+F4 exec brightness_up
+bindsym $mod+Control+F3 exec brightness_down
+
+# Notifications
+bindsym $mod+space         exec notify-widget
+bindsym $mod+Shift+space   exec notify-network
+bindsym $mod+Control+space exec notify-time
+
+# ============================================================================
+# KEY BINDINGS - FOCUS & MOVEMENT
+# ============================================================================
+
+# Move focus
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+# Move windows
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
+
+# Focus parent/child
+bindsym $mod+s focus parent
+bindsym $mod+a focus child
+
+# Workspace switching
+bindsym $mod+Tab workspace back_and_forth
+
+# ============================================================================
+# KEY BINDINGS - LAYOUTS
+# ============================================================================
+
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Splitting
+bindsym $mod+b splith
+bindsym $mod+v splitv
+bindsym $mod+n split n
+
+# Fullscreen
+bindsym $mod+f fullscreen
+
+# Floating
+bindsym $mod+z       floating toggle
+bindsym $mod+Shift+z focus mode_toggle
+
+# ============================================================================
+# KEY BINDINGS - FLOATING WINDOW MOVEMENT
+# ============================================================================
+
+bindsym $mod+Up          move up    1
+bindsym $mod+Shift+Up    move up    10
+bindsym $mod+Down        move down  1
+bindsym $mod+Shift+Down  move down  10
+bindsym $mod+Left        move left  1
+bindsym $mod+Shift+Left  move left  10
+bindsym $mod+Right       move right 1
+bindsym $mod+Shift+Right move right 10
+
+# ============================================================================
+# KEY BINDINGS - SCRATCHPAD
+# ============================================================================
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus       scratchpad show
+
+# ============================================================================
+# KEY BINDINGS - RESIZING
+# ============================================================================
+
+bindsym $mod+Control+$left  resize shrink width  20px
+bindsym $mod+Control+$down  resize shrink height 20px
+bindsym $mod+Control+$up    resize grow   height 20px
+bindsym $mod+Control+$right resize grow   width  20px
+
+# ============================================================================
+# WORKSPACES - PRIMARY DISPLAY
+# ============================================================================
+
+workspace 1  output $pri
+workspace 2  output $pri
+workspace 3  output $pri
+workspace 4  output $pri
+workspace 5  output $pri
+workspace 6  output $pri
+workspace 7  output $pri
+workspace 8  output $pri
+workspace 9  output $pri
+workspace 0  output $pri
+
+# Switch to workspace (primary)
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move to workspace (primary)
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# ============================================================================
+# WORKSPACES - SECONDARY DISPLAYS
+# ============================================================================
+
+workspace 11 output $sec_l
+workspace 12 output $sec_l
+workspace 13 output $sec_l
+workspace 14 output $sec_l
+workspace 15 output $sec_t
+workspace 16 output $sec_t
+workspace 17 output $sec_t
+workspace 18 output $sec_t
+workspace 19 output $sec_r
+workspace 20 output $sec_r
+workspace 21 output $sec_r
+workspace 22 output $sec_r
+
+# Switch to workspace (secondary)
+bindsym $mod+F1  workspace number 11
+bindsym $mod+F2  workspace number 12
+bindsym $mod+F3  workspace number 13
+bindsym $mod+F4  workspace number 14
+bindsym $mod+F5  workspace number 15
+bindsym $mod+F6  workspace number 16
+bindsym $mod+F7  workspace number 17
+bindsym $mod+F8  workspace number 18
+bindsym $mod+F9  workspace number 19
+bindsym $mod+F10 workspace number 20
+bindsym $mod+F11 workspace number 21
+bindsym $mod+F12 workspace number 22
+
+# Move to workspace (secondary)
+bindsym $mod+Shift+F1  move container to workspace number 11
+bindsym $mod+Shift+F2  move container to workspace number 12
+bindsym $mod+Shift+F3  move container to workspace number 13
+bindsym $mod+Shift+F4  move container to workspace number 14
+bindsym $mod+Shift+F5  move container to workspace number 15
+bindsym $mod+Shift+F6  move container to workspace number 16
+bindsym $mod+Shift+F7  move container to workspace number 17
+bindsym $mod+Shift+F8  move container to workspace number 18
+bindsym $mod+Shift+F9  move container to workspace number 19
+bindsym $mod+Shift+F10 move container to workspace number 20
+bindsym $mod+Shift+F11 move container to workspace number 21
+bindsym $mod+Shift+F12 move container to workspace number 22
