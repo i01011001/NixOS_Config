@@ -19,7 +19,7 @@
             "sidebar.visibility" = "hide-sidebar";
             "sidebar.position_start" = true;
             "font.minimum-size.x-western" = 10;
-            "font.size.variable.x-western" = 12;
+            # "font.size.variable.x-western" = 12;
             "sidebar.revamp.round-content-area" = false;
           };
           userChrome = builtins.readFile ./nightly.css;

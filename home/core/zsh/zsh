@@ -1,10 +1,6 @@
 
 PS1="%B%{$fg[white]%}[ %1d ] %# %b"
 
-# History in cache directory:
-# HISTFILE="$HOME/.cache/zsh/history"             # Save 100000 lines of history
-# HISTSIZE=100000
-# SAVEHIST=100000
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
@@ -18,7 +14,6 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
-export LS_COLORS=$LS_COLORS:'ow=1;34:'
 
 # vi mode
 bindkey -v
@@ -59,12 +54,12 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # Terminal color
-export TERM=xterm-256color
-
-export CMAKE_EXPORT_COMPILE_COMMANDS=1
+# export RMAKER_PATH="$HOME/code/esp/idf/esp-components/esp-rainmaker/"
+export LS_COLORS=$LS_COLORS:'ow=1;34:'
 export IDF_PATH="$HOME/code/esp/idf/esp-idf"
-export RMAKER_PATH="$HOME/code/esp/idf/esp-components/esp-rainmaker/"
 export IDF_CCACHE_ENABLE=1
+export TERM=xterm-256color
+export CMAKE_EXPORT_COMPILE_COMMANDS=1
 
 # export MANPAGER="nvim -c 'Man!' -o -"
 

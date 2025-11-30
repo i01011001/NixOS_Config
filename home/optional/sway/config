@@ -20,6 +20,7 @@ set $right l
 # Applications
 set $term foot
 set $menu tofi-drun
+set $menu_cli spawn "zsh" "-c" "exec $(tofi-run)"
 
 # Outputs
 set $pri   eDP-1
@@ -29,23 +30,22 @@ set $sec_r HDMI-A-4
 
 # Color definitions
 set $bg #000000
-set $fg #FBFBFB
+set $fg #c8c8c8
 
 set $darkgray0  #1d1d1d
 set $darkgray1  #292929
 set $darkgray2  #404040
 set $lightgray0 #888888
-set $lightgray1 #ADADAD
-set $lightgray2 #D0D0D0
 
 set $red  #bf656e
-set $blue #285577
+set $blue #28557788
 
 # ============================================================================
 # AUTOSTART
 # ============================================================================
 
 exec mako
+# exec conky -d -q
 exec swaybg -m fill -i "/etc/nixos/images/nixos.jpg"
 
 # ============================================================================
@@ -62,7 +62,7 @@ exec swayidle -w \
 # ============================================================================
 
 # Font
-font pango:Iosevka Nerd Font Propo 8
+font Iosevka Nerd Font Propo 8
 
 # Borders
 smart_borders on
@@ -107,7 +107,7 @@ input "1267:12632:ELAN050A:01_04F3:3158_Touchpad" {
 # input "*" repeat_delay 300  
 
 # Cursor
-seat * hide_cursor 500
+seat * hide_cursor 720
 
 # ============================================================================
 # BEHAVIOR
@@ -124,6 +124,7 @@ mouse_warping container
 # Applications
 bindsym $mod+t       exec $term
 bindsym $mod+p       exec $menu
+bindsym $mod+Shift+p exec $menu_cli
 
 # Window management
 bindsym $mod+q       kill
@@ -159,6 +160,8 @@ bindsym $mod+space         exec notify-widget
 bindsym $mod+Shift+space   exec notify-network
 bindsym $mod+Control+space exec notify-time
 
+bindsym $mod+alt+space exec sway_ws
+
 # ============================================================================
 # KEY BINDINGS - FOCUS & MOVEMENT
 # ============================================================================
@@ -176,8 +179,9 @@ bindsym $mod+Shift+$up    move up
 bindsym $mod+Shift+$right move right
 
 # Focus parent/child
-bindsym $mod+s focus parent
-bindsym $mod+a focus child
+bindsym $mod+a focus parent
+bindsym $mod+s focus child
+bindsym $mod+d focus tiling 
 
 # Workspace switching
 bindsym $mod+Tab workspace back_and_forth
@@ -277,39 +281,44 @@ workspace 11 output $sec_l
 workspace 12 output $sec_l
 workspace 13 output $sec_l
 workspace 14 output $sec_l
-workspace 15 output $sec_t
-workspace 16 output $sec_t
-workspace 17 output $sec_t
-workspace 18 output $sec_t
-workspace 19 output $sec_r
-workspace 20 output $sec_r
-workspace 21 output $sec_r
-workspace 22 output $sec_r
 
-# Switch to workspace (secondary)
 bindsym $mod+F1  workspace number 11
 bindsym $mod+F2  workspace number 12
 bindsym $mod+F3  workspace number 13
 bindsym $mod+F4  workspace number 14
-bindsym $mod+F5  workspace number 15
-bindsym $mod+F6  workspace number 16
-bindsym $mod+F7  workspace number 17
-bindsym $mod+F8  workspace number 18
-bindsym $mod+F9  workspace number 19
-bindsym $mod+F10 workspace number 20
-bindsym $mod+F11 workspace number 21
-bindsym $mod+F12 workspace number 22
 
-# Move to workspace (secondary)
 bindsym $mod+Shift+F1  move container to workspace number 11
 bindsym $mod+Shift+F2  move container to workspace number 12
 bindsym $mod+Shift+F3  move container to workspace number 13
 bindsym $mod+Shift+F4  move container to workspace number 14
-bindsym $mod+Shift+F5  move container to workspace number 15
-bindsym $mod+Shift+F6  move container to workspace number 16
-bindsym $mod+Shift+F7  move container to workspace number 17
-bindsym $mod+Shift+F8  move container to workspace number 18
-bindsym $mod+Shift+F9  move container to workspace number 19
-bindsym $mod+Shift+F10 move container to workspace number 20
-bindsym $mod+Shift+F11 move container to workspace number 21
-bindsym $mod+Shift+F12 move container to workspace number 22
+
+# workspace 15 output $sec_t
+# workspace 16 output $sec_t
+# workspace 17 output $sec_t
+# workspace 18 output $sec_t
+#
+# bindsym $mod+F5  workspace number 15
+# bindsym $mod+F6  workspace number 16
+# bindsym $mod+F7  workspace number 17
+# bindsym $mod+F8  workspace number 18
+#
+# bindsym $mod+Shift+F5  move container to workspace number 15
+# bindsym $mod+Shift+F6  move container to workspace number 16
+# bindsym $mod+Shift+F7  move container to workspace number 17
+# bindsym $mod+Shift+F8  move container to workspace number 18
+#
+# workspace 19 output $sec_r
+# workspace 20 output $sec_r
+# workspace 21 output $sec_r
+# workspace 22 output $sec_r
+#
+# bindsym $mod+F9  workspace number 19
+# bindsym $mod+F10 workspace number 20
+# bindsym $mod+F11 workspace number 21
+# bindsym $mod+F12 workspace number 22
+#
+# # Move to workspace (secondary)
+# bindsym $mod+Shift+F9  move container to workspace number 19
+# bindsym $mod+Shift+F10 move container to workspace number 20
+# bindsym $mod+Shift+F11 move container to workspace number 21
+# bindsym $mod+Shift+F12 move container to workspace number 22

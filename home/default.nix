@@ -29,7 +29,8 @@
     ./optional/firefox
     ./optional/formatter
     ./optional/sway
-    # ./optional/niri
+    # ./optional/conky
+    ./optional/niri
     # ./optional/hypr
     # ./optional/flameshot
     # ./optional/xdg
