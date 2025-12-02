@@ -311,7 +311,7 @@
     android-studio
     rocketchat-desktop
 
-    glow
+    # glow
     # inputs.cwc.packages.x86_64-linux.cwc
   ];
 

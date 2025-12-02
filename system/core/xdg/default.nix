@@ -3,26 +3,23 @@
     autostart.enable = true;
     portal = {
       enable = true;
-      wlr.enable = true;
+      wlr.enable = true; # Needed for xdg-desktop-portal-wlr
       xdgOpenUsePortal = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-hyprland
-        pkgs.xdg-desktop-portal-gnome
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk # Helper for GTK/File chooser
       ];
       config = {
         common = {
-          default = "gtk";
+          default = ["gtk"]; # Fallback to gtk for everything else
         };
-        niri = {
-          default = "gtk";
+        sway = {
+          default = ["wlr" "gtk"]; # Prioritize wlr, fallback to gtk
           "org.freedesktop.impl.portal.FileChooser" = "gtk";
-          "org.freedesktop.impl.portal.OpenURI" = "gnome";
-        };
-        hyprland = {
-          default = "hyprland";
-          "org.freedesktop.impl.portal.FileChooser" = "gtk";
+          # Use GTK for opening links
           "org.freedesktop.impl.portal.OpenURI" = "gtk";
+          # Ensure wlr handles screen sharing
+          "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+          "org.freedesktop.impl.portal.Screenshot" = "wlr";
         };
       };
     };

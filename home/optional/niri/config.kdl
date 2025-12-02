@@ -84,7 +84,7 @@ layout {
     background-color "transparent"
     empty-workspace-above-first
     center-focused-column "never"
-    // default-column-display "tabbed"
+    default-column-display "tabbed"
 
     insert-hint {
         // off
@@ -98,7 +98,7 @@ layout {
     }
 
     focus-ring {
-        // off
+        off
         width 2
         active-color "#000000"
         inactive-color "#000000"
@@ -149,7 +149,7 @@ prefer-no-csd
 screenshot-path "~/Documents/Pictures/screenshot/%Y-%m-%d %H-%M-%S.png"
 
 animations {
-    // off
+    off
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }

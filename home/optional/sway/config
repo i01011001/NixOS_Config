@@ -33,9 +33,9 @@ set $bg #000000
 set $fg #c8c8c8
 
 set $darkgray0  #1d1d1d
-set $darkgray1  #292929
-set $darkgray2  #404040
-set $lightgray0 #707070
+set $darkgray1  #323232
+set $darkgray2  #494949
+set $lightgray0 #757575
 
 set $red  #bf656e
 set $blue #28557788
@@ -67,10 +67,10 @@ font Iosevka Nerd Font Propo 1
 # Borders
 # smart_borders on
 hide_edge_borders --i3 both
-default_border pixel 2
+default_border normal 2
 titlebar_border_thickness 2
 titlebar_padding 2
-# title_align center
+title_align center
 
 # gaps top    0
 # gaps bottom 10
@@ -79,10 +79,10 @@ titlebar_padding 2
 
 # Window colors
 # class                 border      background  text  indicator         child_border
-client.focused          $bg         $lightgray0 $lightgray0 $bg  $bg
+client.focused          $bg         $lightgray0 $lightgray0 $bg         $bg
 client.focused_inactive $bg         $darkgray2  $darkgray2  $bg         $bg
-client.unfocused        $bg         $bg         $bg         $bg         $bg
-client.urgent           $bg         $bg         $bg         $bg         $bg
+client.unfocused        $bg         $darkgray1  $darkgray1  $bg         $bg
+client.urgent           $bg         $darkgray1  $darkgray1  $bg         $bg
 
 # ============================================================================
 # INPUT CONFIGURATION
@@ -103,15 +103,15 @@ input "1267:12632:ELAN050A:01_04F3:3158_Touchpad" {
 # input "*" repeat_delay 300  
 
 # Cursor
-seat * hide_cursor 720
+seat * hide_cursor 360
 
 # ============================================================================
 # BEHAVIOR
 # ============================================================================
 
-focus_follows_mouse yes
-focus_wrapping yes
-mouse_warping container
+# focus_follows_mouse yes 
+# focus_wrapping no
+# mouse_warping container
 
 # ============================================================================
 # KEY BINDINGS - BASIC
