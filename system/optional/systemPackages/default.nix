@@ -196,7 +196,6 @@
     pyload-ng
     yt-dlp
     steam-run
-    nautilus
 
     ############################################################
     ## Java / Android

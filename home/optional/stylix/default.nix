@@ -11,6 +11,7 @@
       dark = "Colloid-Dark";
     };
 
+    enableReleaseChecks = false;
     targets = {
       firefox = {
         enable = true;

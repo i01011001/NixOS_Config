@@ -25,6 +25,7 @@
       base0F = "b6927b"; # Indexed color 16
     };
 
+    enableReleaseChecks = false;
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic-Right";
