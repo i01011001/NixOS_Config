@@ -6,7 +6,9 @@
       wlr.enable = true; # Needed for xdg-desktop-portal-wlr
       xdgOpenUsePortal = true;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk # Helper for GTK/File chooser
+        xdg-desktop-portal-wlr 
+        xdg-desktop-portal-gtk 
+        xdg-desktop-portal 
       ];
       config = {
         common = {
@@ -27,40 +29,40 @@
     mime = {
       enable = true;
 
-      defaultApplications = {
-        # Browser (Firefox Nightly)
-        "text/html" = "firefox-nightly.desktop";
-        "x-scheme-handler/http" = "firefox-nightly.desktop";
-        "x-scheme-handler/https" = "firefox-nightly.desktop";
-        "x-scheme-handler/about" = "firefox-nightly.desktop";
-        "x-scheme-handler/unknown" = "firefox-nightly.desktop";
-
-        # File Manager
-        "inode/directory" = "org.kde.dolphin.desktop";
-        "inode/mount-point" = "org.kde.dolphin.desktop";
-
-        # Text editor
-        "text/plain" = "nvim.desktop";
-
-        # Images
-        "image/png" = "swayimg.desktop";
-        "image/jpeg" = "swayimg.desktop";
-        "image/jpg" = "swayimg.desktop";
-        "image/webp" = "swayimg.desktop";
-        "image/gif" = "swayimg.desktop";
-        "image/svg+xml" = "swayimg.desktop";
-
-        # Documents
-        "application/pdf" = "org.pwmt.zathura.desktop";
-        "application/epub+zip" = "org.pwmt.zathura.desktop";
-
-        # Snapshot editor
-        "image/x-xcf" = "satty.desktop";
-        "image/x-portable-pixmap" = "satty.desktop";
-        "image/x-portable-anymap" = "satty.desktop";
-        "image/x-portable-bitmap" = "satty.desktop";
-        "image/x-tga" = "satty.desktop";
-      };
+      # defaultApplications = {
+      #   # Browser (Firefox Nightly)
+      #   "text/html" = "firefox-nightly.desktop";
+      #   "x-scheme-handler/http" = "firefox-nightly.desktop";
+      #   "x-scheme-handler/https" = "firefox-nightly.desktop";
+      #   "x-scheme-handler/about" = "firefox-nightly.desktop";
+      #   "x-scheme-handler/unknown" = "firefox-nightly.desktop";
+      #
+      #   # File Manager
+      #   "inode/directory" = "org.kde.dolphin.desktop";
+      #   "inode/mount-point" = "org.kde.dolphin.desktop";
+      #
+      #   # Text editor
+      #   "text/plain" = "nvim.desktop";
+      #
+      #   # Images
+      #   "image/png" = "swayimg.desktop";
+      #   "image/jpeg" = "swayimg.desktop";
+      #   "image/jpg" = "swayimg.desktop";
+      #   "image/webp" = "swayimg.desktop";
+      #   "image/gif" = "swayimg.desktop";
+      #   "image/svg+xml" = "swayimg.desktop";
+      #
+      #   # Documents
+      #   "application/pdf" = "org.pwmt.zathura.desktop";
+      #   "application/epub+zip" = "org.pwmt.zathura.desktop";
+      #
+      #   # Snapshot editor
+      #   "image/x-xcf" = "satty.desktop";
+      #   "image/x-portable-pixmap" = "satty.desktop";
+      #   "image/x-portable-anymap" = "satty.desktop";
+      #   "image/x-portable-bitmap" = "satty.desktop";
+      #   "image/x-tga" = "satty.desktop";
+      # };
     };
 
     # desktopEntries = {

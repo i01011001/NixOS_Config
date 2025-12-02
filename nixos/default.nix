@@ -34,9 +34,9 @@
     ./optional/virtual
     ./optional/stylix
     ./optional/postgresql
-    ./optional/niri
-    ./optional/steam
     ./optional/customs/overlays
+    # ./optional/niri
+    # ./optional/steam
     # ./optional/printer
     # ./optional/qemu
   ];

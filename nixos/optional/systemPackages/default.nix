@@ -302,10 +302,10 @@
     nvtopPackages.intel
     xxd
 
-    logisim-evolution
+    # logisim-evolution
     transmission_4-gtk
-    conky
-    gamescope
+    # conky
+    # gamescope
 
     # inputs.cwc.packages.x86_64-linux.cwc
   ];

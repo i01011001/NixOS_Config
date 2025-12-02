@@ -7,7 +7,6 @@
   imports = [
     ### core
     # ./core/gtk
-    # ./core/xdg
     ./core/fd
     ./core/fzf
     ./core/zsh
@@ -22,15 +21,16 @@
     ./optional/zathura
     ./optional/yazi
     ./optional/btop
-    ./optional/satty
     ./optional/stylix
     ./optional/neovim
     ./optional/foot
     ./optional/firefox
     ./optional/formatter
     ./optional/sway
+    ./optional/flameshot
     # ./optional/conky
-    ./optional/niri
+    # ./optional/satty
+    # ./optional/niri
     # ./optional/hypr
     # ./optional/flameshot
     # ./optional/xdg

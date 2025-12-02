@@ -43,6 +43,9 @@ set $blue #28557788
 # ============================================================================
 # AUTOSTART
 # ============================================================================
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_CURRENT_DESKTOP=sway
 
 exec mako
 # exec conky -d -q
@@ -127,7 +130,10 @@ bindsym $mod+q       kill
 bindsym $mod+Shift+t border toggle
 
 # Screenshot
-bindsym print        exec capture_whole
+bindsym print        exec flameshot gui
+bindsym Shift+print        exec flameshot screen
+bindsym Control+print        exec flameshot full
+bindsym Alt+print        exec flameshot launcher
 
 # System
 bindsym $mod+Shift+r reload

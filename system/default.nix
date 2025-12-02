@@ -14,7 +14,7 @@
     ./core/users
     ./core/zsh
     ./core/dbus
-    # ./core/xdg
+    ./core/xdg
 
     ### optional
     ./optional/adb
