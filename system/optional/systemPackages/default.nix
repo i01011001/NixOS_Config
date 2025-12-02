@@ -143,6 +143,7 @@
     sway
     swaybg
     swayimg
+    swayidle
     swaylock
     wayland-utils
     wf-recorder
@@ -153,14 +154,13 @@
     ############################################################
     ## Communication & Collaboration
     ############################################################
-    slack
     thunderbird
     (discord.override {
       withOpenASAR = true;
       withVencord = true;
     })
-    zoom
-    anydesk
+    # zoom
+    # anydesk
 
     ############################################################
     ## Multimedia & Graphics
@@ -311,6 +311,7 @@
     android-studio
     rocketchat-desktop
 
+    glow
     # inputs.cwc.packages.x86_64-linux.cwc
   ];
 

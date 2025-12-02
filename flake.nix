@@ -27,7 +27,7 @@
     #   url = "github:YaLTeR/niri";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-
+    #
     # cwc = {
     #   url = "github:i01011001/cwcwm";
     #   inputs.nixpkgs.follows = "nixpkgs";

@@ -29,7 +29,7 @@
     ./optional/wireshark
     ./optional/docker
     ./optional/mosquitto
-    ./optional/multipass
+    # ./optional/multipass
     ./optional/opentabletdriver
     ./optional/virtual
     ./optional/stylix

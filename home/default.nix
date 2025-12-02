@@ -55,7 +55,7 @@
   systemd.user.startServices = "sd-switch";
 
   home.sessionVariables = {
-    NO_COLOR = "1";
+    # NO_COLOR = "1";
   };
 
   home.stateVersion = "24.11";

@@ -35,7 +35,7 @@ set $fg #c8c8c8
 set $darkgray0  #1d1d1d
 set $darkgray1  #292929
 set $darkgray2  #404040
-set $lightgray0 #888888
+set $lightgray0 #707070
 
 set $red  #bf656e
 set $blue #28557788
@@ -62,31 +62,27 @@ exec swayidle -w \
 # ============================================================================
 
 # Font
-font Iosevka Nerd Font Propo 8
+font Iosevka Nerd Font Propo 1
 
 # Borders
-smart_borders on
+# smart_borders on
 hide_edge_borders --i3 both
 default_border pixel 2
-default_floating_border pixel 0
-titlebar_border_thickness 0
-titlebar_padding 0
-title_align center
+titlebar_border_thickness 2
+titlebar_padding 2
+# title_align center
 
-# Gaps
-gaps top    0
-gaps bottom 0
-gaps left   0
-gaps right  0
-gaps inner  0
-gaps outer  -2
+# gaps top    0
+# gaps bottom 10
+# gaps left   0
+# gaps right  0
 
 # Window colors
-# class                 border      background  text  indicator   child_border
-client.focused          $bg         $darkgray1  $fg   $bg         $bg
-client.focused_inactive $bg         $darkgray0  $fg   $bg         $bg
-client.unfocused        $bg         $bg         $fg   $bg         $bg
-client.urgent           $darkgray2  $red        $fg   $red        $red
+# class                 border      background  text  indicator         child_border
+client.focused          $bg         $lightgray0 $lightgray0 $bg  $bg
+client.focused_inactive $bg         $darkgray2  $darkgray2  $bg         $bg
+client.unfocused        $bg         $bg         $bg         $bg         $bg
+client.urgent           $bg         $bg         $bg         $bg         $bg
 
 # ============================================================================
 # INPUT CONFIGURATION
@@ -185,6 +181,8 @@ bindsym $mod+d focus tiling
 
 # Workspace switching
 bindsym $mod+Tab workspace back_and_forth
+
+bindsym $mod+m exec wl-mirror eDP-1
 
 # ============================================================================
 # KEY BINDINGS - LAYOUTS
