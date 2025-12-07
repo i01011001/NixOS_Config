@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   environment = {
-    pathsToLink = ["/share/zsh"];
     variables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
@@ -8,6 +7,12 @@
 
       XDG_PICTURES_DIR = "/home/i01011001/media/images/";
     };
+
+    pathsToLink = ["/share/zsh"
+ "/share/applications" "/share/xdg-desktop-portal" 
+    ];
+
+
     sessionVariables = {
       QT_QPA_PLATFORM = "wayland";
       QT_QPA_PLATFORMTHEME = "qt5ct";

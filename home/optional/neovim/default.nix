@@ -12,9 +12,9 @@
     # getColor = x: lib.mkForce "#colors.${x}";
   in {
     enable = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
+    # viAlias = true;
+    # vimAlias = true;
+    # vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
       lazydev-nvim

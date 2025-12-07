@@ -14,6 +14,7 @@
     ./core/users
     ./core/zsh
     ./core/dbus
+    # ./core/vim
     # ./core/xdg
 
     ### optional
@@ -35,7 +36,6 @@
     ./optional/stylix
     ./optional/postgresql
     ./optional/customs/overlays
-    ./optional/niri
     # ./optional/steam
     # ./optional/printer
     # ./optional/qemu

@@ -6,6 +6,8 @@
       user = {
         name = "i01011001";
         email = "yugen.m7@gmail.com";
+        # email = "yugen.maharjan@nepaldigisys.com";
+        # name = "yugen-m7";
       };
       merge.tool = "nvimdiff";
       diff = {

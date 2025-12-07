@@ -149,7 +149,7 @@
     wf-recorder
     wl-clipboard
     wl-mirror
-    wlr-randr
+    grim
 
     ############################################################
     ## Communication & Collaboration
@@ -215,16 +215,16 @@
     ############################################################
     ## Custom Utility Scripts
     ############################################################
-    (writeShellScriptBin "capture_whole" ''
-      grim -g "$(slurp -o -r -c '##ffffffdd')" -t ppm - | \
-      satty --filename - --fullscreen \
-            --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
-    '')
-    (writeShellScriptBin "edit-image" ''
-      wl-paste | satty --filename - --fullscreen \
-        --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
-    '')
-
+    # (writeShellScriptBin "capture_whole" ''
+    #   grim -g "$(slurp -o -r -c '##ffffffdd')" -t ppm - | \
+    #   satty --filename - --fullscreen \
+    #         --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+    # '')
+    # (writeShellScriptBin "edit-image" ''
+    #   wl-paste | satty --filename - --fullscreen \
+    #     --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+    # '')
+    #
     (writeShellScriptBin "notify-dismiss" ''
       makoctl dismiss
     '')
@@ -309,6 +309,10 @@
     android-studio-tools
     android-studio
     rocketchat-desktop
+    brave
+    librecad
+
+    qemu
 
     # glow
     # inputs.cwc.packages.x86_64-linux.cwc

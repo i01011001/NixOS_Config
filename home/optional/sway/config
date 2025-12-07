@@ -34,7 +34,7 @@ set $fg #c8c8c8
 
 set $darkgray0  #1d1d1d
 set $darkgray1  #323232
-set $darkgray2  #494949
+set $darkgray2  #444444
 set $lightgray0 #757575
 
 set $red  #bf656e
@@ -49,7 +49,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 exec mako
 # exec conky -d -q
-exec swaybg -m fill -i "/etc/nixos/images/nixos.jpg"
+exec swaybg -m fill -i "/etc/nixos/images/2_tone_2.png"
 
 # ============================================================================
 # IDLE & LOCK
@@ -75,6 +75,9 @@ titlebar_border_thickness 2
 titlebar_padding 2
 title_align center
 
+default_orientation horizontal
+workspace_layout tabbed
+
 # gaps top    0
 # gaps bottom 10
 # gaps left   0
@@ -84,8 +87,8 @@ title_align center
 # class                 border      background  text  indicator         child_border
 client.focused          $bg         $lightgray0 $lightgray0 $bg         $bg
 client.focused_inactive $bg         $darkgray2  $darkgray2  $bg         $bg
-client.unfocused        $bg         $darkgray1  $darkgray1  $bg         $bg
-client.urgent           $bg         $darkgray1  $darkgray1  $bg         $bg
+client.unfocused        $bg         $darkgray2  $darkgray2  $bg         $bg
+client.urgent           $bg         $darkgray2  $darkgray2  $bg         $bg
 
 # ============================================================================
 # INPUT CONFIGURATION
@@ -181,25 +184,25 @@ bindsym $mod+Shift+$up    move up
 bindsym $mod+Shift+$right move right
 
 # Focus parent/child
-bindsym $mod+a focus parent
-bindsym $mod+s focus child
-bindsym $mod+d focus tiling 
+bindsym $mod+a split n, focus parent
+bindsym $mod+s split n, focus child
+# bindsym $mod+d focus tiling 
 
 # Workspace switching
 bindsym $mod+Tab workspace back_and_forth
 
-bindsym $mod+m exec wl-mirror eDP-1
+bindsym $mod+Control+Alt+m exec wl-mirror eDP-1
 
 # ============================================================================
 # KEY BINDINGS - LAYOUTS
 # ============================================================================
 
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+w split n, layout tabbed
+bindsym $mod+e split n, layout splith
+
+bindsym $mod+b split n, splith
 
 # Splitting
-bindsym $mod+b splith
-bindsym $mod+v splitv
 bindsym $mod+n split n
 
 # Fullscreen
@@ -251,7 +254,7 @@ workspace 6  output $pri
 workspace 7  output $pri
 workspace 8  output $pri
 workspace 9  output $pri
-workspace 0  output $pri
+workspace 10  output $pri
 
 # Switch to workspace (primary)
 bindsym $mod+1 workspace number 1
@@ -326,3 +329,16 @@ bindsym $mod+Shift+F4  move container to workspace number 14
 # bindsym $mod+Shift+F10 move container to workspace number 20
 # bindsym $mod+Shift+F11 move container to workspace number 21
 # bindsym $mod+Shift+F12 move container to workspace number 22
+
+
+output HDMI-A-2 position -1920 0
+output HDMI-A-2 scale 1
+
+
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal

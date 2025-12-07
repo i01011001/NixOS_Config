@@ -29,12 +29,6 @@
     ./optional/formatter
     ./optional/sway
     ./optional/flameshot
-    # ./optional/conky
-    # ./optional/satty
-    # ./optional/niri
-    # ./optional/hypr
-    # ./optional/flameshot
-    # ./optional/xdg
   ];
 
   home = {

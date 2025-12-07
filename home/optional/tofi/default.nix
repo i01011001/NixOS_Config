@@ -4,6 +4,7 @@
     settings = {
       # background-color = "#131313";
       border-width = 0;
+      output-name= "eDP_1";
       # font = "Iosevka Nerd Font Propo";
       # font-size = 13;
       # text-color = "#aaaaaa";
