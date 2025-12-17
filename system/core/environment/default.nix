@@ -8,14 +8,15 @@
       XDG_PICTURES_DIR = "/home/i01011001/media/images/";
     };
 
-    pathsToLink = ["/share/zsh"
- "/share/applications" "/share/xdg-desktop-portal" 
+    pathsToLink = [
+      "/share/zsh"
+      "/share/applications"
+      "/share/xdg-desktop-portal"
     ];
 
-
     sessionVariables = {
-      QT_QPA_PLATFORM = "wayland";
       QT_QPA_PLATFORMTHEME = "qt5ct";
+      QT_QPA_PLATFORM = "xcb";
       QT_FONT_DPI = "90";
       NIXOS_OZONE_WL = "1";
       WLR_NO_HARDWARE_CURSORS = "1";

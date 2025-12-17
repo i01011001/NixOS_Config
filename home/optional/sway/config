@@ -34,11 +34,11 @@ set $fg #c8c8c8
 
 set $darkgray0  #1d1d1d
 set $darkgray1  #323232
-set $darkgray2  #444444
-set $lightgray0 #757575
+set $darkgray2  #696969
+set $lightgray0 #ababab
 
 set $red  #bf656e
-set $blue #28557788
+set $blue #285577
 
 # ============================================================================
 # AUTOSTART
@@ -172,16 +172,16 @@ bindsym $mod+alt+space exec sway_ws
 # ============================================================================
 
 # Move focus
-bindsym $mod+$left  focus left
-bindsym $mod+$down  focus down
-bindsym $mod+$up    focus up
+bindsym $mod+$left  focus left --wrap=no
+# bindsym $mod+$down  focus down
+# bindsym $mod+$up    focus up
 bindsym $mod+$right focus right
 
 # Move windows
-bindsym $mod+Shift+$left  move left
-bindsym $mod+Shift+$down  move down
-bindsym $mod+Shift+$up    move up
-bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+$left  move left  30
+bindsym $mod+Shift+$down  move down  30
+bindsym $mod+Shift+$up    move up    30
+bindsym $mod+Shift+$right move right 30
 
 # Focus parent/child
 bindsym $mod+a split n, focus parent
@@ -200,7 +200,7 @@ bindsym $mod+Control+Alt+m exec wl-mirror eDP-1
 bindsym $mod+w split n, layout tabbed
 bindsym $mod+e split n, layout splith
 
-bindsym $mod+b split n, splith
+# bindsym $mod+b split n, splith
 
 # Splitting
 bindsym $mod+n split n
@@ -209,21 +209,9 @@ bindsym $mod+n split n
 bindsym $mod+f fullscreen
 
 # Floating
-bindsym $mod+z       floating toggle
-bindsym $mod+Shift+z focus mode_toggle
+bindsym $mod+z focus mode_toggle
+bindsym $mod+Shift+z       floating toggle
 
-# ============================================================================
-# KEY BINDINGS - FLOATING WINDOW MOVEMENT
-# ============================================================================
-
-bindsym $mod+Up          move up    1
-bindsym $mod+Shift+Up    move up    10
-bindsym $mod+Down        move down  1
-bindsym $mod+Shift+Down  move down  10
-bindsym $mod+Left        move left  1
-bindsym $mod+Shift+Left  move left  10
-bindsym $mod+Right       move right 1
-bindsym $mod+Shift+Right move right 10
 
 # ============================================================================
 # KEY BINDINGS - SCRATCHPAD
@@ -236,10 +224,10 @@ bindsym $mod+minus       scratchpad show
 # KEY BINDINGS - RESIZING
 # ============================================================================
 
-bindsym $mod+Control+$left  resize shrink width  20px
-bindsym $mod+Control+$down  resize shrink height 20px
-bindsym $mod+Control+$up    resize grow   height 20px
-bindsym $mod+Control+$right resize grow   width  20px
+bindsym $mod+Control+$left  resize shrink width  50px
+bindsym $mod+Control+$down  resize shrink height 50px
+bindsym $mod+Control+$up    resize grow   height 50px
+bindsym $mod+Control+$right resize grow   width  50px
 
 # ============================================================================
 # WORKSPACES - PRIMARY DISPLAY
@@ -331,14 +319,16 @@ bindsym $mod+Shift+F4  move container to workspace number 14
 # bindsym $mod+Shift+F12 move container to workspace number 22
 
 
-output HDMI-A-2 position -1920 0
-output HDMI-A-2 scale 1
+# output HDMI-A-2 position -1920 0
+output $sec_l scale 1
+output $sec_l position 1920 0
 
+output $pri scale 1
+output $pri position 0 0
 
-
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
