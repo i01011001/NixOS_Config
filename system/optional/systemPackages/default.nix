@@ -300,7 +300,6 @@
     # nrfconnect-bluetooth-low-energy
     lsof
     nrf-command-line-tools
-    nvtopPackages.intel
     xxd
 
     # logisim-evolution
@@ -313,6 +312,7 @@
     librecad
 
     qemu
+    nvitop
 
     # glow
     # inputs.cwc.packages.x86_64-linux.cwc

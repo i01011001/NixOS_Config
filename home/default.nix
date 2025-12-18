@@ -29,6 +29,9 @@
     ./optional/formatter
     ./optional/sway
     ./optional/flameshot
+
+    ./optional/niri
+
   ];
 
   home = {
