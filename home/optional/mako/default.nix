@@ -13,7 +13,7 @@ in {
     # extraConfig = builtins.readFile ./config;
 
     settings = {
-      max-visible = 10;
+      max-visible = 3;
       sort = "-time";
 
       layer = "overlay";

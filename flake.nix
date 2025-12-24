@@ -10,7 +10,6 @@
 
     stylix = {
       url = "github:danth/stylix";
-      # url = "github:yugen-m7/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -22,16 +21,6 @@
       url = "github:webhooked/kanso.nvim";
       flake = false;
     };
-
-    # niri = {
-    #   url = "github:YaLTeR/niri";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    #
-    # cwc = {
-    #   url = "github:i01011001/cwcwm";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
   outputs = {
@@ -48,7 +37,6 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./system
-        # ./overlays
 
         inputs.stylix.nixosModules.stylix
 

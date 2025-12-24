@@ -50,6 +50,7 @@
     prettier
     yamlfmt
     jq
+    tree-sitter
 
     ############################################################
     ## Debugging & Profiling
@@ -168,7 +169,6 @@
     blender
     digital
     ffmpeg-full
-    gimp3
     imagemagick
     inkscape
     krita
@@ -178,7 +178,6 @@
     pureref
     rnote
     saleae-logic-2
-    satty
     kdePackages.kdenlive
 
     ############################################################
@@ -218,13 +217,14 @@
     # (writeShellScriptBin "capture_whole" ''
     #   grim -g "$(slurp -o -r -c '##ffffffdd')" -t ppm - | \
     #   satty --filename - --fullscreen \
-    #         --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+    #         --output-filename /storage/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
     # '')
-    # (writeShellScriptBin "edit-image" ''
-    #   wl-paste | satty --filename - --fullscreen \
-    #     --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
-    # '')
-    #
+
+    (writeShellScriptBin "edit-image" ''
+      wl-paste | satty --filename - --fullscreen \
+        --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+    '')
+
     (writeShellScriptBin "notify-dismiss" ''
       makoctl dismiss
     '')

@@ -16,10 +16,10 @@
 
     sessionVariables = {
       QT_QPA_PLATFORMTHEME = "qt5ct";
-      QT_QPA_PLATFORM = "xcb";
       QT_FONT_DPI = "90";
       NIXOS_OZONE_WL = "1";
       WLR_NO_HARDWARE_CURSORS = "1";
+      # QT_QPA_PLATFORM = "xcb";
       # WLR_DRM_NO_ATOMIC = "1";
       # DISPLAY = ":0";
       #

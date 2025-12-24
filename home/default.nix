@@ -28,7 +28,7 @@
     ./optional/firefox
     ./optional/formatter
     ./optional/sway
-    ./optional/flameshot
+    ./optional/satty
 
     ./optional/niri
 

@@ -1,4 +1,5 @@
 ## My Personal NixOS Config
+![](./images/readme/workflow.png)
 
 #### Packages Used
 - **Compositor** -> [SwayWM](https://https://github.com/swaywm/sway)
@@ -11,6 +12,4 @@
 - **Book Reader** -> [Zathura](https://github.com/pwmt/zathura)
 - **Image Viewer** -> [Swayimg](https://github.com/artemsen/swayimg)
 - **Notification Daemon** -> [Mako](https://github.com/emersion/mako)
-- **Screenshot Tool** -> [Flameshot](https://github.com/flameshot-org/flameshot)
-
-
+- **Screenshot Tool** -> [Satty](https://github.com/gabm/Satty)

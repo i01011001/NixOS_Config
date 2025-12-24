@@ -26,10 +26,11 @@
       markdown-preview-nvim
       which-key-nvim
       conform-nvim
-      nvim-treesitter
       nvim-lspconfig
       kanso
       nvim-gdb
+
+      nvim-treesitter.withAllGrammars
       # fyler-nvim
       # nightfox-nvim
       # harpoon2

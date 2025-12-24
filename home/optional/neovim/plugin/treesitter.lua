@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup({
 	parser_install_dir = "/home/i01011001/.local/share/nvim",
-	-- ensure_installed = { "markdown", "markdown_inline" },
+--	ensure_installed = "all",
 	highlight = {
 		enable = true,
 		disable = function(lang, buf)
@@ -14,5 +14,4 @@ require("nvim-treesitter.configs").setup({
 
 	auto_install = false,
 	additional_vim_regex_highlighting = true,
-
 })

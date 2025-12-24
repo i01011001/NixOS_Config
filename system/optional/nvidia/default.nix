@@ -6,7 +6,7 @@
 }: {
   # Load the driver
   services.xserver.videoDrivers = [
-    "modesetting" # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
+    # "modesetting" # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
     "nvidia"
   ];
   # Only keep this if you intend to COMPLETELY disable Intel Integrated Graphics
@@ -24,11 +24,11 @@
     package = config.boot.kernelPackages.nvidiaPackages.latest;
 
     prime = {
-      # sync.enable = true;
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
+      sync.enable = true;
+      # offload = {
+      #   enable = true;
+      #   enableOffloadCmd = true;
+      # };
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };

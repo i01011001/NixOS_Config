@@ -11,6 +11,8 @@ include /etc/sway/gonfig.d/*
 # Modifier key (Super/Windows key)
 set $mod Mod4
 
+
+
 # Direction keys (vim-style)
 set $left  h
 set $down  j
@@ -44,7 +46,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 exec mako
 # exec conky -d -q
-exec swaybg -m fill -i "/etc/nixos/images/2_tone_2.png"
+exec swaybg -m fill -i "/etc/nixos/images/wallpaper/2_tone_2.png"
 
 # ============================================================================
 # IDLE & LOCK
@@ -127,11 +129,22 @@ bindsym $mod+Shift+p exec $menu_cli
 bindsym $mod+q       kill
 bindsym $mod+Shift+t border toggle
 
-# Screenshot
-bindsym print        exec flameshot gui
-bindsym Shift+print        exec flameshot screen
-bindsym Control+print        exec flameshot full
-bindsym Alt+print        exec flameshot launcher
+# screenshots
+# set $satty satty -f - --initial-tool=arrow --copy-command=wl-copy --actions-on-escape="save-to-clipboard,exit" --brush-smooth-history-size=5 --disable-notifications
+set $satty satty -f -
+set $printscreen_mode 'printscreen (r:region, f:full, w:window)'
+
+mode $printscreen_mode {
+    bindsym s exec swaymsg 'mode "default"' && grim -t ppm -g "$(slurp -d)" - | $satty
+    bindsym f exec swaymsg 'mode "default"' && grim -t ppm - | $satty
+    bindsym w exec swaymsg 'mode "default"' && swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -t ppm -g - - | $satty
+    bindsym m exec swaymsg 'mode "default"' && grim -g "$(slurp -o -r -c '##ffffffdd')" -t ppm - | $satty
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym Print mode $printscreen_mode
 
 # System
 bindsym $mod+Shift+r reload
@@ -195,7 +208,7 @@ bindsym $mod+Control+Alt+m exec wl-mirror eDP-1
 bindsym $mod+w split n, layout tabbed
 bindsym $mod+e split n, layout splith
 
-# bindsym $mod+b split n, splith
+bindsym $mod+b split n, splith
 
 # Splitting
 bindsym $mod+n split n
@@ -279,7 +292,7 @@ set $sec_r HDMI-A-2
 
 # output HDMI-A-2 position -1920 0
 output $sec_l scale 1
-output $sec_l position -1920 0
+output $sec_l position -1440 0
 
 output $sec_r scale 1
 output $sec_r position 1920 0
