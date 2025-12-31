@@ -17,6 +17,13 @@
 
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
+    hyprland.url = "github:hyprwm/Hyprland?submodules=1";
+
+    hy3 = {
+      url = "github:outfoxxed/hy3";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     kanso = {
       url = "github:webhooked/kanso.nvim";
       flake = false;

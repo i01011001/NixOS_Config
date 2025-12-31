@@ -98,6 +98,7 @@
     go
     nodejs_22
     python3
+    python3Packages.pip
     vscode
     luajit
     luarocks
@@ -141,7 +142,7 @@
     ############################################################
     ## Wayland Native Tools
     ############################################################
-    sway
+    # sway
     swaybg
     swayimg
     swayidle
@@ -199,7 +200,7 @@
     ############################################################
     ## Java / Android
     ############################################################
-    (jdk11_headless.override {enableJavaFX = true;})
+    # (jdk11_headless.override {enableJavaFX = true;})
     scrcpy
     (writeShellScriptBin "scrcpy-custom" ''
       scrcpy -b 4M --max-size 1920 --max-fps 30 --turn-screen-off --render-driver=opengl --stay-awake
@@ -313,6 +314,10 @@
 
     qemu
     nvitop
+
+    qtcreator
+    # qt5
+    # qt6
 
     # glow
     # inputs.cwc.packages.x86_64-linux.cwc

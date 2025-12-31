@@ -29,9 +29,6 @@
     ./optional/formatter
     ./optional/sway
     ./optional/satty
-
-    ./optional/niri
-
   ];
 
   home = {

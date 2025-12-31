@@ -12,9 +12,9 @@
     # getColor = x: lib.mkForce "#colors.${x}";
   in {
     enable = true;
-    # viAlias = true;
-    # vimAlias = true;
-    # vimdiffAlias = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
       lazydev-nvim
@@ -31,13 +31,7 @@
       nvim-gdb
 
       nvim-treesitter.withAllGrammars
-      # fyler-nvim
-      # nightfox-nvim
       # harpoon2
-      # orgmode
-      # (onedark-nvim.overrideAttrs (oldAttrs: {
-      #   meta = oldAttrs.meta // { skipNeovimRequireCheck = true; };
-      # }))
     ];
 
     # ${builtins.readFile ./plugin/lsp.lua}

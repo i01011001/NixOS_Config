@@ -11,8 +11,6 @@ include /etc/sway/gonfig.d/*
 # Modifier key (Super/Windows key)
 set $mod Mod4
 
-
-
 # Direction keys (vim-style)
 set $left  h
 set $down  j
@@ -66,7 +64,7 @@ font Iosevka Nerd Font Propo 1
 
 # Borders
 # smart_borders on
-hide_edge_borders --i3 both
+# hide_edge_borders --i3 both
 default_border normal 2
 titlebar_border_thickness 2
 titlebar_padding 2
@@ -286,16 +284,17 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # WORKSPACES - SECONDARY DISPLAYS
 # ============================================================================
 
-# set $sec_l HDMI-A-2
+set $sec_l HDMI-A-2
 # set $sec_t HDMI-A-l
-set $sec_r HDMI-A-2
+# set $sec_r HDMI-A-2
 
 # output HDMI-A-2 position -1920 0
 output $sec_l scale 1
-output $sec_l position -1440 0
+output $sec_l position -1920 0
+output $sec_l resolution 1920x1080
 
-output $sec_r scale 1
-output $sec_r position 1920 0
+# output $sec_r scale 1
+# output $sec_r position 1920 0
 
 workspace 11 output $sec_l
 workspace 12 output $sec_l

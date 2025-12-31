@@ -7,7 +7,7 @@ copy-command = "wl-copy"
 annotation-size-factor = 0.6
 output-filename = "/storage/media/images/screenshot/%Y-%m-%d_%H:%M:%S.png"
 save-after-copy = true
-default-hide-toolbars = false
+default-hide-toolbars = true
 primary-highlighter = "block"
 disable-notifications = false
 actions-on-right-click = []
@@ -15,7 +15,7 @@ actions-on-enter = ["save-to-clipboard"]
 actions-on-escape = []
 right-click-copy = false
 no-window-decoration = true
-brush-smooth-history-size = 7
+brush-smooth-history-size = 5
 
 [keybinds]
 pointer = "p"

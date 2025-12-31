@@ -2,7 +2,7 @@
 ![](./images/readme/workflow.png)
 
 #### Packages Used
-- **Compositor** -> [SwayWM](https://https://github.com/swaywm/sway)
+- **Compositor** -> [Niri](https://github.com/YaLTeR/niri)
 - **Browser** -> [Firefox](https://github.com/mozilla-firefox/firefox)
 - **Terminal** -> [Foot](https://codeberg.org/dnkl/foot)
 - **Shell** -> [Zsh](https://www.zsh.org/)
@@ -12,4 +12,4 @@
 - **Book Reader** -> [Zathura](https://github.com/pwmt/zathura)
 - **Image Viewer** -> [Swayimg](https://github.com/artemsen/swayimg)
 - **Notification Daemon** -> [Mako](https://github.com/emersion/mako)
-- **Screenshot Tool** -> [Satty](https://github.com/gabm/Satty)
+- **Annotation Tool** -> [Satty](https://github.com/gabm/Satty)
