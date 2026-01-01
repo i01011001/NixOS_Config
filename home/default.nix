@@ -27,8 +27,11 @@
     ./optional/foot
     ./optional/firefox
     ./optional/formatter
-    ./optional/sway
     ./optional/satty
+
+    # ./optional/sway
+    ./optional/niri
+    ./optional/mangodc
   ];
 
   home = {

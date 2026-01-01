@@ -30,7 +30,7 @@ set $fg #c8c8c8
 set $darkgray0  #1d1d1d
 set $darkgray1  #323232
 set $darkgray2  #696969
-set $lightgray0 #ababab
+set $lightgray0 #bdbdbd
 
 set $red  #bf656e
 set $blue #285577
