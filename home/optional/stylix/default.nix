@@ -10,7 +10,7 @@
       package = pkgs.colloid-icon-theme;
       dark = "Colloid-Dark";
     };
-    targets.qt.enable = false;
+    targets.qt.enable = true;
 
     enableReleaseChecks = false;
     targets = {
