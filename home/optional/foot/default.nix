@@ -10,6 +10,7 @@
           # line-height = 13.5;
           resize-delay-ms = 10;
           pad = "8x8 center";
+          font-size-adjustment=0.1;
           # term = "foot";
           # title = "Foot";
         };

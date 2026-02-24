@@ -11,6 +11,8 @@
         i01011001 = {
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            "svg.context-properties.content.enabled" = true;
+            # "widget.gtk.rounded-bottom-corners.enabled" = true;
             "browser.uidensity" = 1;
             "browser.compact.show" = true;
             "browser.compactmode.show" = true;

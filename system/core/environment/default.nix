@@ -26,6 +26,12 @@
 
       _JAVA_AWT_WM_NONREPARENTING = "1";
       JAVA_TOOL_OPTIONS = "--add-opens=java.desktop/java.awt=ALL-UNNAMED";
+
+LIBVA_DRIVER_NAME = "nvidia";
+    # Required for Firefox to use VA-API with NVIDIA
+    MOZ_DISABLE_RDD_SANDBOX = "1"; 
+    # Direct backend is required for newer driver versions
+    NVD_BACKEND = "direct";
     };
   };
 }

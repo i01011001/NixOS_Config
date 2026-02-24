@@ -17,17 +17,27 @@
 
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
-    hyprland.url = "github:hyprwm/Hyprland?submodules=1";
+    # hyprland.url = "github:hyprwm/Hyprland?submodules=1";
+    #
+    # hy3 = {
+    #   url = "github:outfoxxed/hy3";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
-    hy3 = {
-      url = "github:outfoxxed/hy3";
-      inputs.hyprland.follows = "hyprland";
-    };
-
+    # scroll-flake = {
+    #   url = "github:AsahiRocks/scroll-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs"; # this assumes nixos unstable
+    # };
+    #
     kanso = {
       url = "github:webhooked/kanso.nvim";
       flake = false;
     };
+
+    # koda = {
+    #   url = "github:oskarnurm/koda.nvim";
+    #   flake = false;
+    # };
   };
 
   outputs = {

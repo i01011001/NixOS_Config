@@ -15,7 +15,7 @@ actions-on-enter = ["save-to-clipboard"]
 actions-on-escape = []
 right-click-copy = false
 no-window-decoration = true
-brush-smooth-history-size = 5
+brush-smooth-history-size = 3
 
 [keybinds]
 pointer = "p"

@@ -84,6 +84,10 @@
             name = "kanso";
             src = inputs.kanso;
           };
+          # koda = prev.vimUtils.buildVimPlugin {
+          #   name = "koda";
+          #   src = inputs.koda;
+          # };
           oh-lucy = prev.vimUtils.buildVimPlugin {
             name = "oh-lucy";
             src = inputs.oh-lucy;

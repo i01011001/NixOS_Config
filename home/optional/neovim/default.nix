@@ -23,15 +23,16 @@
       blink-cmp
       diffview-nvim
       gitsigns-nvim
-      markdown-preview-nvim
       which-key-nvim
       conform-nvim
       nvim-lspconfig
       kanso
+      nvim-web-devicons
       nvim-gdb
-
       nvim-treesitter.withAllGrammars
+      # markdown-preview-nvim
       # harpoon2
+      # koda
     ];
 
     # ${builtins.readFile ./plugin/lsp.lua}
@@ -43,6 +44,8 @@
     # ${builtins.readFile ./plugin/nightfox.lua}
     # ${builtins.readFile ./plugin/harpoon2.lua}
     # ${builtins.readFile ./plugin/nightfox.lua}
+    # ${builtins.readFile ./plugin/treesitter.lua}
+    # ${builtins.readFile ./plugin/markdown.lua}
     extraLuaConfig = ''
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./plugin/diffview.lua}
@@ -50,12 +53,10 @@
       ${builtins.readFile ./plugin/format.lua}
       ${builtins.readFile ./plugin/fzf-lua.lua}
       ${builtins.readFile ./plugin/gitsigns.lua}
-      ${builtins.readFile ./plugin/markdown.lua}
       ${builtins.readFile ./plugin/oil.lua}
       ${builtins.readFile ./plugin/lspconfig.lua}
       ${builtins.readFile ./plugin/whichkey.lua}
       ${builtins.readFile ./plugin/kanso.lua}
-      ${builtins.readFile ./plugin/treesitter.lua}
     '';
   };
   imports = [

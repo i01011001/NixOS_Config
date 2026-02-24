@@ -26,8 +26,8 @@ in {
       height = 100;
       # margin = 0;
       outer-margin = "0, 0, 10";
-      border-size = 2;
-      border-color = lib.mkForce "#000000";
+      border-size = 1;
+      border-color = lib.mkForce "#484848";
       text-alignment = "center";
       # border-color = getColor colors.base03;
       border-radius = 4;

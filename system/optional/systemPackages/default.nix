@@ -59,6 +59,7 @@
     cppcheck
     file
     gdb
+    gdb-dashboard
     iaito
     radare2
     valgrind
@@ -77,6 +78,8 @@
     (import ../customs/pkgs/diagslave {inherit pkgs;})
     (import ../customs/pkgs/miniterm {inherit pkgs;})
     (import ../customs/pkgs/modpoll {inherit pkgs;})
+
+    picocom
 
     ############################################################
     ## Networking, Security & Reverse Engineering
@@ -122,6 +125,7 @@
     lshw
     man-pages
     ntfs3g
+    exfatprogs
     p7zip
     playerctl
     rar
@@ -148,8 +152,8 @@
     swayidle
     swaylock
     wayland-utils
-    wf-recorder
     wl-clipboard
+    wl-screenrec
     wl-mirror
     grim
 
@@ -173,9 +177,9 @@
     imagemagick
     inkscape
     krita
+    gimp
     libreoffice
     mpv
-    obs-studio
     pureref
     rnote
     saleae-logic-2
@@ -185,15 +189,11 @@
     ## Web & Misc
     ############################################################
     ungoogled-chromium
-    tor-browser
     nwg-look
     betaflight-configurator
     woeusb
     wineWowPackages.staging
     winetricks
-    putty
-    cpulimit
-    pyload-ng
     yt-dlp
     steam-run
 
@@ -210,7 +210,6 @@
     ## Arduino / Microcontrollers
     ############################################################
     arduino-cli
-    arduino-ide
 
     ############################################################
     ## Custom Utility Scripts
@@ -222,8 +221,7 @@
     # '')
 
     (writeShellScriptBin "edit-image" ''
-      wl-paste | satty --filename - --fullscreen \
-        --output-filename ~/media/images/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+      wl-paste | satty --filename - --fullscreen
     '')
 
     (writeShellScriptBin "notify-dismiss" ''
@@ -291,6 +289,19 @@
       custom-notify-send "$iface | $ssid | $local_ip | $signal"
     '')
 
+    (writeShellScriptBin "notify_capslock" ''
+
+      state=$(cat /sys/class/leds/input*::capslock/brightness)
+
+      if [[ $state = 1 ]]; then
+          msg="ON"
+      else
+          msg="OFF"
+      fi
+
+      notify-send "Capslock" "$msg"
+    '')
+
     (writeShellScriptBin "sway_ws" ''custom-notify-send "$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused==true) | .name') <--> $(swaymsg -t get_workspaces | jq -r '.[].name' | paste -sd " " -)"'')
 
     ############################################################
@@ -305,17 +316,23 @@
 
     # logisim-evolution
     transmission_4-gtk
-    gradle
-    android-studio-tools
-    android-studio
     rocketchat-desktop
-    brave
     librecad
 
     qemu
     nvitop
 
     qtcreator
+
+    pulseview
+
+    mdwatch
+    tor-browser
+    tor
+
+    codex
+
+    minify
     # qt5
     # qt6
 
@@ -329,6 +346,15 @@
   services.udev.packages = with pkgs; [saleae-logic-2 stlink];
   services.udev.extraRules = ''
     SUBSYSTEM=="tty", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="1001", \
-      ATTRS{serial}=="D8:3B:DA:A3:FC:44", SYMLINK+="i01011001-s3_0"
+      ATTRS{serial}=="D8:3B:DA:A3:FC:44", SYMLINK+="i01011001_s3_0"
+
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="1001", \
+      ATTRS{serial}=="24:EC:4A:0A:AC:B8", SYMLINK+="esp32s3_acb8"
+
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="1001", \
+      ATTRS{serial}=="3C:84:27:D5:33:80", SYMLINK+="esp32s3_3380"
+
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="1001", \
+      ATTRS{serial}=="24:EC:4A:0A:AC:CC", SYMLINK+="esp32s3_accc"
   '';
 }

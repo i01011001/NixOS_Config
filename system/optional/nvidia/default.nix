@@ -12,6 +12,16 @@
   # Only keep this if you intend to COMPLETELY disable Intel Integrated Graphics
   # boot.kernelParams = ["module_blacklist=i915"];
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      # vpl-gpu-rt # for newer GPUs on NixOS >24.05 or unstable
+      # nvidia-vaapi-driver
+      # intel-vaapi-driver
+    ];
+  };
+
   hardware.nvidia = {
     modesetting.enable = true;
 
@@ -34,9 +44,5 @@
     };
   };
 
-  # Good for Docker/Podman with GPU support
   hardware.nvidia-container-toolkit.enable = true;
-
-  # Optional: Screen tearing fix for Sync mode
-  # hardware.nvidia.forceFullCompositionPipeline = true;
 }

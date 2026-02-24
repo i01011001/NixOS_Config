@@ -18,7 +18,6 @@
     # ./core/xdg
 
     ### optional
-    ./optional/adb
     ./optional/avahi
     ./optional/insecure
     ./optional/nix-ld
@@ -36,7 +35,8 @@
     ./optional/stylix
     ./optional/postgresql
     ./optional/customs/overlays
-    # ./optional/steam
+    ./optional/obs
+    ./optional/mangowc
     # ./optional/printer
     # ./optional/qemu
   ];

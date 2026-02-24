@@ -1,33 +1,5 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
-  programs.dconf.enable = true;
-
-  users.users.i01011001.extraGroups = ["libvirtd"];
-
-  environment.systemPackages = with pkgs; [
-    virt-manager
-    virt-viewer
-    spice
-    spice-gtk
-    spice-protocol
-    virtio-win
-    win-spice
-    # gnome.adwaita-icon-theme
-  ];
-
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        swtpm.enable = true;
-        # ovmf.enable = true;
-        # ovmf.packages = [ pkgs.OVMFFull.fd ];
-      };
-    };
-    spiceUSBRedirection.enable = true;
-  };
-  services.spice-vdagentd.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.vmware.host.enable = true;
+  # users.extraGroups.vboxusers.members = ["user-with-access-to-virtualbox"];
 }

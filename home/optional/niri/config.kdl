@@ -1,18 +1,16 @@
-// spawn-at-startup "swaybg" "-m" "fit" "-i" "/etc/nixos/images/01011001-bg-00.png"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "mako"
-
 
 environment {
     DISPLAY ":0"
 }
 
 overview {
-    zoom 0.4
+    zoom 0.43
     workspace-shadow {
-    off 
-}
-    backdrop-color "#4d4d4d"
+        off 
+    }
+    backdrop-color "#404040"
 }
 
 gestures {
@@ -58,43 +56,46 @@ layer-rule {
 }
 
 output "eDP-1" {
-    scale 1
+    scale 1.0
     transform "normal"
     position x=0 y=0
 }
 
 output "HDMI-A-2" {
+    // off
     scale 1.0
     transform "normal"
     position x=-1920 y=0
 }
 
 layout {
-    gaps 3
+    // background-color "404040"
+
+    gaps 4
     background-color "transparent"
     empty-workspace-above-first
     center-focused-column "never"
     // default-column-display "tabbed"
 
-    preset-column-widths {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
-    }
+    default-column-width { proportion 0.493; }
 
-    focus-ring {
-        off
-        width 1
-        active-color "#6286ad"
-        inactive-color "#999999"
-        urgent-color "#999999"
+    preset-column-widths {
+        proportion 0.33
+        proportion 0.493
+        proportion 0.66
+     }
+
+    preset-window-heights {
+        proportion 0.33333333333
+        proportion 0.5
+        proportion 0.66666666666
     }
 
     border {
         width 1
-        active-color "#484848"
-        inactive-color "#484848"
-        urgent-color "#484848"
+        active-color "#404040"
+        inactive-color "#404040"
+        urgent-color "#404040"
     }
 
     shadow {
@@ -109,24 +110,28 @@ layout {
     struts {
         left -2
         right -2
-        top 0
+        top -1
         bottom -3
     }
 
     tab-indicator {
-        width 5
-        gap 4
+        width 7
+        gap 5
         corner-radius 2
-        gaps-between-tabs 20
-        length total-proportion=0.6
+        gaps-between-tabs 30
+        length total-proportion=0.95
         position "top"
         place-within-column
+    }
+
+    focus-ring {
+        off
     }
 
     insert-hint {
         // off
         on
-        color "#ffc87f80"
+        color "#f0f0f030"
     }
 }
 
@@ -134,8 +139,8 @@ window-rule {
      match is-active=true
      
     tab-indicator {
-        active-color "abababff"
-        inactive-color "000000ff"
+        active-color "161616ff"
+        inactive-color "b0b0b060"
     }
 }
 
@@ -143,53 +148,8 @@ window-rule {
      match is-active=false
 
     tab-indicator {
-        active-color "000000ff"
-        inactive-color "000000ff"
-    }
-}
-
-prefer-no-csd
-
-screenshot-path "/storage/media/images/screenshot/%Y-%m-%d %H-%M-%S.png"
-
-animations {
-    workspace-switch {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-    }
-
-    window-open {
-        duration-ms 150
-        curve "ease-out-expo"
-    }
-
-    window-close {
-        duration-ms 150
-        curve "ease-out-quad"
-    }
-
-    horizontal-view-movement {
-        spring damping-ratio=1.0 stiffness=1600 epsilon=0.0001
-    }
-
-    window-movement {
-        spring damping-ratio=1.0 stiffness=1600 epsilon=0.0001
-    }
-
-    window-resize {
-        spring damping-ratio=1.0 stiffness=1600 epsilon=0.0001
-    }
-
-    config-notification-open-close {
-        spring damping-ratio=0.6 stiffness=2000 epsilon=0.001
-    }
-
-    screenshot-ui-open {
-        duration-ms 200
-        curve "ease-out-quad"
-    }
-
-    overview-open-close {
-        spring damping-ratio=1.0 stiffness=1600 epsilon=0.0001
+        active-color "b0b0b0c0"
+        inactive-color "b0b0b0c0"
     }
 }
 
@@ -200,23 +160,61 @@ window-rule {
     // opacity 0.9
 }
 
-window-rule {
-    match app-id="Conky"
-    open-floating true
-    open-focused false
-    baba-is-float true
-    // default-floating-position x=100 y=600 relative-to="bottom-right"
+prefer-no-csd
+
+screenshot-path "/storage/media/images/screenshot/%Y-%m-%d %H-%M-%S.png"
+
+animations {
+    workspace-switch {
+        // offjjj
+        spring damping-ratio=1.0 stiffness=4000 epsilon=0.0001
+    }
+
+    window-open {
+        duration-ms 100
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 100
+        curve "ease-out-quad"
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=3000 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.0 stiffness=3000 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=1.0 stiffness=3000 epsilon=0.0001
+    }
+
+    config-notification-open-close {
+        spring damping-ratio=1.0 stiffness=3000 epsilon=0.001
+    }
+
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=3000 epsilon=0.001
+    }
 }
 
 recent-windows {
     // off
-    debounce-ms 300
+    debounce-ms 0
 
-    open-delay-ms 100
+    open-delay-ms 0
 
     highlight {
-        active-color "#4d4d4d"
-        urgent-color "#4d4d4d"
+        active-color "#66666690"
+        urgent-color "#66666690"
         padding 30
         corner-radius 10
     }
@@ -246,14 +244,14 @@ binds {
     Mod+W { toggle-column-tabbed-display; }
 
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-    Mod+P hotkey-overlay-title="Run an Desktop Application: tofi-drun" { spawn "tofi-drun"; }
-    Mod+Shift+P hotkey-overlay-title="Run an command: tofi-run" { spawn "zsh" "-c" "exec $(tofi-run)"; }
-    // Mod+Adfst+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+semicolon hotkey-overlay-title="Run an Desktop Application: tofi-drun" { spawn "tofi-drun"; }
+    Mod+Shift+semicolon hotkey-overlay-title="Run an command: tofi-run" { spawn "zsh" "-c" "exec $(tofi-run)"; }
+    // Mod+y hotkey-overlay-title="Run an command: capslock" { spawn "notify_capslock";}
 
-    Mod+Space hotkey-overlay-title="Run Notify-widget" { spawn "notify-widget"; }
+    Mod+Alt+Space hotkey-overlay-title="Run Notify-widget" { spawn "notify-widget"; }
     Mod+Shift+Space hotkey-overlay-title="Run Notify-network" { spawn "notify-network"; }
     Mod+Control+Space hotkey-overlay-title="Run Notify-time" { spawn "notify-time"; }
-    Mod+Control+Shift+Space hotkey-overlay-title="Run Notify-time" { spawn "notify-dismiss"; }
+    Mod+Space hotkey-overlay-title="Run Notify-time" { spawn "notify-dismiss"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "audio_sink_up"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "audio_sink_down"; }
@@ -276,9 +274,9 @@ binds {
     Mod+O repeat=false { toggle-overview; }
     Mod+Q { close-window; }
 
-    Mod+H { focus-column-left; }
     Mod+J { focus-window-down; }
     Mod+K { focus-window-up; }
+    Mod+H { focus-column-left; }
     Mod+L { focus-column-right; }
 
     Mod+Ctrl+H { move-column-left; }
@@ -295,6 +293,11 @@ binds {
     Mod+Shift+Ctrl+J { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
     Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
+
+    Mod+Shift+Alt+H { move-workspace-to-monitor-left; }
+    Mod+Shift+Alt+J { move-workspace-to-monitor-down; }
+    Mod+Shift+Alt+L { move-workspace-to-monitor-right; }
+    Mod+Shift+Alt+K { move-workspace-to-monitor-up; }
 
     Mod+U { focus-workspace-down; }
     Mod+I { focus-workspace-up; }

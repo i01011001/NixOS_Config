@@ -28,10 +28,8 @@
     ./optional/firefox
     ./optional/formatter
     ./optional/satty
-
-    # ./optional/sway
     ./optional/niri
-    ./optional/mangodc
+    ./optional/mangowc
   ];
 
   home = {
