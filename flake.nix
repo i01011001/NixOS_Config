@@ -29,6 +29,11 @@
     #   inputs.nixpkgs.follows = "nixpkgs"; # this assumes nixos unstable
     # };
     #
+    mango = {
+      url = "github:DreamMaoMao/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     kanso = {
       url = "github:webhooked/kanso.nvim";
       flake = false;

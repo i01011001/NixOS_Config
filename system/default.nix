@@ -36,7 +36,6 @@
     ./optional/postgresql
     ./optional/customs/overlays
     ./optional/obs
-    ./optional/mangowc
     # ./optional/printer
     # ./optional/qemu
   ];
