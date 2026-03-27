@@ -29,7 +29,7 @@
     ./optional/formatter
     ./optional/satty
     ./optional/niri
-    ./optional/mangowc
+    # ./optional/mangowc
   ];
 
   home = {

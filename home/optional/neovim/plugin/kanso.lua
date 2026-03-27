@@ -18,7 +18,8 @@ local colors = {
 	bg_alt1 = "#1e1e1e",
 	bg_alt2 = "#2a2a2a",
 
-	grey = "#7d7d7d",
+	grey_0 = "#505050",
+	grey_1 = "#7d7d7d",
 	white = "#e0e0e0",
 
 	-- A neutral color for borders and inactive elements
@@ -65,6 +66,8 @@ require("kanso").setup({
 
 			-- Other UI elements
 			Folded = { fg = colors.fg, bg = colors.bg },
+
+			EndOfBuffer = { fg = colors.grey_0},
 			-- ["@spell.markdown"] = {fg = colors.white}
 		}
 	end,

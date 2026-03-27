@@ -9,8 +9,8 @@
     base16Scheme = {
       base00 = "161616"; # Darkest background (slightly darker)
       base01 = "2B2B2B"; # Dark background
-      base02 = "000000"; # Secondary background
-      base03 = "4E4E4E"; # Comments/secondary text
+      base02 = "424242"; # Secondary background
+      base03 = "6D6D6D"; # Comments/secondary text
       base04 = "6D6D6D"; # Secondary text
       base05 = "C5C5C5"; # Primary text
       base06 = "E0E0E0"; # Bright text

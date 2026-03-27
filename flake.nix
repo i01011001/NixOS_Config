@@ -17,6 +17,16 @@
 
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
 
+    kanso = {
+      url = "github:webhooked/kanso.nvim";
+      flake = false;
+    };
+
+    # codex = {
+    #   url = "github:openai/codex";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     # hyprland.url = "github:hyprwm/Hyprland?submodules=1";
     #
     # hy3 = {
@@ -29,15 +39,10 @@
     #   inputs.nixpkgs.follows = "nixpkgs"; # this assumes nixos unstable
     # };
     #
-    mango = {
-      url = "github:DreamMaoMao/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    kanso = {
-      url = "github:webhooked/kanso.nvim";
-      flake = false;
-    };
+    # mango = {
+    #   url = "github:DreamMaoMao/mango";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # koda = {
     #   url = "github:oskarnurm/koda.nvim";

@@ -6,7 +6,7 @@
       adjust-open = "best-fit";
       pages-per-row = 1;
       scroll-page-aware = "true";
-      smooth-scroll = "true";
+      # smooth-scroll = "true";
       scroll-full-overlap = 0.01;
       scroll-step = 100;
       zoom-min = 10;

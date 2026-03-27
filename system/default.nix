@@ -9,11 +9,11 @@
     ./core/hardware
     ./core/networking
     ./core/opengl
-    # ./core/qt
     ./core/settings
     ./core/users
     ./core/zsh
     ./core/dbus
+    # ./core/qt
     # ./core/vim
     # ./core/xdg
 
@@ -29,13 +29,13 @@
     ./optional/wireshark
     ./optional/docker
     ./optional/mosquitto
-    # ./optional/multipass
     ./optional/opentabletdriver
-    ./optional/virtual
     ./optional/stylix
     ./optional/postgresql
     ./optional/customs/overlays
     ./optional/obs
+    # ./optional/multipass
+    # ./optional/virtual
     # ./optional/printer
     # ./optional/qemu
   ];

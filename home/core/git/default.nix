@@ -23,77 +23,78 @@
         diff = "auto";
       };
     };
-    ignores = [
-      # ──────────────── ESP-IDF SDK Config Files ────────────────
-      "sdkconfig"
-      "sdkconfig.old"
-      "sdkconfig.ci"
+ignores = [
+  # ──────────────── Build Artifacts ────────────────
+  "build/"
+  "out/"
+  "Debug/"
+  "Release/"
+  "*.o"
+  "*.d"
+  "*.a"
+  "*.so"
+  "*.elf"
+  "*.bin"
+  "*.hex"
+  "*.map"
+  "*.lst"
+  "*.log"
 
-      # ──────────────── Build Artifacts ────────────────
-      "build/"
-      "*.bin"
-      "*.elf"
-      "*.map"
-      "*.hex"
-      "*.s"
-      "*.lst"
-      "*.o"
-      "*.a"
-      "*.d"
-      "*.log"
+  # ──────────────── Dependency Artifacts ────────────────
+  "*.dSYM/"
+  "*.su"
+  "*.idb"
+  "*.pdb"
 
-      # ──────────────── Managed Components ────────────────
-      "managed_components/"
+  # ──────────────── IDE / Editor ────────────────
+  ".vscode/"
+  ".idea/"
+  "*.code-workspace"
 
-      # ──────────────── IDE / Editor Specific ────────────────
-      # VSCode
-      ".vscode/"
-      ".vscode/settings.json"
-      ".vscode/c_cpp_properties.json"
-      ".vscode/launch.json"
-      ".vscode/tasks.json"
+  # Eclipse / STM32CubeIDE metadata
+  ".project"
+  ".cproject"
+  ".settings/"
 
-      # JetBrains (CLion / Rider)
-      ".idea/"
+  # ──────────────── CMake (if used later) ────────────────
+  "CMakeFiles/"
+  "CMakeCache.txt"
+  "cmake_install.cmake"
+  "compile_commands.json"
 
-      # ──────────────── Development Containers ────────────────
-      ".devcontainer/"
+  # ──────────────── Local Dev Environments ────────────────
+  ".venv/"
+  "venv/"
+  "env/"
+  "__pycache__/"
+  "*.py[cod]"
 
-      # ──────────────── Python / Scripts ────────────────
-      ".venv/"
-      "venv/"
-      "env/"
-      "ENV/"
-      "__pycache__/"
-      "*.py[cod]"
-      "*.pyo"
+  # Nix (ignore only if personal env)
+  "shell.nix"
 
-      # ──────────────── CCache and Temporary Build Caches ────────────────
-      ".ccache/"
-      ".cache/"
-      "cache/"
+  # ──────────────── CCache / Build Cache ────────────────
+  ".ccache/"
+  ".cache/"
 
-      # ──────────────── OS Generated Files ────────────────
-      ".DS_Store"
-      "Thumbs.db"
-      "desktop.ini"
+  # ──────────────── OS Junk ────────────────
+  ".DS_Store"
+  "Thumbs.db"
+  "desktop.ini"
 
-      # ──────────────── Dependency Directories ────────────────
-      "node_modules/"
-      "deps/"
-      "third_party/"
+  # ──────────────── Temporary / Backup ────────────────
+  "*.bak"
+  "*.tmp"
+  "*.swp"
+  "*.swo"
+  "*~"
+  "*.orig"
 
-      # ──────────────── Debugger / Analyzer Files ────────────────
-      "*.svd"
-      "*.trace"
-      "*.dump"
-
-      # ──────────────── Misc ────────────────
-      "*.bak"
-      "*.tmp"
-      "*.swp"
-      "*.swo"
-      "*.orig"
-    ];
+  # ──────────────── Debug / Analysis Outputs ────────────────
+  "*.trace"
+  "*.dump"
+  "*.gcda"
+  "*.gcno"
+  "*.gcov"
+];
   };
 }

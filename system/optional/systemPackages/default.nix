@@ -76,8 +76,8 @@
     stm32flash
     stm32loader
     (import ../customs/pkgs/diagslave {inherit pkgs;})
-    (import ../customs/pkgs/miniterm {inherit pkgs;})
     (import ../customs/pkgs/modpoll {inherit pkgs;})
+    # (import ../customs/pkgs/miniterm {inherit pkgs;})
 
     picocom
 
@@ -330,7 +330,7 @@
     tor-browser
     tor
 
-    codex
+    # inputs.codex.packages.${pkgs.system}.default
 
     minify
     # qt5
@@ -338,6 +338,15 @@
 
     # glow
     # inputs.cwc.packages.x86_64-linux.cwc
+
+    verilator
+    hyprpicker
+
+    poppler-utils
+
+    claude-code-bin
+
+    steam
   ];
 
   ############################################################

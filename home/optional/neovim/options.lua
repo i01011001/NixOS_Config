@@ -4,14 +4,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 
--- [[ Setting options ]]
--- See `:help vim.o`
-
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
 vim.opt.list = false
 -- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
@@ -45,7 +39,7 @@ vim.opt.splitkeep = "screen"
 vim.opt.foldcolumn = "0"
 vim.opt.foldenable = true
 vim.opt.foldtext = ""
-vim.opt.foldnestmax = 6
+vim.opt.foldnestmax = 4
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 

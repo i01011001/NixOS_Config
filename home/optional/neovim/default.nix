@@ -29,8 +29,9 @@
       kanso
       nvim-web-devicons
       nvim-gdb
+      # codecompanion-nvim
       nvim-treesitter.withAllGrammars
-      # markdown-preview-nvim
+      markdown-preview-nvim
       # harpoon2
       # koda
     ];
@@ -45,7 +46,7 @@
     # ${builtins.readFile ./plugin/harpoon2.lua}
     # ${builtins.readFile ./plugin/nightfox.lua}
     # ${builtins.readFile ./plugin/treesitter.lua}
-    # ${builtins.readFile ./plugin/markdown.lua}
+    # ${builtins.readFile ./plugin/codecompanion.lua}
     extraLuaConfig = ''
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./plugin/diffview.lua}
@@ -57,6 +58,7 @@
       ${builtins.readFile ./plugin/lspconfig.lua}
       ${builtins.readFile ./plugin/whichkey.lua}
       ${builtins.readFile ./plugin/kanso.lua}
+      ${builtins.readFile ./plugin/markdown.lua}
     '';
   };
   imports = [
