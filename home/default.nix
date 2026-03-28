@@ -9,7 +9,7 @@
     # ./core/gtk
     ./core/fd
     ./core/fzf
-    ./core/zsh
+    # ./core/zsh
     ./core/git
     ./core/ripgrep
     ./core/qt
@@ -29,6 +29,7 @@
     ./optional/formatter
     ./optional/satty
     ./optional/niri
+    ./optional/alacritty
     # ./optional/mangowc
   ];
 

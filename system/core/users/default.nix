@@ -16,6 +16,6 @@
         "docker"
       ];
     };
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.bash;
   };
 }

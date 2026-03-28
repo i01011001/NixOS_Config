@@ -90,7 +90,7 @@ vim.opt.statusline = "%{repeat('─',winwidth('.'))}" -- Set a dynamic statuslin
 
 -- vim.o.winborder = "rounded"
 
-vim.opt.shell = "/run/current-system/sw/bin/zsh"
+-- vim.opt.shell = "/run/current-system/sw/bin/zsh"
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true

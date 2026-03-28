@@ -11,8 +11,9 @@
     ./core/opengl
     ./core/settings
     ./core/users
-    ./core/zsh
+    # ./core/bash
     ./core/dbus
+    ./core/zsh
     # ./core/qt
     # ./core/vim
     # ./core/xdg

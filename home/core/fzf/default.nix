@@ -1,8 +1,8 @@
 {
   programs.fzf = {
     enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = false;
+    # enableZshIntegration = true;
+    enableBashIntegration = true;
     # colors = {
     #   bg = "#181818";
     #   "bg+" = "#181818";
