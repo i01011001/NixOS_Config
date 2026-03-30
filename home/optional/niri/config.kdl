@@ -247,7 +247,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+Shift+T hotkey-overlay-title="Open a Terminal: footclient" { spawn "footclient"; }
     Mod+semicolon hotkey-overlay-title="Run an Desktop Application: tofi-drun" { spawn "tofi-drun"; }
-    Mod+Shift+semicolon hotkey-overlay-title="Run an command: tofi-run" { spawn "zsh" "-c" "exec $(tofi-run)"; }
+    Mod+Shift+semicolon hotkey-overlay-title="Run an command: tofi-run" { spawn "bash" "-c" "exec $(tofi-run)"; }
     // Mod+y hotkey-overlay-title="Run an command: capslock" { spawn "notify_capslock";}
 
     Mod+Alt+Space hotkey-overlay-title="Run Notify-widget" { spawn "notify-widget"; }

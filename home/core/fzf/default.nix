@@ -10,7 +10,6 @@
     #   "fg+" = "#dddddd";
     # };
 
-    defaultCommand = "fd --type file --hidden ";
     defaultOptions = [
       "--height 40%"
       "--info=inline"
@@ -19,19 +18,17 @@
       "--no-separator"
       "--highlight-line"
       "--marker=\"#\""
-      # "--color=bw"
+    ];
+
+    defaultCommand = "fd --type file --hidden ";
+    changeDirWidgetCommand = "fd --type d ";
+    fileWidgetCommand = "fd --type f";
+
+    fileWidgetOptions = [
+    ];
+    historyWidgetOptions = [
     ];
     changeDirWidgetOptions = [
-      # "--preview 'tree -C {} | head -200'"
-    ];
-    changeDirWidgetCommand = "fd --type d ";
-    fileWidgetOptions = [
-      # "--preview 'head {}'"
-    ];
-    fileWidgetCommand = "fd --type f";
-    historyWidgetOptions = [
-      "--sort"
-      "--exact"
     ];
   };
 }

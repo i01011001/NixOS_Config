@@ -47,7 +47,7 @@
     # ${builtins.readFile ./plugin/nightfox.lua}
     # ${builtins.readFile ./plugin/treesitter.lua}
     # ${builtins.readFile ./plugin/codecompanion.lua}
-    extraLuaConfig = ''
+    initLua = ''
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./plugin/diffview.lua}
       ${builtins.readFile ./plugin/completion.lua}

@@ -30,6 +30,7 @@
     ./optional/satty
     ./optional/niri
     ./optional/alacritty
+    ./optional/bash
     # ./optional/mangowc
   ];
 

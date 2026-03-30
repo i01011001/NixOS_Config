@@ -1,0 +1,49 @@
+PS1="\[\e[1;37m\][ \W ] \\$ \[\e[0m\]"
+
+set -o vi
+
+alias update_online="sudo nixos-rebuild switch --verbose && rm -rf ~/.cache/tofi-drun"
+alias update="sudo nixos-rebuild switch --verbose --offline && rm -rf ~/.cache/tofi-drun"
+alias source_idf="source $HOME/code/esp/idf/esp-idf/export.sh"
+alias source_matter="source $HOME/code/esp/idf/esp-matter/export.sh"
+alias source_zephyr="source $HOME/code/zephyrproject/.venv/bin/activate && source $HOME/code/zephyrproject/zephyr/zephyr-env.sh && source $HOME/code/zephyrproject/zephyr/scripts/west_commands/completion/west-completion.zsh"
+alias nixc="cd /etc/nixos/ && nvim ."
+alias nix-shell="nix-shell --command zsh"
+
+export HISTCONTROL=ignoreboth:erasedups
+
+export LS_COLORS=$LS_COLORS:'ow=1;34:'
+export IDF_PATH="$HOME/code/esp/idf/esp-idf"
+export IDF_CCACHE_ENABLE=1
+export TERM=xterm-256color
+export CMAKE_EXPORT_COMPILE_COMMANDS=1
+
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# Show completion immediately
+bind 'set show-all-if-ambiguous on'
+
+# Cycle through completions with Tab
+bind 'TAB:menu-complete'
+bind '"\e[Z":menu-complete-backward' # Shift+Tab
+bind "set completion-ignore-case on"
+bind "set completion-map-case on"
+bind "set match-hidden-files off"
+bind "set menu-complete-display-prefix on"
+
+# foot cwd for new instance
+osc7_cwd() {
+    local strlen=${#PWD}
+    local encoded=""
+    local pos c o
+    for ((pos = 0; pos < strlen; pos++)); do
+        c=${PWD:$pos:1}
+        case "$c" in
+        [-/:_.!\'\(\)~[:alnum:]]) o="${c}" ;;
+        *) printf -v o '%%%02X' "'${c}" ;;
+        esac
+        encoded+="${o}"
+    done
+    printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
+}
+PROMPT_COMMAND=${PROMPT_COMMAND:+${PROMPT_COMMAND%;}; }osc7_cwd
