@@ -32,6 +32,7 @@
       # codecompanion-nvim
       nvim-treesitter.withAllGrammars
       markdown-preview-nvim
+      # render-markdown
       # harpoon2
       # koda
     ];

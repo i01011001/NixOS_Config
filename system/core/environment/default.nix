@@ -9,7 +9,7 @@
     };
 
     pathsToLink = [
-      # "/share/zsh"
+      "/share/zsh"
       "/share/bash"
       "/share/applications"
       "/share/xdg-desktop-portal"

@@ -1,6 +1,6 @@
 {
   programs.zsh = {
-    enable = true;
+    enable = false;
     enableCompletion = false;
     enableLsColors = false;
     autosuggestions.async = false;

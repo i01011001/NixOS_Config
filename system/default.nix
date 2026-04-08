@@ -13,7 +13,7 @@
     ./core/users
     # ./core/bash
     ./core/dbus
-    # ./core/zsh
+    ./core/zsh
     # ./core/qt
     # ./core/vim
     # ./core/xdg

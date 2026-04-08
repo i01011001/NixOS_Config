@@ -8,7 +8,6 @@ alias source_idf="source $HOME/code/esp/idf/esp-idf/export.sh"
 alias source_matter="source $HOME/code/esp/idf/esp-matter/export.sh"
 alias source_zephyr="source $HOME/code/zephyrproject/.venv/bin/activate && source $HOME/code/zephyrproject/zephyr/zephyr-env.sh && source $HOME/code/zephyrproject/zephyr/scripts/west_commands/completion/west-completion.zsh"
 alias nixc="cd /etc/nixos/ && nvim ."
-alias nix-shell="nix-shell --command zsh"
 
 export HISTCONTROL=ignoreboth:erasedups
 
@@ -17,6 +16,7 @@ export IDF_PATH="$HOME/code/esp/idf/esp-idf"
 export IDF_CCACHE_ENABLE=1
 export TERM=xterm-256color
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
+export PATH="$HOME/.local/bin:$PATH"
 
 export PATH="$HOME/.npm-global/bin:$PATH"
 
@@ -30,6 +30,7 @@ bind "set completion-ignore-case on"
 bind "set completion-map-case on"
 bind "set match-hidden-files off"
 bind "set menu-complete-display-prefix on"
+bind '"\C-e": edit-and-execute-command'
 
 # foot cwd for new instance
 osc7_cwd() {

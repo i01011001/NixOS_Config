@@ -1,7 +1,9 @@
 {
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    bashrcExtra = builtins.readFile ./bashrc;
+  programs = {
+    bash = {
+      enable = true;
+      enableCompletion = true;
+      bashrcExtra = builtins.readFile ./bashrc;
+    };
   };
 }

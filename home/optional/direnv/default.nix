@@ -7,6 +7,6 @@
       nix-direnv.enable = true;
     };
 
-    zsh.enable = true; # see note on other shells below
+    # zsh.enable = true; # see note on other shells below
   };
 }

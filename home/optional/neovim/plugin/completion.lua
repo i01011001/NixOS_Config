@@ -31,7 +31,7 @@ require("blink.cmp").setup({
 			direction_priority = { "s", "n" },
 
 			-- Whether to automatically show the window when new completion items are available
-			auto_show = true,
+			auto_show = false,
 			draw = {
 				columns = {
 					{ "label" },

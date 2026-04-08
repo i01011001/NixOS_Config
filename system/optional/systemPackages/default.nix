@@ -344,7 +344,14 @@
 
     poppler-utils
 
-    claude-code-bin
+    # claude-code
+
+## cheatcode
+    cht-sh
+    tealdeer
+    virtualenv
+
+    android-tools
 
   ];
 
