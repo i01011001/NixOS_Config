@@ -68,6 +68,22 @@
         "type": "github"
       }
     },
+    "brellary": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775647100,
+        "narHash": "sha256-MKuKXiNPIXz0+yMMUNiHtBUok+485hIza71lAy9XO88=",
+        "owner": "bavajitu",
+        "repo": "brellary.nvim",
+        "rev": "c03ae3cc9e2491a3583300f113142901ac88662b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bavajitu",
+        "repo": "brellary.nvim",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -395,6 +411,7 @@
     },
     "root": {
       "inputs": {
+        "brellary": "brellary",
         "firefox-nightly": "firefox-nightly",
         "home-manager": "home-manager",
         "kanso": "kanso",

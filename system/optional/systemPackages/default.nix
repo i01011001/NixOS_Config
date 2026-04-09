@@ -352,6 +352,7 @@
     virtualenv
 
     android-tools
+    cava
 
   ];
 

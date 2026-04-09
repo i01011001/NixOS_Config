@@ -22,6 +22,10 @@
       flake = false;
     };
 
+    brellary = {
+      url = "github:bavajitu/brellary.nvim";
+      flake = false;
+    };
     # codex = {
     #   url = "github:openai/codex";
     #   inputs.nixpkgs.follows = "nixpkgs";
