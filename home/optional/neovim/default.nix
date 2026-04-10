@@ -35,7 +35,6 @@
       # render-markdown
       # harpoon2
       # koda
-      brellary 
     ];
 
     # ${builtins.readFile ./plugin/lsp.lua}

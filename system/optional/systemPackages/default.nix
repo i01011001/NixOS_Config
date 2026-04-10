@@ -353,6 +353,8 @@
 
     android-tools
     cava
+    steam
+
 
   ];
 

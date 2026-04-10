@@ -29,9 +29,8 @@
     ./optional/formatter
     ./optional/satty
     ./optional/niri
-    ./optional/alacritty
     ./optional/bash
-    # ./optional/mangowc
+    # ./optional/alacritty
   ];
 
   home = {

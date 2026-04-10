@@ -41,10 +41,6 @@
             name = "kanso";
             src = inputs.kanso;
           };
-          brellary = prev.vimUtils.buildVimPlugin {
-            name = "brellary";
-            src = inputs.brellary;
-          };
         };
     })
   ];

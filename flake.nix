@@ -43,15 +43,6 @@
     #   inputs.nixpkgs.follows = "nixpkgs"; # this assumes nixos unstable
     # };
     #
-    # mango = {
-    #   url = "github:DreamMaoMao/mango";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # koda = {
-    #   url = "github:oskarnurm/koda.nvim";
-    #   flake = false;
-    # };
   };
 
   outputs = {

@@ -9,9 +9,9 @@ environment {
 overview {
     zoom 0.43
     workspace-shadow {
-        off 
+       off 
     }
-    backdrop-color "#404040"
+    backdrop-color "#393939"
 }
 
 gestures {
@@ -158,7 +158,7 @@ window-rule {
     // open-floating false 
     geometry-corner-radius 5
     clip-to-geometry true
-    // opacity 0.96
+    opacity 0.96
 }
 
 prefer-no-csd
