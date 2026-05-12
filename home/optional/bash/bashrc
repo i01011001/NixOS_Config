@@ -17,6 +17,7 @@ export IDF_CCACHE_ENABLE=1
 export TERM=xterm-256color
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
 export PATH="$HOME/.local/bin:$PATH"
+export MANPAGER="nvim +Man!"
 
 export PATH="$HOME/.npm-global/bin:$PATH"
 
@@ -30,7 +31,6 @@ bind "set completion-ignore-case on"
 bind "set completion-map-case on"
 bind "set match-hidden-files off"
 bind "set menu-complete-display-prefix on"
-bind '"\C-e": edit-and-execute-command'
 
 # foot cwd for new instance
 osc7_cwd() {

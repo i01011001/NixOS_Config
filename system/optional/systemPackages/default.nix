@@ -67,7 +67,7 @@
     ############################################################
     ## Embedded & Electronics
     ############################################################
-    kicad-unstable
+    # kicad-unstable
     openocd
     saleae-logic-2
     stlink
@@ -188,12 +188,11 @@
     ############################################################
     ## Web & Misc
     ############################################################
-    ungoogled-chromium
     nwg-look
     betaflight-configurator
     woeusb
     wineWowPackages.staging
-    winetricks
+    winetricks ## winetricks dotnet40 vcrun2010
     yt-dlp
     steam-run
 
@@ -346,16 +345,17 @@
 
     # claude-code
 
-## cheatcode
+    ## cheatcode
     cht-sh
     tealdeer
     virtualenv
 
     android-tools
     cava
-    steam
+    postman
+    codex
 
-
+    # inputs.helium.defaultPackage.${system}
   ];
 
   ############################################################

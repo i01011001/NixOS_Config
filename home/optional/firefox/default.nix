@@ -12,14 +12,14 @@
     "sidebar.animation.enabled" = false;
     "sidebar.verticalTabs" = true;
     "sidebar.visibility" = "hide-sidebar";
-    "sidebar.position_start" = true;
+    "sidebar.position_start" = false;
     "font.minimum-size.x-western" = 10;
     "sidebar.revamp.round-content-area" = false;
   };
 in {
   programs.firefox = {
     enable = true;
-    package = inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
+    # package = inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
     profiles = {
       i01011001 = {
         id = 0;

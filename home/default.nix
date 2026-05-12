@@ -25,11 +25,12 @@
     ./optional/stylix
     ./optional/neovim
     ./optional/foot
-    ./optional/firefox
+    # ./optional/firefox
     ./optional/formatter
     ./optional/satty
     ./optional/niri
     ./optional/bash
+    ./optional/zen
     # ./optional/alacritty
   ];
 
@@ -55,5 +56,5 @@
     # NO_COLOR = "1";
   };
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "26.05";
 }

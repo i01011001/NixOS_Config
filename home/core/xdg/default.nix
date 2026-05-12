@@ -62,14 +62,14 @@
     enable = true;
 
     defaultApplications = {
-      # --- BROWSER (Firefox) ---
-      "text/html" = "firefox.desktop";
-      "application/xhtml+xml" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "x-scheme-handler/ftp" = "firefox.desktop";
-      "x-scheme-handler/about" = "firefox.desktop";
-      "x-scheme-handler/unknown" = "firefox.desktop";
+      # --- BROWSER (zen-beta) ---
+      "text/html" = "zen-beta.desktop";
+      "application/xhtml+xml" = "zen-beta.desktop";
+      "x-scheme-handler/http" = "zen-beta.desktop";
+      "x-scheme-handler/https" = "zen-beta.desktop";
+      "x-scheme-handler/ftp" = "zen-beta.desktop";
+      "x-scheme-handler/about" = "zen-beta.desktop";
+      "x-scheme-handler/unknown" = "zen-beta.desktop";
 
       # --- FILE MANAGER (Yazi) ---
       "inode/directory" = "yazi.desktop";

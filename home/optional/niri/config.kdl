@@ -7,11 +7,11 @@ environment {
 }
 
 overview {
-    zoom 0.43
+    zoom 0.49
     workspace-shadow {
        off 
     }
-    backdrop-color "#393939"
+    backdrop-color "#404040"
 }
 
 gestures {
@@ -72,17 +72,17 @@ output "HDMI-A-2" {
 layout {
     // background-color "404040"
 
-    gaps 4
+    gaps 6
     background-color "transparent"
     empty-workspace-above-first
     center-focused-column "never"
     // default-column-display "tabbed"
 
-    default-column-width { proportion 0.493; }
+    default-column-width { proportion 0.49; }
 
     preset-column-widths {
         proportion 0.33
-        proportion 0.492
+        proportion 0.49
         proportion 0.66
      }
 
@@ -93,6 +93,7 @@ layout {
     }
 
     border {
+        // on
         width 1
         active-color "#404040"
         inactive-color "#404040"
@@ -109,19 +110,19 @@ layout {
     }
 
     struts {
-        left -2
-        right -2
-        top -1
+        left 30
+        right 45
+        top -3
         bottom -3
     }
 
     tab-indicator {
-        width 7
-        gap 5
-        corner-radius 1
-        gaps-between-tabs 30
-        length total-proportion=0.95
-        position "top"
+        width 6
+        gap 2
+        corner-radius 2
+        gaps-between-tabs 16
+        length total-proportion=0.45
+        position "right"
         place-within-column
     }
 
@@ -140,8 +141,8 @@ window-rule {
      match is-active=true
      
     tab-indicator {
-        active-color "161616ff"
-        inactive-color "b0b0b060"
+        active-color "000000ff"
+        inactive-color "00000070"
     }
 }
 
@@ -149,8 +150,8 @@ window-rule {
      match is-active=false
 
     tab-indicator {
-        active-color "b0b0b0c0"
-        inactive-color "b0b0b0c0"
+        active-color "000000df"
+        inactive-color "000000ef"
     }
 }
 
@@ -158,16 +159,13 @@ window-rule {
     // open-floating false 
     geometry-corner-radius 5
     clip-to-geometry true
-    opacity 0.96
 }
-
 prefer-no-csd
 
 screenshot-path "/storage/media/images/screenshot/%Y-%m-%d %H-%M-%S.png"
 
 animations {
     workspace-switch {
-        // offjjj
         spring damping-ratio=1.0 stiffness=4000 epsilon=0.0001
     }
 

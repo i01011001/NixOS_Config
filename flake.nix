@@ -13,19 +13,30 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    # neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
-    firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
-
-    kanso = {
-      url = "github:webhooked/kanso.nvim";
-      flake = false;
+    niri = {
+      url = "github:niri-wm/niri";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    brellary = {
-      url = "github:bavajitu/brellary.nvim";
-      flake = false;
+    helium.url = "github:FKouhai/helium2nix/main";
+
+    # kanso = {
+    #   url = "github:webhooked/kanso.nvim";
+    #   flake = false;
+    # };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        # IMPORTANT: To ensure compatibility with the latest Firefox version, use nixpkgs-unstable.
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
     };
+    # firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
+
     # codex = {
     #   url = "github:openai/codex";
     #   inputs.nixpkgs.follows = "nixpkgs";

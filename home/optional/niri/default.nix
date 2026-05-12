@@ -5,7 +5,8 @@
   ...
 }: {
   home.packages = with pkgs; [
-    niri
+    # niri
+    inputs.niri.packages.${pkgs.system}.default
     wayland-utils
     gnome-keyring
     xwayland-satellite
